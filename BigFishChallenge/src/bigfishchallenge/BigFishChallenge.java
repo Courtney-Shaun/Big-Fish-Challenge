@@ -6,8 +6,11 @@
 package bigfishchallenge;
 
 import byui.cit260.bigFishChallenge.model.Actor;
+import byui.cit260.bigFishChallenge.model.Fish;
+import byui.cit260.bigFishChallenge.model.Game;
 import byui.cit260.bigFishChallenge.model.Location;
 import byui.cit260.bigFishChallenge.model.Map;
+import byui.cit260.bigFishChallenge.model.MarinaScene;
 import byui.cit260.bigFishChallenge.model.Player;
 
 
@@ -32,6 +35,32 @@ public class BigFishChallenge {
     }
             
     public static void kellyClassTest() {
+        
+        Fish tigerMusky = new Fish();
+        
+        tigerMusky.setType("Champion Fish");
+        tigerMusky.setLength(49);
+        tigerMusky.setWeight(33);
+        
+        String fishInfo = tigerMusky.toString();
+        System.out.println(fishInfo);
+        
+        
+        Game newGame = new Game();
+        
+        newGame.setTotalMoves(20);
+        
+        String gameInfo = newGame.toString();
+        System.out.println(gameInfo);
+        
+        
+        MarinaScene proShop = new MarinaScene();
+        proShop.setBait(5);
+        proShop.setFuel(30);
+        proShop.setMoney(120);
+        
+        String marinaSceneInfo = proShop.toString();
+        System.out.println(marinaSceneInfo);
         
     }
     
