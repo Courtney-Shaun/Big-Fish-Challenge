@@ -5,12 +5,10 @@
  */
 package bigfishchallenge;
 
+import byui.cit260.bigFishChallenge.model.Actor;
 import byui.cit260.bigFishChallenge.model.Player;
 
-/**
- *
- * @author shaunathan
- */
+
 public class BigFishChallenge {
 
     /**
@@ -25,6 +23,18 @@ public class BigFishChallenge {
         
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
+        
+    }
+    
+    public static void codyClassTest() {
+        Actor shopClerk = new Actor();
+        
+        shopClerk.setName("Billy Ray");
+        shopClerk.setScene("Marina");
+        shopClerk.setClue("Rumor has it the fish are biting like crazy up in them trees over thar'!");
+        
+        String actorInfo = shopClerk.toString();
+        System.out.println(actorInfo);
         
     }
     
