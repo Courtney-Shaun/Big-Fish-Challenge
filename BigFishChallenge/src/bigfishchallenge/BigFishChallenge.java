@@ -11,6 +11,13 @@ import byui.cit260.bigFishChallenge.model.Player;
 
 public class BigFishChallenge {
 
+    public static void main(String[] args) {
+        teamClassTest();
+        codyClassTest();
+        kellyClassTest();
+        shaunClassTest();
+    }
+    
     public static void teamClassTest() {
         Player playerOne = new Player();
         
@@ -21,8 +28,7 @@ public class BigFishChallenge {
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
     }
-    
-        
+            
     public static void kellyClassTest() {
         
     }
@@ -31,19 +37,6 @@ public class BigFishChallenge {
         
     }
    
-    
-    
-    
-    
-    
-    public static void main(String[] args) {
-        teamClassTest();
-        
-        kellyClassTest();
-        shaunClassTest();
-        
-    }
-    
     public static void codyClassTest() {
         Actor shopClerk = new Actor();
         
