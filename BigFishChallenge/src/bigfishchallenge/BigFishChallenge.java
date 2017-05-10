@@ -11,14 +11,6 @@ import byui.cit260.bigFishChallenge.model.Player;
 
 public class BigFishChallenge {
 
-    public static void main(String[] args) {
-        teamClassTest();
-        codyClassTest();
-        kellyClassTest();
-        shaunClassTest();
-        
-    }
-    
     public static void teamClassTest() {
         Player playerOne = new Player();
         
@@ -38,7 +30,20 @@ public class BigFishChallenge {
     public static void shaunClassTest() {
         
     }
-       
+   
+    
+    
+    
+    
+    
+    public static void main(String[] args) {
+        teamClassTest();
+        
+        kellyClassTest();
+        shaunClassTest();
+        
+    }
+    
     public static void codyClassTest() {
         Actor shopClerk = new Actor();
         
