@@ -13,10 +13,7 @@ import byui.cit260.bigFishChallenge.model.Player;
  */
 public class BigFishChallenge {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+    public static void teamClassTest() {
         Player playerOne = new Player();
         
         playerOne.setName("George Jetson");
@@ -25,6 +22,27 @@ public class BigFishChallenge {
         
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
+    }
+    
+        
+    public static void kellyClassTest() {
+        
+    }
+    
+    public static void shaunClassTest() {
+        
+    }
+   
+    
+    
+    
+    
+    
+    public static void main(String[] args) {
+        teamClassTest();
+        
+        kellyClassTest();
+        shaunClassTest();
         
     }
     
