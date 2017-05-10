@@ -6,6 +6,8 @@
 package bigfishchallenge;
 
 import byui.cit260.bigFishChallenge.model.Actor;
+import byui.cit260.bigFishChallenge.model.Location;
+import byui.cit260.bigFishChallenge.model.Map;
 import byui.cit260.bigFishChallenge.model.Player;
 
 
@@ -35,6 +37,28 @@ public class BigFishChallenge {
     
     public static void shaunClassTest() {
         
+        Map boatDock = new Map();
+        
+        boatDock.setDescription("Welcome to the lake.  Let's get out on the water and have some fun!");
+        boatDock.setRowCount(25);
+        boatDock.setColumnCount(25);
+        boatDock.setCurrentRow(1);
+        boatDock.setCurrentColumn(1);
+        boatDock.setCurrentScene("Boat Dock");
+        
+        
+        String sceneInfo = boatDock.toString();
+        System.out.println(sceneInfo);
+        
+        Location locationNow = new Location();
+        
+        locationNow.setRow(1);
+        locationNow.setColumn(1);
+        locationNow.setVisited("YES");
+        
+        String locationInfo = locationNow.toString();
+        System.out.println(locationNow);
+    
     }
    
     public static void codyClassTest() {
