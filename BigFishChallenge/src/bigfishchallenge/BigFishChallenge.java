@@ -86,7 +86,7 @@ public class BigFishChallenge {
         locationNow.setVisited("YES");
         
         String locationInfo = locationNow.toString();
-        System.out.println(locationNow);
+        System.out.println(locationInfo);
     
     }
    
