@@ -12,6 +12,8 @@ import byui.cit260.bigFishChallenge.model.Location;
 import byui.cit260.bigFishChallenge.model.Map;
 import byui.cit260.bigFishChallenge.model.MarinaScene;
 import byui.cit260.bigFishChallenge.model.Player;
+import byui.cit260.bigFishChallenge.model.MainScene;
+import byui.cit260.bigFishChallenge.model.InventoryItem;
 
 
 public class BigFishChallenge {
@@ -99,6 +101,26 @@ public class BigFishChallenge {
         
         String actorInfo = shopClerk.toString();
         System.out.println(actorInfo);
+        
+        
+        MainScene fishingHole = new MainScene();
+        
+        fishingHole.setDescription("You are near the shore and the water is calm. Dead tree trunks and tall reeds at the shoreline make a great place for the fish to hide.");
+        fishingHole.setName("White Sands Cove");
+        fishingHole.setObstacle("Your trolling motor got caught in the weeds.");
+        
+        String fishingHoleInfo = fishingHole.toString();
+        System.out.println(fishingHoleInfo);
+        
+        
+        InventoryItem playerBait = new InventoryItem();
+        
+        playerBait.setItemType("bait");
+        playerBait.setQuantityInStock(15);
+        playerBait.setRequiredAmount(5);
+        
+        String playerBaitInfo = playerBait.toString();
+        System.out.println(playerBaitInfo);
         
     }
     
