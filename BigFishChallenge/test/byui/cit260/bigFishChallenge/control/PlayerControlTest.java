@@ -76,5 +76,64 @@ public class PlayerControlTest {
         
         
     }
+
+    /**
+     * Test of cast method, of class PlayerControl.
+     */
+    @Test
+    public void testCast() {
+        System.out.println("cast Case 1");
+        int strength = 7;
+        int fishWeight = 14;
+        PlayerControl instance = new PlayerControl();
+        int expResult = 0;
+        int result = instance.cast(strength, fishWeight);
+        assertEquals(expResult, result, 0.01);
+        
+        System.out.println("cast Case 2");
+        strength = 0;
+        fishWeight = 18;
+        expResult = -1;
+        result = instance.cast(strength, fishWeight);
+        assertEquals(expResult, result, 0.01);
+        
+        System.out.println("cast Case 3");
+        strength = 5;
+        fishWeight = 0;
+        expResult = -1;
+        result = instance.cast(strength, fishWeight);
+        assertEquals(expResult, result, 0.01);
+        
+        System.out.println("cast Case 4");
+        strength = 8;
+        fishWeight = 21;
+        expResult = -1;
+        result = instance.cast(strength, fishWeight);
+        assertEquals(expResult, result, 0.01);
+        
+        System.out.println("cast Case 5");
+        strength = 10;
+        fishWeight = 1;
+        expResult = 19;
+        result = instance.cast(strength, fishWeight);
+        assertEquals(expResult, result, 0.01);
+        
+        System.out.println("cast Case 6");
+        strength = 1;
+        fishWeight = 20;
+        expResult = 18;
+        result = instance.cast(strength, fishWeight);
+        assertEquals(expResult, result, 0.01);
+        
+        System.out.println("cast Case 7");
+        strength = 10;
+        fishWeight = 20;
+        expResult = 0;
+        result = instance.cast(strength, fishWeight);
+        assertEquals(expResult, result, 0.01);
+        
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
     
 }

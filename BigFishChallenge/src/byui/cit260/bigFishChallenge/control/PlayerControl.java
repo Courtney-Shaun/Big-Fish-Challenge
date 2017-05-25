@@ -30,6 +30,19 @@ public class PlayerControl {
         return capacityRemaining;
     }
     
+    public int cast(int strength, int fishWeight) {
+        if (strength < 1 || strength > 10) {
+            return -1;
+        }
+        
+        if (fishWeight < 1 || fishWeight > 20) {
+            return -1;
+        }
+        
+        int hookSetAccuracy = Math.abs(2 * strength - fishWeight);
+        
+        return hookSetAccuracy;
+    }
     
     
 }
