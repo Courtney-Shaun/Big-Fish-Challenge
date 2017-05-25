@@ -135,5 +135,63 @@ public class PlayerControlTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of carryWeight method, of class PlayerControl.
+     */
+    @Test
+    public void testCarryWeight() {
+        System.out.println("carryWeight Case 1");
+        int fuelWeight = 35;
+        int baitWeight = 5;
+        PlayerControl instance = new PlayerControl();
+        int expResult = 10;
+        int result = instance.carryWeight(fuelWeight, baitWeight);
+        assertEquals(expResult, result, 0.01);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+        
+        System.out.println("carryWeight Case 2");
+        fuelWeight = -1;
+        baitWeight = 10;
+        expResult = -1;
+        result = instance.carryWeight(fuelWeight, baitWeight);
+        assertEquals(expResult, result, 0.01);
+        
+        System.out.println("carryWeight Case 3");
+        fuelWeight = 35;
+        baitWeight = -1;
+        expResult = -1;
+        result = instance.carryWeight(fuelWeight, baitWeight);
+        assertEquals(expResult, result, 0.01);
+        
+        System.out.println("carryWeight Case 4");
+        fuelWeight = 45;
+        baitWeight = 6;
+        expResult = -1;
+        result = instance.carryWeight(fuelWeight, baitWeight);
+        assertEquals(expResult, result, 0.01);
+        
+        System.out.println("carryWeight Case 5");
+        fuelWeight = 50;
+        baitWeight = 0;
+        expResult = 0;
+        result = instance.carryWeight(fuelWeight, baitWeight);
+        assertEquals(expResult, result, 0.01);
+        
+        System.out.println("carryWeight Case 6");
+        fuelWeight = 0;
+        baitWeight = 50;
+        expResult = 0;
+        result = instance.carryWeight(fuelWeight, baitWeight);
+        assertEquals(expResult, result, 0.01);
+        
+        System.out.println("carryWeight Case 7");
+        fuelWeight = 25;
+        baitWeight = 25;
+        expResult = 0;
+        result = instance.carryWeight(fuelWeight, baitWeight);
+        assertEquals(expResult, result, 0.01);
+    }
     
 }

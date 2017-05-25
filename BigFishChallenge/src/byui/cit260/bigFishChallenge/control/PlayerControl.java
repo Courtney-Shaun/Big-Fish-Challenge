@@ -43,6 +43,26 @@ public class PlayerControl {
         
         return hookSetAccuracy;
     }
-    
-    
+ /**
+ *
+ * @author Kelly Huber
+ */
+    public int carryWeight(int fuelWeight, int baitWeight) {
+        
+        if (fuelWeight < 0 || fuelWeight >50) {// fuel weight is invalid
+            return -1;
+        }
+        
+        if (baitWeight < 0 || baitWeight > 50) {//Bait weight is invalid
+            return -1;
+        }
+        
+        if ((fuelWeight + baitWeight) > 50) { //total weight is to high.
+            return -1;
+        }
+        
+        int strengthRemaining = 50 - (fuelWeight + baitWeight);
+            
+        return strengthRemaining;
+    }
 }
