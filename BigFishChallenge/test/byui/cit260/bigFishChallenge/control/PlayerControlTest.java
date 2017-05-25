@@ -193,5 +193,70 @@ public class PlayerControlTest {
         result = instance.carryWeight(fuelWeight, baitWeight);
         assertEquals(expResult, result, 0.01);
     }
+
+    /**
+     * Test of estimateFuel method, of class PlayerControl.
+     */
+    @Test
+    public void testEstimateFuel() {
+        System.out.println("estimateFuel Case 1");
+        double distance = 20.0;
+        double gallons = 4.0;
+        PlayerControl instance = new PlayerControl();
+        double expResult = 4.0;
+        double result = instance.estimateFuel(distance, gallons);
+        assertEquals(expResult, result, 0.01);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+        
+        System.out.println("estimateFuel Case 2");
+        distance = -1.0;
+        gallons = 4.0;
+        expResult = -1.0;
+        result = instance.estimateFuel(distance, gallons);
+        assertEquals(expResult, result, 0.01);
+        
+        System.out.println("estimateFuel Case 3");
+        distance = 0.0;
+        gallons = 3.0;
+        expResult = -1.0;
+        result = instance.estimateFuel(distance, gallons);
+        assertEquals(expResult, result, 0.01);
+        
+        System.out.println("estimateFuel Case 4");
+        distance = 20.0;
+        gallons = -1.0;
+        expResult = -1.0;
+        result = instance.estimateFuel(distance, gallons);
+        assertEquals(expResult, result, 0.01);
+        
+        System.out.println("estimateFuel Case 5");
+        distance = 10.0;
+        gallons = 0.0;
+        expResult = -1.0;
+        result = instance.estimateFuel(distance, gallons);
+        assertEquals(expResult, result, 0.01);
+        
+        System.out.println("estimateFuel Case 6");
+        distance = 40.0;
+        gallons = 9.0;
+        expResult = -1.0;
+        result = instance.estimateFuel(distance, gallons);
+        assertEquals(expResult, result, 0.01);
+        
+        System.out.println("estimateFuel Case 7");
+        distance = 1.0;
+        gallons = 1.0;
+        expResult = 7.0;
+        result = instance.estimateFuel(distance, gallons);
+        assertEquals(expResult, result, 0.01);
+        
+        System.out.println("estimateFuel Case 8");
+        distance = 40.0;
+        gallons = 8.0;
+        expResult = 0.0;
+        result = instance.estimateFuel(distance, gallons);
+        assertEquals(expResult, result, 0.01);
+    }
     
 }

@@ -65,4 +65,25 @@ public class PlayerControl {
             
         return strengthRemaining;
     }
+ /**
+ *
+ * @author Shaun Courtney
+ */
+    
+    public double estimateFuel(double distance, double gallons) {
+        
+        if (distance <= 0) {
+            return -1;
+        }
+        
+        if (gallons <= 0 || gallons > 8) {
+            return -1;
+        }
+        
+        double milesPerGallon = distance / gallons;
+        double gallonsLeft = 8 - (distance / milesPerGallon);
+        
+        return gallonsLeft;
+    }
+    
 }
