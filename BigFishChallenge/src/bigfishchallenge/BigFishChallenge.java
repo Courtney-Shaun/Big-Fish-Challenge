@@ -14,15 +14,17 @@ import byui.cit260.bigFishChallenge.model.MarinaScene;
 import byui.cit260.bigFishChallenge.model.Player;
 import byui.cit260.bigFishChallenge.model.MainScene;
 import byui.cit260.bigFishChallenge.model.InventoryItem;
+import byui.cit260.bigFishChallenge.view.StartProgramView;
 
 
 public class BigFishChallenge {
 
     public static void main(String[] args) {
-        teamClassTest();
-        codyClassTest();
-        kellyClassTest();
-        shaunClassTest();
+                
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.displayStartProgramView();
+        
+        
     }
     
     public static void teamClassTest() {
