@@ -19,13 +19,36 @@ import byui.cit260.bigFishChallenge.view.StartProgramView;
 
 public class BigFishChallenge {
 
+    private static Game currentGame = null;
+    private static Player player = null;
+       
+    
     public static void main(String[] args) {
                 
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();
-        
-        
     }
+    
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        BigFishChallenge.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        BigFishChallenge.player = player;
+    }
+    
+    
+    
+    
+    ////////////////////////////////////////////////////////////////
     
     public static void teamClassTest() {
         Player playerOne = new Player();

@@ -5,6 +5,10 @@
  */
 package byui.cit260.bigFishChallenge.view;
 
+import byui.cit260.bigFishChallenge.control.GameControl;
+import byui.cit260.bigFishChallenge.model.Player;
+import java.util.Scanner;
+
 
 public class StartProgramView {
     
@@ -22,12 +26,12 @@ public class StartProgramView {
         +"\n*                                                 *"
         +"\n*             BIG FISH CHALLENGE                  *"
         +"\n*                                                 *"
-        +"\n*                    /`-._                        *"
-        +"\n*                   /_,.._`:-                     *"
-        +"\n*               ,.-'  ,   `-:..-')                *"
-        +"\n*              : o ):';      _  {                 *"
-        +"\n*               `-._ `'__,.-'\\`-.)                *"
-        +"\n*                   `\\\\  \\,.-'`                   *"
+        +"\n*                   /`-._                         *"
+        +"\n*                  /_,.._`:-                      *"
+        +"\n*              ,.-'  ,   `-:..-')                 *"
+        +"\n*             : o ):';      _  {                  *"
+        +"\n*              `-._ `'__,.-'\\`-.)                 *"
+        +"\n*                  `\\\\  \\,.-'`                    *"
         +"\n*                                                 *"
         +"\n* The Annual Fishing Championship has arrived in  *"
         +"\n* Arkansas. It's time for you to get your line in *"
@@ -47,10 +51,76 @@ public class StartProgramView {
         +"\n*                                                 *"
         +"\n***************************************************"
         );
+        
     }
 
     public void displayStartProgramView() {
-        System.out.println("\n*** displayStartProgram() function called ***");
+        
+        
+        boolean done = false;
+        do {
+            String playersName = this.getPlayersName();
+            if(playersName.toUpperCase().equals("Q"))
+                return;
+            
+            done = this.doAction(playersName);
+            
+        } while (!done);
+        
+    }
+
+    private String getPlayersName() {
+        Scanner keyboard = new Scanner(System.in);
+        String value = "";
+        boolean valid = false;
+        
+        while (!valid) {
+            System.out.println("\n" + this.promptMessage);
+            
+            value = keyboard.nextLine();
+            value = value.trim();
+            
+            if (value.length() < 1) {
+                System.out.println("\nInvalid value: value can not be blank.");
+                continue;
+            }
+            
+            break;
+        }
+        
+        return value;
+    }
+
+    private boolean doAction(String playersName) {
+        
+        if (playersName.length() < 2) {
+            System.out.println("\nInvalid players name: "
+                    + "The name must be greater than one character in length");
+            return false;
+        }
+        
+        Player player = GameControl.createPlayer(playersName);
+        
+        if(player == null) {
+            System.out.println("\nError creating the player.");
+            return false;
+        }
+        
+        this.displayNextView(player);
+        
+        return true;
+    }
+
+    private void displayNextView(Player player) {
+        System.out.println("\n============================================="
+                         + "\n Welcome to Big Fish Challenge " + player.getName()
+                         + "\n We hope you have a BOAT loads o' fun!"
+                         + "\n============================================="
+                         );
+        
+        MainMenuView mainMenuView = new MainMenuView();
+        
+        mainMenuView.displayMainMenuView();
     }
     
         

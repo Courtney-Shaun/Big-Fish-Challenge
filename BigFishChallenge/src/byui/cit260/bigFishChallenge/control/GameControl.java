@@ -5,10 +5,26 @@
  */
 package byui.cit260.bigFishChallenge.control;
 
+import bigfishchallenge.BigFishChallenge;
+import byui.cit260.bigFishChallenge.model.Player;
+
 /**
  *
  * @author shaunathan
  */
 public class GameControl {
+
+    public static Player createPlayer(String name) {
+        if (name == null) {
+            return null;
+        }
+        
+        Player player = new Player();
+        player.setName(name);
+        
+        BigFishChallenge.setPlayer(player);
+        
+        return player;
+    }
     
 }
