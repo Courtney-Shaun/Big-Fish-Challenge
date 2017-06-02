@@ -5,36 +5,34 @@
  */
 package byui.cit260.bigFishChallenge.view;
 
-import bigfishchallenge.BigFishChallenge;
-import byui.cit260.bigFishChallenge.control.GameControl;
 import java.util.Scanner;
 
 /**
  *
- * @author Cody
+ * @author shaunathan
  */
-public class MainMenuView {
+public class HelpMenuView {
     
     private String menu;
     
     
-    public MainMenuView() {
+    public HelpMenuView() {
         this.menu = "\n"
                   + "\n--------------------------------"
-                  + "\n Main Menu                     |"
+                  + "\n Help Menu                     |"
                   + "\n--------------------------------"
-                  + "\nN - Start New Game"
-                  + "\nL - Load Game"
-                  + "\nH - Get help on how to play the game"
-                  + "\nS - Save Game"
+                  + "\nO - Objective of the game"
+                  + "\nF - About Fuel"
+                  + "\nB - About Bait"
+                  + "\nC - Casting a Line"
+                  + "\nI - Interpreting Clues"
                   + "\nQ - Quit"
                   + "\n---------------------------------";
     }
     /**
      * displays the display menu view
      */
-
-    public void displayMainMenuView() {
+    public void displayHelpMenuView() {
         
         boolean done = false; // set flag to not done
         do {
@@ -47,8 +45,8 @@ public class MainMenuView {
             done = this.doAction(menuOption);
             
         } while (!done);
+                
     }
-
     private String getMenuOption() {
         
         Scanner keyboard = new Scanner(System.in);
@@ -78,49 +76,47 @@ public class MainMenuView {
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch (choice) {
-            case "N": // create and start a new game
-                this.startNewGame();
+            case "O": // View objective of the game
+                this.viewObjective();
                 break;
-            case "L": // get and start an existing game
-                this.startExistingGame();
+            case "F": // display help about fuel
+                this.aboutFuel();
                 break;
-            case "H": // display the help menu
-                this.displayHelpMenu();
+            case "B": // display help about bait
+                this.aboutBait();
                 break;
-            case "S": // save teh current game
-                this.saveGame();
+            case "C": // display help on casting a line
+                this.castLine();
+                break;
+            case "I": // display help on interpret clues
+                this.interpretClues();
                 break;
             default:
                 System.out.println("/n*** Invalid selection *** Try again");
                 break;
             
         }
-        
+       
         return false;
     }
 
-    private void startNewGame() {
-        //create a new game
-        GameControl.createNewGame(BigFishChallenge.getPlayer());
-        
-        // display the game menu
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+    private void viewObjective() {
+        System.out.println("*** viewObjective function called ***");
     }
 
-    private void startExistingGame() {
-        System.out.println("*** startExistingGame function called ***");
+    private void aboutFuel() {
+        System.out.println("*** aboutFuel function called ***");
     }
 
-    private void displayHelpMenu() {
-        
-        HelpMenuView helpMenuView = new HelpMenuView();
-        
-        helpMenuView.displayHelpMenuView();
+    private void aboutBait() {
+        System.out.println("*** aboutBait function called ***");
     }
 
-    private void saveGame() {
-        System.out.println("*** saveGame function called ***");
+    private void castLine() {
+        System.out.println("*** castLine function called ***");
     }
     
+    private void interpretClues() {
+        System.out.println("*** interpretClues function called ***");
+    }
 }
