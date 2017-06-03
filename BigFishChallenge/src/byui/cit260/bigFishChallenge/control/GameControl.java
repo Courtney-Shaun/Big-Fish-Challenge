@@ -22,7 +22,7 @@ public class GameControl {
         Player player = new Player();
         player.setName(name);
         
-        BigFishChallenge.setPlayer(player);
+        BigFishChallenge.setPlayer(player); // save the player
         
         return player;
     }
