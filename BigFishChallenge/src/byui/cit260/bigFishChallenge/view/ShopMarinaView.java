@@ -20,11 +20,18 @@ public class ShopMarinaView {
     public ShopMarinaView() {
         this.menu = "\n"
                   + "\n--------------------------------"
-                  + "\n  Shop Marina                     |"
+                  + "\n  Welcome to the Marina!"
+                  + "\n  Purchase bait and fuel here."
+                  + "\n  Be sure purchases are not"
+                  + "\n  too heavy so you can carry "
+                  + "\n  them back to the boat. "
+                  + "\n  Sell the fish you catch here"
+                  + "\n  at the Marina if you wish."
                   + "\n--------------------------------"
                   + "\nB - Buy bait"
                   + "\nF - Buy fuel"
                   + "\nS - Sell fish"
+                  + "\nQ - Quit"
                   + "\n---------------------------------";
     }
     /**

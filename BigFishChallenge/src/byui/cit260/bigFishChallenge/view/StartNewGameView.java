@@ -108,7 +108,9 @@ public class StartNewGameView {
     }
 
     private void enterMarina() {
-        System.out.println("*** enterMarina() function called ***");
+       ShopMarinaView shopMarinaView = new ShopMarinaView();
+        
+       shopMarinaView.displayShopMarinaView(); 
     }
 
     private void viewInventory() {
