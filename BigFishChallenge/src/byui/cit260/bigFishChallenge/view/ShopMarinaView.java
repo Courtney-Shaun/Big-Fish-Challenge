@@ -8,37 +8,34 @@ package byui.cit260.bigFishChallenge.view;
 import bigfishchallenge.BigFishChallenge;
 import byui.cit260.bigFishChallenge.control.GameControl;
 import java.util.Scanner;
-
 /**
  *
- * @author Cody
+ * @author Kelly Huber
  */
-public class MainMenuView {
+public class ShopMarinaView {
     
     private String menu;
     
     
-    public MainMenuView() {
+    public ShopMarinaView() {
         this.menu = "\n"
                   + "\n--------------------------------"
-                  + "\n Main Menu                     |"
+                  + "\n  Shop Marina                     |"
                   + "\n--------------------------------"
-                  + "\nN - Start New Game"
-                  + "\nL - Load Game"
-                  + "\nH - Get help on how to play the game"
-                  + "\nS - Save Game"
-                  + "\nQ - Quit"
+                  + "\nB - Buy bait"
+                  + "\nF - Buy fuel"
+                  + "\nS - Sell fish"
                   + "\n---------------------------------";
     }
     /**
-     * displays the display menu view
+     * displays the display shop marina view
      */
 
-    public void displayMainMenuView() {
+    public void displayShopMarinaView() {
         
         boolean done = false; // set flag to not done
         do {
-            //prompt for and get players name
+            //prompt 
             String menuOption = this.getMenuOption();
             if (menuOption.toUpperCase().equals("Q")) // user wants to quit
                 return; // exit the game
@@ -78,17 +75,14 @@ public class MainMenuView {
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch (choice) {
-            case "N": // create and start a new game
-                this.startNewGame();
+            case "B": // buy bait
+                this.buyBait();
                 break;
-            case "L": // get and start an existing game
-                this.startExistingGame();
+            case "F": // buy fuel
+                this.buyFuel();
                 break;
-            case "H": // display the help menu
-                this.displayHelpMenu();
-                break;
-            case "S": // save the current game
-                this.saveGame();
+            case "S": // sell fish
+                this.sellFish();
                 break;
             default:
                 System.out.println("/n*** Invalid selection *** Try again");
@@ -99,28 +93,19 @@ public class MainMenuView {
         return false;
     }
 
-    private void startNewGame() {
-        //create a new game
-        GameControl.createNewGame(BigFishChallenge.getPlayer());
-        
-        // display the game menu
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+    private void buyBait() {
+        System.out.println("*** buyBait function called ***");
     }
 
-    private void startExistingGame() {
-        System.out.println("*** startExistingGame function called ***");
+    private void buyFuel() {
+        System.out.println("*** buyFuel function called ***");
     }
 
-    private void displayHelpMenu() {
-        
-        HelpMenuView helpMenuView = new HelpMenuView();
-        
-        helpMenuView.displayHelpMenuView();
+    private void sellFish() {
+        System.out.println("*** sellFish function called ***");
     }
 
-    private void saveGame() {
-        System.out.println("*** saveGame function called ***");
-    }
+    
     
 }
+
