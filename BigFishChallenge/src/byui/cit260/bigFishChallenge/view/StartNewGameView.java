@@ -13,18 +13,24 @@ import java.util.Scanner;
  *
  * @author Cody
  */
-public class MainMenuView {
+public class StartNewGameView {
     
     private String menu;
     
     
-    public MainMenuView() {
+    public StartNewGameView() {
         this.menu = "\n"
                   + "\n--------------------------------"
-                  + "\n Main Menu                     |"
+                  + "\n You've just pulled your boat"
+                  + "\n into Greers Ferry Lake. Its a"
+                  + "\n beautiful sunny morning and"
+                  + "\n you're excited to get started. Be"
+                  + "\n sure to pick up some bait before"
+                  + "\n heading out!"
                   + "\n--------------------------------"
-                  + "\nN - Start New Game"
-                  + "\nL - Load Game"
+                  + "\nM - Enter Marina"
+                  + "\nV - View Inventory"
+                  + "\nL - Launch Boat"
                   + "\nH - Get help on how to play the game"
                   + "\nS - Save Game"
                   + "\nQ - Quit"
@@ -34,7 +40,7 @@ public class MainMenuView {
      * displays the display menu view
      */
 
-    public void displayMainMenuView() {
+    public void displayStartNewGameView() {
         
         boolean done = false; // set flag to not done
         do {
@@ -78,12 +84,14 @@ public class MainMenuView {
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch (choice) {
-            case "N": // create and start a new game
-                this.startNewGame();
+            case "M": // enter the marina
+                this.enterMarina();
                 break;
-            case "L": // get and start an existing game
-                this.startExistingGame();
+            case "V": // view inventory
+                this.viewInventory();
                 break;
+            case "L": // launch boat
+                this.launchBoat();
             case "H": // display the help menu
                 this.displayHelpMenu();
                 break;
@@ -99,17 +107,28 @@ public class MainMenuView {
         return false;
     }
 
-    private void startNewGame() {
-        //create a new game
-        GameControl.createNewGame(BigFishChallenge.getPlayer());
-        
-        // display the game menu
-        StartNewGameView startNewGameView = new StartNewGameView();
-        startNewGameView.displayStartNewGameView();
+    private void enterMarina() {
+        System.out.println("*** enterMarina() function called ***");
     }
 
-    private void startExistingGame() {
-        System.out.println("*** startExistingGame function called ***");
+    private void viewInventory() {
+        System.out.println("*** viewInventory() function called ***");
+    }
+    
+    private void launchBoat() {
+        System.out.println("*** launchBoat() function called ***");
+        
+        //the remaining code in this function tests the CastALineView class to fulfill the requirement for the assignment
+        int weight = 5;
+        String fishWeightText;
+        if (weight < 11) {
+            fishWeightText = " little ";
+        } else {
+            fishWeightText = " strong ";
+        }
+        
+        CastALineView castALineView = new CastALineView(fishWeightText, weight);
+        castALineView.displayCastView();
     }
 
     private void displayHelpMenu() {

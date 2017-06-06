@@ -86,7 +86,7 @@ public class HelpMenuView {
                 this.aboutBait();
                 break;
             case "C": // display help on casting a line
-                this.castLine();
+                this.aboutCastLine();
                 break;
             case "I": // display help on interpret clues
                 this.interpretClues();
@@ -112,8 +112,8 @@ public class HelpMenuView {
         System.out.println("*** aboutBait function called ***");
     }
 
-    private void castLine() {
-        System.out.println("*** castLine function called ***");
+    private void aboutCastLine() {
+        System.out.println("*** aboutCastLine function called ***");
     }
     
     private void interpretClues() {
