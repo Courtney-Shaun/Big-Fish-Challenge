@@ -22,13 +22,11 @@ public class CarryWeightView {
     public CarryWeightView() { 
         this.menu = "\n"
                   + "\n------------------------------------------------"
-                  + "\n| You've purchased fuel and bait           |"
+                  + "\n You've purchased fuel and bait           "
                   + "\n------------------------------------------------"
                   + "\n"
-                  + "\n  Do you have strength to carry it?"
-                  + "\n"
-                  + "\n  Use this tool to make sure you will"
-                  + "\n  have enough strength. "  
+                  + "\n  Answer the questions to determine"
+                  + "\n  if you have enough strength. "  
                   + "\n------------------------------------------------";
      
        
