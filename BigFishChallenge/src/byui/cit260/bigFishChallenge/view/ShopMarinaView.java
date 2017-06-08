@@ -31,6 +31,7 @@ public class ShopMarinaView {
                   + "\nB - Buy bait"
                   + "\nF - Buy fuel"
                   + "\nS - Sell fish"
+                  + "\nC - Can you carry your purchases?"
                   + "\nQ - Quit"
                   + "\n---------------------------------";
     }
@@ -91,6 +92,9 @@ public class ShopMarinaView {
             case "S": // sell fish
                 this.sellFish();
                 break;
+            case "C": // carryWeight
+                this.carryPurchase();
+                break;    
             default:
                 System.out.println("/n*** Invalid selection *** Try again");
                 break;
@@ -111,7 +115,11 @@ public class ShopMarinaView {
     private void sellFish() {
         System.out.println("*** sellFish function called ***");
     }
-
+    private void carryPurchase() {
+        CarryWeightView carryWeightView = new CarryWeightView();
+        
+        carryWeightView.displayCarryWeightView();
+    }
     
     
 }

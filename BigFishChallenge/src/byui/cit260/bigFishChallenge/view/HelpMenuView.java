@@ -53,14 +53,14 @@ public class HelpMenuView {
         String value = "";
         boolean valid = false;
         
-        while (!valid) {
-            System.out.println("\n" + this.menu);
+        while (!valid) { //WHILE a value has not been entered
+            System.out.println("\n" + this.menu); //DISPLAY menu prompt
             
-            value = keyboard.nextLine();
-            value = value.trim();
+            value = keyboard.nextLine(); //GET the value from the key board
+            value = value.trim(); //trim front and trailing blanks off the value
             
-            if (value.length() < 1) {
-                System.out.println("\nInvalid value: value can not be blank.");
+            if (value.length() < 1) { //IF the length of the value is blank THEN
+                System.out.println("\nInvalid value: value can not be blank."); //DISPLAY "Invalid value..."
                 continue;
             }
             

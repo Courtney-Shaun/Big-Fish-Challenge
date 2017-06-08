@@ -61,7 +61,7 @@ public class MainMenuView {
             value = keyboard.nextLine();
             value = value.trim();
             
-            if (value.length() < 1) {
+            if (value.length() < 1) { //blank value entered
                 System.out.println("\nInvalid value: value can not be blank.");
                 continue;
             }
@@ -69,7 +69,7 @@ public class MainMenuView {
             break;
         }
         
-        return value;
+        return value; // return the name
         
     }
 

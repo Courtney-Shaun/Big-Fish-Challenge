@@ -85,5 +85,9 @@ public class PlayerControl {
         
         return gallonsLeft;
     }
+
+    public double carryWeight() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
