@@ -9,40 +9,34 @@ import java.util.Scanner;
 
 /**
  *
- * @author Cody
+ * @author Shaun Courtney
  */
-public class StartNewGameView {
+public class ViewInventoryView {
     
     private String menu;
-    
-    
-    public StartNewGameView() {
+        
+    public ViewInventoryView() {
         this.menu = "\n"
                   + "\n--------------------------------"
-                  + "\n You've just pulled your boat"
-                  + "\n into Greers Ferry Lake. Its a"
-                  + "\n beautiful sunny morning and"
-                  + "\n you're excited to get started. Be"
-                  + "\n sure to pick up some bait before"
-                  + "\n heading out!"
+                  + "\n Inventory Menu                     |"
                   + "\n--------------------------------"
-                  + "\nM - Enter Marina"
-                  + "\nV - View Inventory"
-                  + "\nL - Launch Boat"
-                  + "\nH - Get help on how to play the game"
-                  + "\nS - Save Game"
+                  + "\nB - View how much bait you have."
+                  + "\nF - View how much fuel you have."
+                  + "\nC - View the number of pounds of fish caught."
+                  + "\nE - Estimate the amount of fuel needed."
+                  + "\nH - Get Help"
                   + "\nQ - Quit"
                   + "\n---------------------------------";
     }
     /**
-     * displays the display menu view
+     * displays the display inventory menu view
      */
 
-    public void displayStartNewGameView() {
+    public void displayViewInventoryView() {
         
         boolean done = false; // set flag to not done
         do {
-            //prompt for and get players name
+            // Get the menu option
             String menuOption = this.getMenuOption();
             if (menuOption.toUpperCase().equals("Q")) // user wants to quit
                 return; // exit the game
@@ -82,19 +76,20 @@ public class StartNewGameView {
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch (choice) {
-            case "M": // enter the marina
-                this.enterMarina();
+            case "B": // view amount of bait in inventory
+                this.viewBait();
                 break;
-            case "V": // view inventory
-                this.viewInventory();
+            case "F": // view amount of fuel in inventory
+                this.viewFuel();
                 break;
-            case "L": // launch boat
-                this.launchBoat();
-            case "H": // display the help menu
+            case "C": // view number of pounds of fish caught
+                this.viewFish();
+                break;
+            case "E": // estimate needed fuel
+                this.estimateFuelNeeded();
+                break;
+            case "H": // display help menu
                 this.displayHelpMenu();
-                break;
-            case "S": // save teh current game
-                this.saveGame();
                 break;
             default:
                 System.out.println("/n*** Invalid selection *** Try again");
@@ -105,32 +100,23 @@ public class StartNewGameView {
         return false;
     }
 
-    private void enterMarina() {
-       ShopMarinaView shopMarinaView = new ShopMarinaView();
-        
-       shopMarinaView.displayShopMarinaView(); 
+    private void viewBait() {
+        System.out.println("*** viewBait function called ***");
     }
 
-    private void viewInventory() {
-        ViewInventoryView viewInventoryView = new ViewInventoryView();
-        
-        viewInventoryView.displayViewInventoryView();
+    private void viewFuel() {
+        System.out.println("*** viewFuel function called ***");
     }
-    
-    private void launchBoat() {
-        System.out.println("*** launchBoat() function called ***");
+
+    private void viewFish() {
+        System.out.println("*** viewFish function called ***");
+    }
+
+    private void estimateFuelNeeded() {
         
-        //the remaining code in this function tests the CastALineView class to fulfill the requirement for the assignment
-        int weight = 5;
-        String fishWeightText;
-        if (weight < 11) {
-            fishWeightText = " little ";
-        } else {
-            fishWeightText = " strong ";
-        }
+        EstimateFuelView estimateFuelView = new EstimateFuelView();
         
-        CastALineView castALineView = new CastALineView(fishWeightText, weight);
-        castALineView.displayCastView();
+        estimateFuelView.displayEstimateFuelView();
     }
 
     private void displayHelpMenu() {
@@ -140,8 +126,5 @@ public class StartNewGameView {
         helpMenuView.displayHelpMenuView();
     }
 
-    private void saveGame() {
-        System.out.println("*** saveGame function called ***");
-    }
-    
+            
 }
