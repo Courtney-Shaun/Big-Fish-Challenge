@@ -35,22 +35,20 @@ public class EstimateFuelView {
                   + "\n fuel or not.                           "
                   + "\n----------------------------------------";
         
-        
-        
     
      }
+    // diplays the Estimate fuel view 
 
     public void displayEstimateFuelView() {
         
         boolean done = false; // set flag to not done
         do {
             // Get the option
-            String input = this.getInput();
-            
+            String input = this.getInput("\n How many miles do you want to travel?", 40, 1);
             if (input.toUpperCase().equals("Q")) // user wants to quit
                 return; // exit the game
         
-            String inputTwo = this.getInputTwo();
+            String inputTwo = this.getInput("\n How many gallons of fuel do you have?", 8, 1);
             if (inputTwo.toUpperCase().equals("Q")) // user wants to quit
                 return; // exit the game
             
@@ -60,7 +58,7 @@ public class EstimateFuelView {
         } while (!done);
     }
     
-    public String getInput() {
+    public String getInput(String ask, double max, double min) {
         
         Scanner keyboard = new Scanner(System.in);
         boolean valid = false;
@@ -70,7 +68,7 @@ public class EstimateFuelView {
         while (!valid) {
             
             System.out.println("\n" + this.menu);
-            System.out.println("\n How many miles do you want to travel?");
+            System.out.println(ask);
             
             // get the value entered from the keyboard
             selection = keyboard.nextLine();
@@ -81,7 +79,10 @@ public class EstimateFuelView {
                 continue;
             } else if ("q".equals(selection)){
                 return selection;
-            } else if (Double.parseDouble(selection) > 40 || (Double.parseDouble(selection) < 1)) {
+            } else if (selection.matches("[a-zA-Z]+")) {
+                System.out.println("\n*** Invalid selection *** Try again");
+                continue;
+            } else if (Double.parseDouble(selection) > max || (Double.parseDouble(selection) < min)) {
                 System.out.println("\n*** Invalid selection *** Try again");
                 continue;
             } 
@@ -92,38 +93,7 @@ public class EstimateFuelView {
         return selection;
     }
     
-    public String getInputTwo() {
-        
-        Scanner keyboard = new Scanner(System.in);
-        boolean valid = false;
-        String selectionTwo = null;
-        
-        // while a valid entry has not been retrieved
-        while (!valid) {
-            
-            System.out.println("\n How many gallons of fuel do you have?");
-            // get the value entered from the keyboard
-            selectionTwo = keyboard.nextLine();
-            selectionTwo = selectionTwo.trim();
-            
-            if (selectionTwo.length() < 1) {
-                System.out.println("\n*** Invalid selection *** Try again");
-                continue;
-            } else if ("q".equals(selectionTwo)){
-                return selectionTwo;
-            } else if (Double.parseDouble(selectionTwo) > 8 || (Double.parseDouble(selectionTwo) < 1)) {
-                System.out.println("\n*** Invalid selection *** Try again");
-                continue;
-            } 
-            
-            break;
-        }
-        
-        return selectionTwo;
-    }
-
-   
-
+    
     private boolean doAction(String input, String inputTwo) {
         
         //choice = choice.toUpperCase(); // convert choice to upper case
@@ -148,17 +118,17 @@ public class EstimateFuelView {
     
     private void notEnough() {
         System.out.println("\n You do not have enough fuel to travel that far!  Get to the Marina and buy some Fuel!");
+        ViewInventoryView viewInventoryView = new ViewInventoryView();
+        
+        viewInventoryView.displayViewInventoryView();
+    
     }
 
     private void canMakeIt() {
         System.out.println("\n You can make it with the fuel that you have!");
+        ViewInventoryView viewInventoryView = new ViewInventoryView();
+        
+        viewInventoryView.displayViewInventoryView();
     }
-
-    
-        
-        
+      
 }
-     
-  
-   
-   
