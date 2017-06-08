@@ -80,8 +80,8 @@ public class PlayerControl {
             return -1;
         }
         
-        double milesPerGallon = distance / gallons;
-        double gallonsLeft = 8 - (distance / milesPerGallon);
+        double milesPerGallon = 5;
+        double gallonsLeft = gallons - (distance / milesPerGallon);
         
         return gallonsLeft;
     }

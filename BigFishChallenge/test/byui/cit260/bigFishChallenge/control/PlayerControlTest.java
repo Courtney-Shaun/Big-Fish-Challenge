@@ -200,10 +200,10 @@ public class PlayerControlTest {
     @Test
     public void testEstimateFuel() {
         System.out.println("estimateFuel Case 1");
-        double distance = 20.0;
+        double distance = 15.0;
         double gallons = 4.0;
         PlayerControl instance = new PlayerControl();
-        double expResult = 4.0;
+        double expResult = 1.0;
         double result = instance.estimateFuel(distance, gallons);
         assertEquals(expResult, result, 0.01);
         // TODO review the generated test code and remove the default call to fail.
@@ -247,7 +247,7 @@ public class PlayerControlTest {
         System.out.println("estimateFuel Case 7");
         distance = 1.0;
         gallons = 1.0;
-        expResult = 7.0;
+        expResult = 0.8;
         result = instance.estimateFuel(distance, gallons);
         assertEquals(expResult, result, 0.01);
         
