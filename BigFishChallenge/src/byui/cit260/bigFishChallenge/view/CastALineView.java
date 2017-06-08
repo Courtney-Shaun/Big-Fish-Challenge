@@ -6,7 +6,6 @@
 package byui.cit260.bigFishChallenge.view;
 
 import java.util.Scanner;
-import java.util.Random;
 import byui.cit260.bigFishChallenge.control.PlayerControl;
 
 /**
@@ -48,7 +47,8 @@ public class CastALineView {
             done = this.doAction(menuOption);
             
         } while (!done);
-              
+        
+        
         
     }
     private String getMenuOption() {
@@ -63,15 +63,24 @@ public class CastALineView {
             value = keyboard.nextLine();
             value = value.trim();
             
+            //System.out.println(value);
+            //if ("1".equals(value)) System.out.println("THIS MATCHES");
+            
             if (value.length() < 1) {
                 System.out.println("\nInvalid value: value can not be blank.");
                 continue;
-            } else if(Integer.parseInt(value) > 10){
-                System.out.println("\nInvalid value: please enter a valid number.");
+            } else if("1".equals(value) || "2".equals(value) || "3".equals(value) || "4".equals(value) || "5".equals(value) || "6".equals(value) || "7".equals(value) || "8".equals(value) || "9".equals(value) || "10".equals(value)) {
+                valid = true;
+                continue;
+                
+            } else {
+                System.out.println("\nInvalid entry.");
                 continue;
             }
+
             
-            break;
+            
+            
         }
         
         return value;
@@ -102,10 +111,14 @@ public class CastALineView {
 
     private void fishCaught() {
         System.out.println("*** fishCaught function called ***");
+        StartNewGameView startNewGameView = new StartNewGameView();
+        startNewGameView.displayStartNewGameView(); 
     }
 
     private void fishGotAway() {
         System.out.println("*** fishGotAway function called ***");
+        StartNewGameView startNewGameView = new StartNewGameView();
+        startNewGameView.displayStartNewGameView(); 
     }
 
     

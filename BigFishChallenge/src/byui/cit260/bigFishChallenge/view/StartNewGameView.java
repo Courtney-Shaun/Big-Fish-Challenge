@@ -5,8 +5,6 @@
  */
 package byui.cit260.bigFishChallenge.view;
 
-import bigfishchallenge.BigFishChallenge;
-import byui.cit260.bigFishChallenge.control.GameControl;
 import java.util.Scanner;
 
 /**
