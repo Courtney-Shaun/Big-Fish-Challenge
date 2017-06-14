@@ -137,7 +137,7 @@ public class StartNewGameView {
         
         HelpMenuView helpMenuView = new HelpMenuView();
         
-        helpMenuView.displayHelpMenuView();
+        helpMenuView.display();
     }
 
     private void saveGame() {

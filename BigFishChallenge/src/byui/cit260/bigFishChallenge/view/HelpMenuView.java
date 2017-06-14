@@ -11,67 +11,24 @@ import java.util.Scanner;
  *
  * @author shaunathan
  */
-public class HelpMenuView {
-    
-    private String menu;
-    
+public class HelpMenuView  extends View{
     
     public HelpMenuView() {
-        this.menu = "\n"
-                  + "\n--------------------------------"
-                  + "\n Help Menu                     |"
-                  + "\n--------------------------------"
-                  + "\nO - Objective of the game"
-                  + "\nF - About Fuel"
-                  + "\nB - About Bait"
-                  + "\nC - Casting a Line"
-                  + "\nI - Interpreting Clues"
-                  + "\nQ - Quit"
-                  + "\n---------------------------------";
+        super("\n"
+              + "\n--------------------------------"
+              + "\n Help Menu                     |"
+              + "\n--------------------------------"
+              + "\nO - Objective of the game"
+              + "\nF - About Fuel"
+              + "\nB - About Bait"
+              + "\nC - Casting a Line"
+              + "\nI - Interpreting Clues"
+              + "\nQ - Quit"
+              + "\n---------------------------------");
     }
-    /**
-     * displays the display menu view
-     */
-    public void displayHelpMenuView() {
-        
-        boolean done = false; // set flag to not done
-        do {
-            //prompt for and get players name
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) // user wants to quit
-                return; // exit the game
-            
-            // do the requested action and display the next view
-            done = this.doAction(menuOption);
-            
-        } while (!done);
-                
-    }
-    private String getMenuOption() {
-        
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid) { //WHILE a value has not been entered
-            System.out.println("\n" + this.menu); //DISPLAY menu prompt
-            
-            value = keyboard.nextLine(); //GET the value from the key board
-            value = value.trim(); //trim front and trailing blanks off the value
-            
-            if (value.length() < 1) { //IF the length of the value is blank THEN
-                System.out.println("\nInvalid value: value can not be blank."); //DISPLAY "Invalid value..."
-                continue;
-            }
-            
-            break;
-        }
-        
-        return value;
-        
-    }
-
-    private boolean doAction(String choice) {
+    
+    @Override
+    public boolean doAction(String choice) {
         
         choice = choice.toUpperCase(); // convert choice to upper case
         

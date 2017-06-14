@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author shaunathan
+ * @author shaun
  */
 public class EstimateFuelView {
     

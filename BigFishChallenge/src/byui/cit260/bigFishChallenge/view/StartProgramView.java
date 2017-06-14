@@ -10,12 +10,10 @@ import byui.cit260.bigFishChallenge.model.Player;
 import java.util.Scanner;
 
 
-public class StartProgramView {
-    
-    private String promptMessage;
+public class StartProgramView extends View {
     
     public StartProgramView() {
-        this.promptMessage = "\nPlease enter your name: ";
+        super("\nPlease enter your name: ");
         
         this.displayBanner();
     }
@@ -53,64 +51,10 @@ public class StartProgramView {
         );
         
     }
-    /**
-     * displays the start program view
-     */
-    public void displayStartProgramView() {
-        
-        
-        boolean done = false; // set flag to not done
-        do {
-            // prompt for and get players name
-            String playersName = this.getPlayersName();
-            if(playersName.toUpperCase().equals("Q")) // user wants to quit
-                return; //exit game
-            
-            // do the requested action and display next view
-            done = this.doAction(playersName);
-            
-        } while (!done);
-        
-    }
+    
 
-    private String getPlayersName() {
-        /*
-        WHILE valid value has not been entered
-            DISPLAY promptMessage
-            GET the value entered from keyboard
-            Trim front and trailing blanks off of the name
-            
-            IF the length of the value is blank THEN
-                DISPLAY "Invalid value: The value can not be blank"
-                CONTINUE
-            ENDIF
-        
-            BREAK
-        ENDWHILE
-        RETURN name
-        */
-        Scanner keyboard = new Scanner(System.in); // get value from keyboard
-        String value = ""; // value to be returned
-        boolean valid = false; // initialize to not valid
-        
-        while (!valid) { // loop while an invalid value is entered
-            System.out.println("\n" + this.promptMessage);
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-            
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value can not be blank.");
-                continue;
-            }
-            
-            break; // end the loop
-        }
-        
-        return value; // return the value entered
-    }
-
-    private boolean doAction(String playersName) {
+    @Override
+    public boolean doAction(String playersName) {
         
         /* 
         BEGIN
@@ -158,7 +102,7 @@ public class StartProgramView {
         MainMenuView mainMenuView = new MainMenuView();
         
         // Display the main menu view 
-        mainMenuView.displayMainMenuView();
+        mainMenuView.display();
     }
     
         

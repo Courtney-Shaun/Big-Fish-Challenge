@@ -92,7 +92,7 @@ public class ViewInventoryView {
                 this.displayHelpMenu();
                 break;
             default:
-                System.out.println("/n*** Invalid selection *** Try again");
+                System.out.println("*** Invalid selection *** Try again");
                 break;
             
         }
@@ -123,7 +123,7 @@ public class ViewInventoryView {
         
         HelpMenuView helpMenuView = new HelpMenuView();
         
-        helpMenuView.displayHelpMenuView();
+        helpMenuView.display();
     }
 
             
