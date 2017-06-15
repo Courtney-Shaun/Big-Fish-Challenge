@@ -56,22 +56,7 @@ public class StartProgramView extends View {
     @Override
     public boolean doAction(String playersName) {
         
-        /* 
-        BEGIN
-            IF the length of the playersName < 2 THEN
-                DISPLAY "Invalid name: The name must be > 1 character"
-                RETURN false
-        
-            create Player with specified name
-            IF unsuccessful THEN
-                DISPLAY "Invalid name: The name is too short"
-                RETURN false
-        
-            DISPLAY customized welcome message
-            DISPLAY mainMenuView
-            RETURN true
-        END
-        */
+     
         if (playersName.length() < 2) {
             System.out.println("\nInvalid players name: "
                     + "The name must be greater than one character in length");

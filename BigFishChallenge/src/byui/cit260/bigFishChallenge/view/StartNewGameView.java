@@ -5,19 +5,14 @@
  */
 package byui.cit260.bigFishChallenge.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Cody
  */
-public class StartNewGameView {
-    
-    private String menu;
-    
+public class StartNewGameView extends View {
     
     public StartNewGameView() {
-        this.menu = "\n"
+        super("\n"
                   + "\n--------------------------------"
                   + "\n You've just pulled your boat"
                   + "\n into Greers Ferry Lake. Its a"
@@ -32,52 +27,12 @@ public class StartNewGameView {
                   + "\nH - Get help on how to play the game"
                   + "\nS - Save Game"
                   + "\nQ - Quit"
-                  + "\n---------------------------------";
-    }
-    /**
-     * displays the display menu view
-     */
-
-    public void displayStartNewGameView() {
-        
-        boolean done = false; // set flag to not done
-        do {
-            //prompt for and get players name
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) // user wants to quit
-                return; // exit the game
-            
-            // do the requested action and display the next view
-            done = this.doAction(menuOption);
-            
-        } while (!done);
+                  + "\n---------------------------------");
     }
 
-    private String getMenuOption() {
-        
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid) {
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if (value.length() < 1) {
-                System.out.println("\nInvalid value: value can not be blank.");
-                continue;
-            }
-            
-            break;
-        }
-        
-        return value;
-        
-    }
-
-    private boolean doAction(String choice) {
+   
+    @Override
+    public boolean doAction(String choice) {
         
         choice = choice.toUpperCase(); // convert choice to upper case
         
@@ -118,19 +73,8 @@ public class StartNewGameView {
     }
     
     private void launchBoat() {
-        System.out.println("*** launchBoat() function called ***");
-        
-        //the remaining code in this function tests the CastALineView class to fulfill the requirement for the assignment
-        int weight = 5;
-        String fishWeightText;
-        if (weight < 11) {
-            fishWeightText = " little ";
-        } else {
-            fishWeightText = " strong ";
-        }
-        
-        CastALineView castALineView = new CastALineView(fishWeightText, weight);
-        castALineView.displayCastView();
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.display();
     }
 
     private void displayHelpMenu() {

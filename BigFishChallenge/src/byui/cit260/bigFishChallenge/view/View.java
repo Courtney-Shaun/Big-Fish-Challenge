@@ -48,7 +48,7 @@ public abstract class View implements ViewInterface {
         // while a valid name has not been retrieved
         while (!valid) {
             
-            // prompt for the player's name
+            // prompt for the user input
             System.out.println("\n" + this.displayMessage);
             
             // get the value entered from the keyboard

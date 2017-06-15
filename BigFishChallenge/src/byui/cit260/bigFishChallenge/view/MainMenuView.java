@@ -60,7 +60,7 @@ public class MainMenuView extends View{
         
         // display the game menu
         StartNewGameView startNewGameView = new StartNewGameView();
-        startNewGameView.displayStartNewGameView();
+        startNewGameView.display();
     }
 
     private void startExistingGame() {
