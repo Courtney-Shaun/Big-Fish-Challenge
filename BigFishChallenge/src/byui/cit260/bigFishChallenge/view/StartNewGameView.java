@@ -69,7 +69,7 @@ public class StartNewGameView extends View {
     private void viewInventory() {
         ViewInventoryView viewInventoryView = new ViewInventoryView();
         
-        viewInventoryView.displayViewInventoryView();
+        viewInventoryView.display();
     }
     
     private void launchBoat() {

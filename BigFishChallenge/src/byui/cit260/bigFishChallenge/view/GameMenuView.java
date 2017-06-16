@@ -82,7 +82,7 @@ public class GameMenuView extends View {
     
     private void estimateFuel() {
         EstimateFuelView estimateFuelView = new EstimateFuelView();
-        estimateFuelView.displayEstimateFuelView();
+        estimateFuelView.display();
     }
     
     private void talkToOthers() {
@@ -91,7 +91,7 @@ public class GameMenuView extends View {
     
     private void viewInventory() {
         ViewInventoryView viewInventoryView = new ViewInventoryView();
-        viewInventoryView.displayViewInventoryView();
+        viewInventoryView.display();
     }
     
     private void help() {
