@@ -12,13 +12,13 @@ import java.util.Scanner;
  *
  * @author Kelly Huber
  */
-public class ShopMarinaView {
+public class ShopMarinaView extends View {
     
-    private String menu;
+   
     
     
     public ShopMarinaView() {
-        this.menu = "\n"
+        super("\n"
                   + "\n--------------------------------"
                   + "\n  Welcome to the Marina!"
                   + "\n  Purchase bait and fuel here."
@@ -33,52 +33,10 @@ public class ShopMarinaView {
                   + "\nS - Sell fish"
                   + "\nC - Can you carry your purchases?"
                   + "\nQ - Quit"
-                  + "\n---------------------------------";
+                  + "\n---------------------------------");
     }
-    /**
-     * displays the display shop marina view
-     */
-
-    public void displayShopMarinaView() {
-        
-        boolean done = false; // set flag to not done
-        do {
-            //prompt 
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) // user wants to quit
-                return; // exit the game
-            
-            // do the requested action and display the next view
-            done = this.doAction(menuOption);
-            
-        } while (!done);
-    }
-
-    private String getMenuOption() {
-        
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid) {
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if (value.length() < 1) {
-                System.out.println("\nInvalid value: value can not be blank.");
-                continue;
-            }
-            
-            break;
-        }
-        
-        return value;
-        
-    }
-
-    private boolean doAction(String choice) {
+    @Override
+    public boolean doAction(String choice) {
         
         choice = choice.toUpperCase(); // convert choice to upper case
         

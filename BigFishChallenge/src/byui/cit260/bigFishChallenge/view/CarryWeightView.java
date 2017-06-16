@@ -65,7 +65,7 @@ public class CarryWeightView {
             System.out.println("\n" + this.menu); //DISPLAY menu prompt
             System.out.println(question);
             
-            selection = keyboard.nextLine();//GET the value from the key board(does this need to be named fuelWeight and baitWeight not value,how do I add two values fuel and bait?
+            selection = keyboard.nextLine();//GET the value from the key board
             selection = selection.trim(); //trim front and trailing blanks off the value
             
             if (selection.length() < 1) { //IF the length of the value is blank THEN
@@ -74,6 +74,7 @@ public class CarryWeightView {
             } else if ("q".equals(selection)) {
                 return selection;
             } else if (Integer.parseInt(selection) > maxVal || (Integer.parseInt(selection) < minVal)) {
+              
                 System.out.println("\n***Invalid value*** Try again."); //DISPLAY "Invalid value..."
                 continue;
             }

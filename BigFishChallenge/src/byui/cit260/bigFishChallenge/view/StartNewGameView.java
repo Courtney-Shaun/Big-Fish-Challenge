@@ -63,7 +63,7 @@ public class StartNewGameView extends View {
     private void enterMarina() {
        ShopMarinaView shopMarinaView = new ShopMarinaView();
         
-       shopMarinaView.displayShopMarinaView(); 
+       shopMarinaView.display(); 
     }
 
     private void viewInventory() {
