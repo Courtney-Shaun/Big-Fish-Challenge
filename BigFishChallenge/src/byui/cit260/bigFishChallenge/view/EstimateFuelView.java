@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author shaun
+ * @author Shaun Courtney
  */
 public class EstimateFuelView extends View {
     
@@ -40,16 +40,16 @@ public class EstimateFuelView extends View {
 
     @Override 
     public void display() {
-        
+        System.out.println(displayMessage);
         boolean done = false; // set flag to not done
         do {
             // Get the option
-            String input = this.getInput("\n How many miles do you want to travel?", 40, 1);
-            if (input.toUpperCase().equals("Q")) // user wants to quit
+            double input = getDoubleInput("\n How many miles do you want to travel?", 40, 1);
+            if (input == -999) // user wants to quit
                 return; // exit the game
         
-            String inputTwo = this.getInput("\n How many gallons of fuel do you have?", 8, 1);
-            if (inputTwo.toUpperCase().equals("Q")) // user wants to quit
+            double inputTwo = getDoubleInput("\n How many gallons of fuel do you have?", 8, 1);
+            if (inputTwo == - 999) // user wants to quit
                 return; // exit the game
             
             // do the requested action and display the next view
@@ -57,47 +57,46 @@ public class EstimateFuelView extends View {
             
         } while (!done);
     }
+//    public String getInput(String ask, double maxVal, double minVal) {
+//        
+//        Scanner keyboard = new Scanner(System.in);
+//        boolean valid = false;
+//        String selection = null;
+//        
+//        // while a valid entry has not been retrieved
+//        while (!valid) {
+//            
+//            System.out.println(displayMessage);
+//            System.out.println(ask);
+//            
+//            // get the value entered from the keyboard
+//            selection = keyboard.nextLine();
+//            selection = selection.trim();
+//            
+//            if (selection.length() < 1) {
+//                System.out.println("\n*** Invalid selection *** Try again");
+//                continue;
+//            } else if ("q".equals(selection)){
+//                return selection;
+//            } else if (selection.matches("[a-zA-Z]+")) {
+//                System.out.println("\n*** Invalid selection *** Try again");
+//                continue;
+//            } else if (Double.parseDouble(selection) > max || (Double.parseDouble(selection) < min)) {
+//                System.out.println("\n*** Invalid selection *** Try again");
+//                continue;
+//            } 
+//                
+//        break;
+//        }  
+//        
+//        return selection;
+//    }
     
-    public String getInput(String ask, double max, double min) {
-        
-        Scanner keyboard = new Scanner(System.in);
-        boolean valid = false;
-        String selection = null;
-        
-        // while a valid entry has not been retrieved
-        while (!valid) {
-            
-            System.out.println(displayMessage);
-            System.out.println(ask);
-            
-            // get the value entered from the keyboard
-            selection = keyboard.nextLine();
-            selection = selection.trim();
-            
-            if (selection.length() < 1) {
-                System.out.println("\n*** Invalid selection *** Try again");
-                continue;
-            } else if ("q".equals(selection)){
-                return selection;
-            } else if (selection.matches("[a-zA-Z]+")) {
-                System.out.println("\n*** Invalid selection *** Try again");
-                continue;
-            } else if (Double.parseDouble(selection) > max || (Double.parseDouble(selection) < min)) {
-                System.out.println("\n*** Invalid selection *** Try again");
-                continue;
-            } 
-                
-        break;
-        }  
-        
-        return selection;
-    }
-    
-    public boolean doAction(String input, String inputTwo) {
+    public boolean doAction(double input, double inputTwo) {
         
         //choice = choice.toUpperCase(); // convert choice to upper case
-        double distance = Double.parseDouble(input);
-        double gallons = Double.parseDouble(inputTwo);
+        double distance = input;
+        double gallons = inputTwo;
         double gallonsLeft;
         
         PlayerControl playerControl = new PlayerControl();
@@ -112,27 +111,24 @@ public class EstimateFuelView extends View {
         }
     
         
-        return false;
+        return true;
     }
     
     private void notEnough() {
         System.out.println("\n You do not have enough fuel to travel that far!  Get to the Marina and buy some Fuel!");
-        ViewInventoryView viewInventoryView = new ViewInventoryView();
         
-        viewInventoryView.display();
     
     }
 
     private void canMakeIt() {
         System.out.println("\n You can make it with the fuel that you have!");
-        ViewInventoryView viewInventoryView = new ViewInventoryView();
-        
-        viewInventoryView.display();
+       
     }
 
     @Override
     public boolean doAction(String value) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-      
+
+    
 }

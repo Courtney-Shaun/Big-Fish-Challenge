@@ -7,7 +7,7 @@ package byui.cit260.bigFishChallenge.view;
 
 /**
  *
- * @author shaunathan
+ * @author group
  */
 public interface ViewInterface {
     
@@ -15,6 +15,7 @@ public interface ViewInterface {
     public String getInput();
     public boolean doAction(String value);
     public int getIntInput(String question, int maxVal, int minVal);
+    public double getDoubleInput(String question, double maxVal, double minVal);
     
     
     

@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author shaunathan
+ * @author Group
  */
 public abstract class View implements ViewInterface {
     
@@ -97,4 +97,36 @@ public abstract class View implements ViewInterface {
         return Integer.parseInt(selection); //return the value entered
     
    }
+    @Override
+    public double getDoubleInput(String ask, double maxVal, double minVal) {
+        
+        Scanner keyboard = new Scanner(System.in);
+        boolean valid = false;
+        String selection = null;
+        
+        // while a valid entry has not been retrieved
+        while (!valid) {
+            
+            System.out.println(displayMessage);
+            System.out.println(ask);
+            
+            // get the value entered from the keyboard
+            selection = keyboard.nextLine();
+            selection = selection.trim();
+            
+            if (selection.length() < 1) {
+                System.out.println("\n*** Invalid selection *** Try again");
+                continue;
+            } else if ("q".equals(selection)){
+                return -999;
+            } else if (Double.parseDouble(selection) > maxVal || (Double.parseDouble(selection) < minVal)) {
+                System.out.println("\n*** Invalid selection *** Try again");
+                continue;
+            } 
+                
+        break;
+        }  
+        
+        return Double.parseDouble(selection);
+    }
 }

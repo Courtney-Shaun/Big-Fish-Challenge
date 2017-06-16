@@ -7,7 +7,7 @@ package byui.cit260.bigFishChallenge.view;
 
 /**
  *
- * @author shaunathan
+ * @author Cody
  */
 public class GameMenuView extends View {
     
