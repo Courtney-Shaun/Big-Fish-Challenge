@@ -11,67 +11,24 @@ import java.util.Scanner;
  *
  * @author Shaun Courtney
  */
-public class ViewInventoryView {
+public class ViewInventoryView extends View {
     
-    private String menu;
-        
     public ViewInventoryView() {
-        this.menu = "\n"
-                  + "\n--------------------------------"
-                  + "\n Inventory Menu                     |"
-                  + "\n--------------------------------"
-                  + "\nB - View how much bait you have."
-                  + "\nF - View how much fuel you have."
-                  + "\nC - View the number of pounds of fish caught."
-                  + "\nE - Estimate the amount of fuel needed."
-                  + "\nH - Get Help"
-                  + "\nQ - Quit"
-                  + "\n---------------------------------";
+        super("\n"
+              + "\n--------------------------------"
+              + "\n Inventory Menu                     |"
+              + "\n--------------------------------"
+              + "\nB - View how much bait you have."
+              + "\nF - View how much fuel you have."
+              + "\nC - View the number of pounds of fish caught."
+              + "\nE - Estimate the amount of fuel needed."
+              + "\nH - Get Help"
+              + "\nQ - Quit"
+              + "\n---------------------------------");
     }
-    /**
-     * displays the display inventory menu view
-     */
-
-    public void displayViewInventoryView() {
-        
-        boolean done = false; // set flag to not done
-        do {
-            // Get the menu option
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) // user wants to quit
-                return; // exit the game
-            
-            // do the requested action and display the next view
-            done = this.doAction(menuOption);
-            
-        } while (!done);
-    }
-
-    private String getMenuOption() {
-        
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid) {
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if (value.length() < 1) {
-                System.out.println("\nInvalid value: value can not be blank.");
-                continue;
-            }
-            
-            break;
-        }
-        
-        return value;
-        
-    }
-
-    private boolean doAction(String choice) {
+    
+    @Override
+    public boolean doAction(String choice) {
         
         choice = choice.toUpperCase(); // convert choice to upper case
         
@@ -116,7 +73,7 @@ public class ViewInventoryView {
         
         EstimateFuelView estimateFuelView = new EstimateFuelView();
         
-        estimateFuelView.displayEstimateFuelView();
+        estimateFuelView.display();
     }
 
     private void displayHelpMenu() {

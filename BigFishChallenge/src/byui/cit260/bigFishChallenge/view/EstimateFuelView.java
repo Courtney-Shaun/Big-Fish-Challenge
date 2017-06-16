@@ -12,34 +12,34 @@ import java.util.Scanner;
  *
  * @author shaun
  */
-public class EstimateFuelView {
+public class EstimateFuelView extends View {
     
-    private String menu;
+    
     private String distance;
     private String gallons;
         
      public EstimateFuelView() {
-        this.menu = "\n"
-                  + "\n----------------------------------------"
-                  + "\n Estimate the fuel you need!           |"
-                  + "\n----------------------------------------"
-                  + "\n Use this tool to make sure you         "
-                  + "\n will have enough fuel to make it       "
-                  + "\n to your destination. Each square is 5  "
-                  + "\n miles.  Moving 3 squares would be 15   "
-                  + "\n miles.  You can travel up to 40 miles  "
-                  + "\n on a full tank of fuel.  Enter how     "
-                  + "\n many miles you wish to travel and how  "
-                  + "\n much fuel you have in inventory.  You  "
-                  + "\n will then learn if you have enough     "
-                  + "\n fuel or not.                           "
-                  + "\n----------------------------------------";
-        
-    
+        super("\n"
+               + "\n----------------------------------------"
+               + "\n Estimate the fuel you need!           |"
+               + "\n----------------------------------------"
+               + "\n Use this tool to make sure you         "
+               + "\n will have enough fuel to make it       "
+               + "\n to your destination. Each square is 5  "
+               + "\n miles.  Moving 3 squares would be 15   "
+               + "\n miles.  You can travel up to 40 miles  "
+               + "\n on a full tank of fuel.  Enter how     "
+               + "\n many miles you wish to travel and how  "
+               + "\n much fuel you have in inventory.  You  "
+               + "\n will then learn if you have enough     "
+               + "\n fuel or not.                           "
+               + "\n----------------------------------------");
+            
      }
     // diplays the Estimate fuel view 
 
-    public void displayEstimateFuelView() {
+    @Override 
+    public void display() {
         
         boolean done = false; // set flag to not done
         do {
@@ -67,7 +67,7 @@ public class EstimateFuelView {
         // while a valid entry has not been retrieved
         while (!valid) {
             
-            System.out.println("\n" + this.menu);
+            System.out.println(displayMessage);
             System.out.println(ask);
             
             // get the value entered from the keyboard
@@ -93,8 +93,7 @@ public class EstimateFuelView {
         return selection;
     }
     
-    
-    private boolean doAction(String input, String inputTwo) {
+    public boolean doAction(String input, String inputTwo) {
         
         //choice = choice.toUpperCase(); // convert choice to upper case
         double distance = Double.parseDouble(input);
@@ -120,7 +119,7 @@ public class EstimateFuelView {
         System.out.println("\n You do not have enough fuel to travel that far!  Get to the Marina and buy some Fuel!");
         ViewInventoryView viewInventoryView = new ViewInventoryView();
         
-        viewInventoryView.displayViewInventoryView();
+        viewInventoryView.display();
     
     }
 
@@ -128,7 +127,12 @@ public class EstimateFuelView {
         System.out.println("\n You can make it with the fuel that you have!");
         ViewInventoryView viewInventoryView = new ViewInventoryView();
         
-        viewInventoryView.displayViewInventoryView();
+        viewInventoryView.display();
+    }
+
+    @Override
+    public boolean doAction(String value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
       
 }
