@@ -14,6 +14,7 @@ public interface ViewInterface {
     public void display();
     public String getInput();
     public boolean doAction(String value);
+    public int getIntInput(String question, int maxVal, int minVal);
     
     
     

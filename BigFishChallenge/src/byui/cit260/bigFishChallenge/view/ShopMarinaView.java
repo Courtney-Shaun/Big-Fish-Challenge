@@ -76,7 +76,7 @@ public class ShopMarinaView extends View {
     private void carryPurchase() {
         CarryWeightView carryWeightView = new CarryWeightView();
         
-        carryWeightView.displayCarryWeightView();
+        carryWeightView.display();
     }
     
     
