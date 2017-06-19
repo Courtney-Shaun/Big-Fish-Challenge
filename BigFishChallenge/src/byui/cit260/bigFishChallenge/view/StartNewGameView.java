@@ -45,6 +45,7 @@ public class StartNewGameView extends View {
                 break;
             case "L": // launch boat
                 this.launchBoat();
+                break;
             case "H": // display the help menu
                 this.displayHelpMenu();
                 break;
