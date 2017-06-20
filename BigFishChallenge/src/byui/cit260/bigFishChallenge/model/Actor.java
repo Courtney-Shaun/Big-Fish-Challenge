@@ -43,7 +43,7 @@ public enum Actor implements Serializable{
 
     @Override
     public String toString() {
-        return "Actor{" + "name=" + name + ", scene=" + location + ", clue=" + clue + '}';
+        return "Actor{" + "scene=" + location + ", clue=" + clue + '}';
     }
         
 }
