@@ -14,7 +14,7 @@ public class MainScene implements Serializable{
     private String name;
     private String obstacle;
 
-    public MainScene() {
+    public MainScene(int sceneNumber) {
     }
    
 

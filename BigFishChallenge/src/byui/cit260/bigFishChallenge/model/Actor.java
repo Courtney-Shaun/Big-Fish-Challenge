@@ -6,87 +6,44 @@
 package byui.cit260.bigFishChallenge.model;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 /**
  *
  * @author cody
  */
-public class Actor implements Serializable{
+public enum Actor implements Serializable{
     
-    // class instance variables
-    private String name;
-    private String scene;
-    private String clue;
-
-    public Actor() {
-    }
+    Billy("My name is Billy"),
+    Cletus("My name is Cletus"),
+    BobbyRay("My name is Bobby Ray"),
+    Missy("My name is Missy"),
+    Wade("My name is Wade"),
+    Phil("My name is Phil"),
+    Jethro("My name is Jethro"),
+    Lena("My name is Lena"),
+    Diego("My name is Diego"),
+    Martha("My name is Martha");
     
     
-    public String getName() {
-        return name;
-    }
+    private final MainScene location;
+    private final String clue;
 
-    public void setName(String name) {
-        this.name = name;
+    Actor(String clue) {
+        this.clue = clue; 
+        location = new MainScene(1);
     }
-
-    public String getScene() {
-        return scene;
-    }
-
-    public void setScene(String scene) {
-        this.scene = scene;
+    
+    public MainScene getLocation() {
+        return location;
     }
 
     public String getClue() {
         return clue;
     }
 
-    public void setClue(String clue) {
-        this.clue = clue;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 53 * hash + Objects.hashCode(this.name);
-        hash = 53 * hash + Objects.hashCode(this.scene);
-        hash = 53 * hash + Objects.hashCode(this.clue);
-        return hash;
-    }
-
     @Override
     public String toString() {
-        return "Actor{" + "name=" + name + ", scene=" + scene + ", clue=" + clue + '}';
+        return "Actor{" + "name=" + name + ", scene=" + location + ", clue=" + clue + '}';
     }
-    
-    
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Actor other = (Actor) obj;
-        if (!Objects.equals(this.scene, other.scene)) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.clue, other.clue)) {
-            return false;
-        }
-        return true;
-    }
-
-    
-    
+        
 }
