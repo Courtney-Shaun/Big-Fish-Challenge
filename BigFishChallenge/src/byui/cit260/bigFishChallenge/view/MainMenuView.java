@@ -7,7 +7,6 @@ package byui.cit260.bigFishChallenge.view;
 
 import bigfishchallenge.BigFishChallenge;
 import byui.cit260.bigFishChallenge.control.GameControl;
-import java.util.Scanner;
 
 /**
  *
@@ -59,8 +58,10 @@ public class MainMenuView extends View{
         GameControl.createNewGame(BigFishChallenge.getPlayer());
         
         // display the game menu
-        StartNewGameView startNewGameView = new StartNewGameView();
-        startNewGameView.display();
+        /*StartNewGameView startNewGameView = new StartNewGameView();
+        startNewGameView.display();*/
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.display();
     }
 
     private void startExistingGame() {

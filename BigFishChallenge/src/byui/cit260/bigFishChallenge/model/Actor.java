@@ -30,7 +30,7 @@ public enum Actor implements Serializable{
 
     Actor(String clue) {
         this.clue = clue; 
-        location = new MainScene(1);
+        location = new MainScene();
     }
     
     public MainScene getLocation() {

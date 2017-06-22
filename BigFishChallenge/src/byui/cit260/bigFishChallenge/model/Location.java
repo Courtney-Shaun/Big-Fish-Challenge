@@ -17,11 +17,35 @@ public class Location implements Serializable {
     //class instance variables
     private double row;
     private double column;
-    private String visited;
+    private boolean visited;
+    private MainScene scene;
+    private Actor actors;
 
-    public Location() {
+    public boolean isVisited() {
+        return visited;
     }
-        
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
+    }
+
+    public MainScene getScene() {
+        return scene;
+    }
+
+    public void setScene(MainScene scene) {
+        this.scene = scene;
+    }
+
+    public Actor getActors() {
+        return actors;
+    }
+
+    public void setActors(Actor actors) {
+        this.actors = actors;
+    }
+    
+    
     public double getRow() {
         return row;
     }
@@ -38,26 +62,21 @@ public class Location implements Serializable {
         this.column = column;
     }
 
-    public String getVisited() {
+    public Boolean getVisited() {
         return visited;
     }
 
-    public void setVisited(String visited) {
+    public void setVisited(Boolean visited) {
         this.visited = visited;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.row) ^ (Double.doubleToLongBits(this.row) >>> 32));
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.column) ^ (Double.doubleToLongBits(this.column) >>> 32));
-        hash = 89 * hash + Objects.hashCode(this.visited);
+        hash = 29 * hash + (int) (Double.doubleToLongBits(this.row) ^ (Double.doubleToLongBits(this.row) >>> 32));
+        hash = 29 * hash + (int) (Double.doubleToLongBits(this.column) ^ (Double.doubleToLongBits(this.column) >>> 32));
+        hash = 29 * hash + Objects.hashCode(this.visited);
         return hash;
-    }
-
-    @Override
-    public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + '}';
     }
 
     @Override
@@ -83,7 +102,16 @@ public class Location implements Serializable {
         }
         return true;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + '}';
+    }
+
+    public Location() {
+    }
+        
+
+
     
 }

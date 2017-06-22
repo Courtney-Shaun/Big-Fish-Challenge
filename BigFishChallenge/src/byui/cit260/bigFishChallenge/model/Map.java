@@ -6,6 +6,7 @@
 package byui.cit260.bigFishChallenge.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -15,85 +16,99 @@ import java.util.Objects;
 public class Map implements Serializable {
     
     // class instance variables
-    private String description;
-    private double rowCount;
-    private double columnCount;
-    private double currentRow;
-    private double currentColumn;
-    private String currentScene;
-
-    public Map() {
-    }
-    
-    
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public double getRowCount() {
-        return rowCount;
-    }
-
-    public void setRowCount(double rowCount) {
-        this.rowCount = rowCount;
-    }
-
-    public double getColumnCount() {
-        return columnCount;
-    }
-
-    public void setColumnCount(double columnCount) {
-        this.columnCount = columnCount;
-    }
-
-    public double getCurrentRow() {
+    private int noOfRows;
+    private int noOfColumns;
+    private Location[][] locations;
+    private int currentRow = 0;
+    private int currentColumn = 0;
+    private Location currentLocation;
+     
+    public int getCurrentRow() {
         return currentRow;
     }
 
-    public void setCurrentRow(double currentRow) {
+    public void setCurrentRow(int currentRow) {
         this.currentRow = currentRow;
     }
 
-    public double getCurrentColumn() {
+    public int getCurrentColumn() {
         return currentColumn;
     }
 
-    public void setCurrentColumn(double currentColumn) {
+    public void setCurrentColumn(int currentColumn) {
         this.currentColumn = currentColumn;
     }
 
-    public String getCurrentScene() {
-        return currentScene;
+    public Location getCurrentLocation() {
+        return currentLocation;
     }
 
-    public void setCurrentScene(String currentScene) {
-        this.currentScene = currentScene;
+    public void setCurrentLocation(Location currentLocation) {
+        this.currentLocation = currentLocation;
+    }
+    
+    
+    public Location[][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
+    }
+
+
+    
+    public Map(int noOfRows, int noOfColumns) {
+
+        if (noOfRows < 1 || noOfColumns < 1 ) {
+            System.out.println("The number of rows and columns must be > zero.");
+            return;
+        }
+        
+        this.noOfRows = noOfRows;
+        this.noOfColumns = noOfColumns;
+        
+        this.locations = new Location[noOfRows][noOfColumns];
+        
+        for (int row = 0; row < noOfRows; row++) {
+            for (int column = 0; column < noOfColumns; column++) {
+                Location location = new Location();
+                location.setColumn(column);
+                location.setRow(row);
+                location.setVisited(false);
+                
+                locations[row][column] = location;
+            }
+        }
+
+    }
+
+    
+    public int getNoOfRows() {
+        return noOfRows;
+    }
+
+    public void setNoOfRows(int noOfRows) {
+        this.noOfRows = noOfRows;
+    }
+
+    public int getNoOfColumns() {
+        return noOfColumns;
+    }
+
+    public void setNoOfColumns(int noOfColumns) {
+        this.noOfColumns = noOfColumns;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.description);
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.rowCount) ^ (Double.doubleToLongBits(this.rowCount) >>> 32));
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.columnCount) ^ (Double.doubleToLongBits(this.columnCount) >>> 32));
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.currentRow) ^ (Double.doubleToLongBits(this.currentRow) >>> 32));
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.currentColumn) ^ (Double.doubleToLongBits(this.currentColumn) >>> 32));
-        hash = 67 * hash + Objects.hashCode(this.currentScene);
+        int hash = 5;
+        hash = 17 * hash + this.noOfRows;
+        hash = 17 * hash + this.noOfColumns;
+        hash = 17 * hash + Objects.hashCode(this.locations);
         return hash;
     }
 
-    @Override
-    public String toString() {
-        return "Map{" + "description=" + description + ", rowCount=" + rowCount + ", columnCount=" + columnCount + ", currentRow=" + currentRow + ", currentColumn=" + currentColumn + ", currentScene=" + currentScene + '}';
-    }
-
-    
-    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -106,27 +121,22 @@ public class Map implements Serializable {
             return false;
         }
         final Map other = (Map) obj;
-        if (Double.doubleToLongBits(this.rowCount) != Double.doubleToLongBits(other.rowCount)) {
+        if (this.noOfRows != other.noOfRows) {
             return false;
         }
-        if (Double.doubleToLongBits(this.columnCount) != Double.doubleToLongBits(other.columnCount)) {
+        if (this.noOfColumns != other.noOfColumns) {
             return false;
         }
-        if (Double.doubleToLongBits(this.currentRow) != Double.doubleToLongBits(other.currentRow)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.currentColumn) != Double.doubleToLongBits(other.currentColumn)) {
-            return false;
-        }
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        if (!Objects.equals(this.currentScene, other.currentScene)) {
+        if (!Objects.equals(this.locations, other.locations)) {
             return false;
         }
         return true;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Map{" + "noOfRows=" + noOfRows + ", noOfColumns=" + noOfColumns + ", currentLocation=" + locations + '}';
+    }
     
 }
+        
