@@ -44,11 +44,11 @@ public class EstimateFuelView extends View {
         boolean done = false; // set flag to not done
         do {
             // Get the option
-            double input = getDoubleInput("\n How many miles do you want to travel?", 40, 1);
+            double input = getDoubleInput("\n How many miles do you want to travel?(No more than 40)", 40, 1);
             if (input == -999) // user wants to quit
                 return; // exit the game
         
-            double inputTwo = getDoubleInput("\n How many gallons of fuel do you have?", 8, 1);
+            double inputTwo = getDoubleInput("\n How many gallons of fuel do you have? (No more than 8)", 8, 1);
             if (inputTwo == - 999) // user wants to quit
                 return; // exit the game
             

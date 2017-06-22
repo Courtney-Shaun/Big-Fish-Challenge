@@ -6,6 +6,7 @@
 package byui.cit260.bigFishChallenge.control;
 
 import byui.cit260.bigFishChallenge.model.MainScene;
+import byui.cit260.bigFishChallenge.model.MainScene.SceneType;
 import byui.cit260.bigFishChallenge.model.Map;
 
 /**
@@ -14,7 +15,7 @@ import byui.cit260.bigFishChallenge.model.Map;
  */
 public class MapControl {
 
-    public static Map createMap() {
+    static Map createMap() {
         Map map = new Map(5, 5);
         
         MainScene[] scenes = createScenes();
@@ -25,7 +26,10 @@ public class MapControl {
     }
 
     private static MainScene[] createScenes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        MainScene[] scenes = new MainScene[SceneType.values().length];
+        
+        return scenes;
+        
     }
     
 }

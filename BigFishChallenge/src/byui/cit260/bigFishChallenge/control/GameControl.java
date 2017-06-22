@@ -34,19 +34,22 @@ public class GameControl {
     }
     
     public static void createNewGame(Player player) {
-        System.out.println("\n*** createNewGame stub function called ***");
+                
+        Game game = new Game(); // create new game
+        BigFishChallenge.setCurrentGame(game);  // save in BigFishChallenge
         
-        Game game = new Game();
-        BigFishChallenge.setCurrentGame(game);
+        game.setPlayer(player);  // save player in game
         
-        game.setPlayer(player);
-        
+        // create the inventory list and save in the game
         InventoryItem[] inventoryList = GameControl.createInventoryList();
         game.setInventory(inventoryList);
-        /*
-        Map map = MapControl.createMap();
-        game.setMap(map);
-        */
+        
+        
+        Map map = MapControl.createMap(); //create and initialize new map
+        game.setMap(map); //same map in 
+        
+        
+        
     }
 
     static void assignScenesToLocations(Map map, MainScene[] scenes) {
