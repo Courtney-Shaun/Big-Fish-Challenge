@@ -27,7 +27,7 @@ public class MapControl {
 
     public static void movePlayerToStartingLocation(Map map) {
         // If starting location is not supposed to be 0,0 then use the correct values here.
-        movePlayer(map, 0, 0); // or instead of 0,0 you can select a different starting location
+        movePlayer(map, 4, 2); // or instead of 0,0 you can select a different starting location
     }
 
     public static void movePlayer(Map map, int row, int column) {
@@ -39,77 +39,301 @@ public class MapControl {
     }
     
     public enum SceneType {
-        start,
-        deepWater,
-        shallowWater,
-        rocky,
-        weeds,
-        roughWater,
+        boatLaunch,
+        deepWater1,
+        deepWater2,
+        deepWater3,
+        deepWater4,
+        deepWater5,
+        shallowWater1,
+        shallowWater2,
+        shallowWater3,
+        shallowWater4,
+        shallowWater5,
+        shallowWater6,
+        shallowWater7,
+        rocky1,
+        rocky2,
+        weeds1,
+        weeds2,
+        weeds3,
+        weeds4,
+        roughWater1,
+        roughWater2,
+        roughWater3,
+        roughWater4,
         underBridge,
-        marina,
-        finish;
+        marina;
     }
     
     public static MainScene[] createScenes() {
         MainScene[] scenes = new MainScene[SceneType.values().length];
         
-        MainScene startScene = new MainScene();
-        startScene.setDescription("this is the starting scene");
-        startScene.setMapSymbol(" ST ");
-        startScene.setName("Start Scene");
-        startScene.setBlocked(false);
-        scenes[SceneType.start.ordinal()] = startScene;
+        MainScene boatLaunch = new MainScene();
+        boatLaunch.setDescription("--------------------------------"
+                  + "\n You've just pulled your boat"
+                  + "\n into Greers Ferry Lake. Its a"
+                  + "\n beautiful sunny morning and"
+                  + "\n you're excited to get started."
+                  + "\n Be sure to pick up some bait"
+                  + "\n and fuel at the Marina (MR)"
+                  + "\n before heading out!");
+        boatLaunch.setMapSymbol(" BL ");
+        boatLaunch.setName("at the boat launch."); //"You are currently" + INSERT THIS STRING
+        boatLaunch.setBlocked(false);
+        scenes[SceneType.boatLaunch.ordinal()] = boatLaunch;
         
-        MainScene deepWaterScene = new MainScene();
-        deepWaterScene.setDescription("this is the deepWater scene");
-        deepWaterScene.setMapSymbol(" DW ");
-        deepWaterScene.setName("Deep Water Scene");
-        deepWaterScene.setBlocked(false);
-        scenes[SceneType.deepWater.ordinal()] = deepWaterScene;
+        MainScene deepWater1 = new MainScene();
+        deepWater1.setDescription("--------------------------------"
+                  + "\n You're pretty far out"
+                  + "\n now. It's calm and about"
+                  + "\n 22 feet deep.");
+        deepWater1.setMapSymbol(" DW ");
+        deepWater1.setName("in deep water."); //"You are currently" + INSERT THIS STRING
+        deepWater1.setBlocked(false);
+        scenes[SceneType.deepWater1.ordinal()] = deepWater1;
         
-        MainScene shallowWaterScene = new MainScene();
-        shallowWaterScene.setDescription("this is the shallowWater scene");
-        shallowWaterScene.setMapSymbol(" SW ");
-        shallowWaterScene.setName("Shallow Water Scene");
-        shallowWaterScene.setBlocked(false);
-        scenes[SceneType.shallowWater.ordinal()] = shallowWaterScene;
+        MainScene deepWater2 = new MainScene();
+        deepWater2.setDescription("--------------------------------"
+                  + "\n You're quite a ways from"
+                  + "\n shore. It's calm and about"
+                  + "\n 14 feet deep.");
+        deepWater2.setMapSymbol(" DW ");
+        deepWater2.setName("in deep water."); //"You are currently" + INSERT THIS STRING
+        deepWater2.setBlocked(false);
+        scenes[SceneType.deepWater2.ordinal()] = deepWater2;
         
-        MainScene rockyScene = new MainScene();
-        rockyScene.setDescription("this is the rocky scene");
-        rockyScene.setMapSymbol(" RK ");
-        rockyScene.setName("Rocky Scene");
-        rockyScene.setBlocked(false);
-        scenes[SceneType.rocky.ordinal()] = rockyScene;
+        MainScene deepWater3 = new MainScene();
+        deepWater3.setDescription("--------------------------------"
+                  + "\n You're out pretty far."
+                  + "\n It's quiet. The water is"
+                  + "\n about 20 feet deep.");
+        deepWater3.setMapSymbol(" DW ");
+        deepWater3.setName("in deep water."); //"You are currently" + INSERT THIS STRING
+        deepWater3.setBlocked(false);
+        scenes[SceneType.deepWater3.ordinal()] = deepWater3;
         
-        MainScene weedsScene = new MainScene();
-        weedsScene.setDescription("this is the weeds scene");
-        weedsScene.setMapSymbol(" WD ");
-        weedsScene.setBlocked(false);
-        scenes[SceneType.weeds.ordinal()] = weedsScene;
+        MainScene deepWater4 = new MainScene();
+        deepWater4.setDescription("--------------------------------"
+                  + "\n You're pretty far out"
+                  + "\n now. It's calm and about"
+                  + "\n 22 feet deep.");
+        deepWater4.setMapSymbol(" DW ");
+        deepWater4.setName("in deep water."); //"You are currently" + INSERT THIS STRING
+        deepWater4.setBlocked(false);
+        scenes[SceneType.deepWater4.ordinal()] = deepWater4;
         
-        MainScene roughWaterScene = new MainScene();
-        roughWaterScene.setDescription("this is the roughWater scene");
-        roughWaterScene.setMapSymbol(" RW ");
-        roughWaterScene.setBlocked(false);
-        scenes[SceneType.roughWater.ordinal()] = roughWaterScene;
+        MainScene deepWater5 = new MainScene();
+        deepWater5.setDescription("--------------------------------"
+                  + "\n You aren't too far from"
+                  + "\n shore, but the water"
+                  + "\n is pretty deep already.");
+        deepWater5.setMapSymbol(" DW ");
+        deepWater5.setName("in deep water."); //"You are currently" + INSERT THIS STRING
+        deepWater5.setBlocked(false);
+        scenes[SceneType.deepWater5.ordinal()] = deepWater5;        
         
-        MainScene underBridgeScene = new MainScene();
-        underBridgeScene.setDescription("this is the underBridge scene");
-        underBridgeScene.setMapSymbol(" UB ");
-        underBridgeScene.setBlocked(false);
-        scenes[SceneType.underBridge.ordinal()] = underBridgeScene;
+        MainScene shallowWater1 = new MainScene();
+        shallowWater1.setDescription("--------------------------------"
+                  + "\n It's calm here, and"
+                  + "\n probably about 5 feet"
+                  + "\n deep.");
+        shallowWater1.setMapSymbol(" SW ");
+        shallowWater1.setName("in shallow water."); //"You are currently" + INSERT THIS STRING
+        shallowWater1.setBlocked(false);
+        scenes[SceneType.shallowWater1.ordinal()] = shallowWater1;
         
-        MainScene marinaScene = new MainScene();
-        marinaScene.setDescription("this is the marina scene");
-        marinaScene.setMapSymbol(" MR ");
-        marinaScene.setBlocked(false);
-        scenes[SceneType.marina.ordinal()] = marinaScene;
+        MainScene shallowWater2 = new MainScene();
+        shallowWater2.setDescription("--------------------------------"
+                  + "\n It's calm here, and"
+                  + "\n probably about 7 feet"
+                  + "\n deep.");
+        shallowWater2.setMapSymbol(" SW ");
+        shallowWater2.setName("in shallow water."); //"You are currently" + INSERT THIS STRING
+        shallowWater2.setBlocked(false);
+        scenes[SceneType.shallowWater2.ordinal()] = shallowWater2;
         
-        MainScene finishScene = new MainScene();
-        finishScene.setDescription("this is the finish scene");
-        finishScene.setMapSymbol(" FN ");
-        finishScene.setBlocked(false);
-        scenes[SceneType.finish.ordinal()] = finishScene;
+        MainScene shallowWater3 = new MainScene();
+        shallowWater3.setDescription("--------------------------------"
+                  + "\n It's calm here, and"
+                  + "\n probably about 4 feet"
+                  + "\n deep.");
+        shallowWater3.setMapSymbol(" SW ");
+        shallowWater3.setName("in shallow water."); //"You are currently" + INSERT THIS STRING
+        shallowWater3.setBlocked(false);
+        scenes[SceneType.shallowWater3.ordinal()] = shallowWater3;
+        
+        MainScene shallowWater4 = new MainScene();
+        shallowWater4.setDescription("--------------------------------"
+                  + "\n It's calm here, and"
+                  + "\n probably about 6 feet"
+                  + "\n deep.");
+        shallowWater4.setMapSymbol(" SW ");
+        shallowWater4.setName("in shallow water."); //"You are currently" + INSERT THIS STRING
+        shallowWater4.setBlocked(false);
+        scenes[SceneType.shallowWater4.ordinal()] = shallowWater4;
+        
+        MainScene shallowWater5 = new MainScene();
+        shallowWater5.setDescription("--------------------------------"
+                  + "\n It's calm here, and"
+                  + "\n probably about 8 feet"
+                  + "\n deep.");
+        shallowWater5.setMapSymbol(" SW ");
+        shallowWater5.setName("in shallow water."); //"You are currently" + INSERT THIS STRING
+        shallowWater5.setBlocked(false);
+        scenes[SceneType.shallowWater5.ordinal()] = shallowWater5;
+        
+        MainScene shallowWater6 = new MainScene();
+        shallowWater6.setDescription("--------------------------------"
+                  + "\n It's calm here, and"
+                  + "\n probably about 4 feet"
+                  + "\n deep.");
+        shallowWater6.setMapSymbol(" SW ");
+        shallowWater6.setName("in shallow water."); //"You are currently" + INSERT THIS STRING
+        shallowWater6.setBlocked(false);
+        scenes[SceneType.shallowWater6.ordinal()] = shallowWater6;
+        
+        MainScene shallowWater7 = new MainScene();
+        shallowWater7.setDescription("--------------------------------"
+                  + "\n It's calm here, and"
+                  + "\n probably about 5 feet"
+                  + "\n deep.");
+        shallowWater7.setMapSymbol(" SW ");
+        shallowWater7.setName("in shallow water."); //"You are currently" + INSERT THIS STRING
+        shallowWater7.setBlocked(false);
+        scenes[SceneType.shallowWater7.ordinal()] = shallowWater7;
+        
+        MainScene rocky1 = new MainScene();
+        rocky1.setDescription("--------------------------------"
+                  + "\n Don't bump into the"
+                  + "\n rocks! It can hurt your"
+                  + "\n boat AND scare away them"
+                  + "\n fish!");
+        rocky1.setMapSymbol(" RK ");
+        rocky1.setName("in rocky water."); //"You are currently" + INSERT THIS STRING
+        rocky1.setBlocked(false);
+        scenes[SceneType.rocky1.ordinal()] = rocky1;
+        
+        MainScene rocky2 = new MainScene();
+        rocky2.setDescription("--------------------------------"
+                  + "\n Don't bump into the"
+                  + "\n rocks! It can hurt your"
+                  + "\n boat AND scare away them"
+                  + "\n fish!");
+        rocky2.setMapSymbol(" RK ");
+        rocky2.setName("in rocky water."); //"You are currently" + INSERT THIS STRING
+        rocky2.setBlocked(false);
+        scenes[SceneType.rocky2.ordinal()] = rocky2;
+        
+        MainScene weeds1 = new MainScene();
+        weeds1.setDescription("--------------------------------"
+                  + "\n Your boat is near the"
+                  + "\n shore. It's shallow and"
+                  + "\n there are lots of weeds."
+                  + "\n Try not to get your prop"
+                  + "stuck!");
+        weeds1.setMapSymbol(" WD ");
+        weeds1.setName("in the weeds."); //"You are currently" + INSERT THIS STRING
+        weeds1.setBlocked(false);
+        scenes[SceneType.weeds1.ordinal()] = weeds1;
+        
+        MainScene weeds2 = new MainScene();
+        weeds2.setDescription("--------------------------------"
+                  + "\n Your boat is near the"
+                  + "\n shore. It's shallow and"
+                  + "\n there are lots of weeds."
+                  + "\n Try not to get your prop"
+                  + "stuck!");
+        weeds2.setMapSymbol(" WD ");
+        weeds2.setName("in the weeds."); //"You are currently" + INSERT THIS STRING
+        weeds2.setBlocked(false);
+        scenes[SceneType.weeds2.ordinal()] = weeds2;
+        
+        MainScene weeds3 = new MainScene();
+        weeds3.setDescription("--------------------------------"
+                  + "\n Your boat is near the"
+                  + "\n shore. It's shallow and"
+                  + "\n there are lots of weeds."
+                  + "\n Try not to get your prop"
+                  + "stuck!");
+        weeds3.setMapSymbol(" WD ");
+        weeds3.setName("in the weeds."); //"You are currently" + INSERT THIS STRING
+        weeds3.setBlocked(false);
+        scenes[SceneType.weeds3.ordinal()] = weeds3;
+        
+        MainScene weeds4 = new MainScene();
+        weeds4.setDescription("--------------------------------"
+                  + "\n Your boat is near the"
+                  + "\n shore. It's shallow and"
+                  + "\n there are lots of weeds."
+                  + "\n Try not to get your prop"
+                  + "stuck!");
+        weeds4.setMapSymbol(" WD ");
+        weeds4.setName("in the weeds."); //"You are currently" + INSERT THIS STRING
+        weeds4.setBlocked(false);
+        scenes[SceneType.weeds4.ordinal()] = weeds4;
+        
+        MainScene roughWater1 = new MainScene();
+        roughWater1.setDescription("--------------------------------"
+                  + "\n It's pretty deep here"
+                  + "\n and your boat is rocking"
+                  + "\n quite a bit from the waves.");
+        roughWater1.setMapSymbol(" RW ");
+        roughWater1.setName("in rough water."); //"You are currently" + INSERT THIS STRING
+        roughWater1.setBlocked(false);
+        scenes[SceneType.roughWater1.ordinal()] = roughWater1;
+        
+        MainScene roughWater2 = new MainScene();
+        roughWater2.setDescription("--------------------------------"
+                  + "\n It's pretty deep here"
+                  + "\n and your boat is rocking"
+                  + "\n quite a bit from the waves.");
+        roughWater2.setMapSymbol(" RW ");
+        roughWater2.setName("in rough water."); //"You are currently" + INSERT THIS STRING
+        roughWater2.setBlocked(false);
+        scenes[SceneType.roughWater2.ordinal()] = roughWater2;
+        
+        MainScene roughWater3 = new MainScene();
+        roughWater3.setDescription("--------------------------------"
+                  + "\n It's pretty deep here"
+                  + "\n and your boat is rocking"
+                  + "\n quite a bit from the waves.");
+        roughWater3.setMapSymbol(" RW ");
+        roughWater3.setName("in rough water."); //"You are currently" + INSERT THIS STRING
+        roughWater3.setBlocked(false);
+        scenes[SceneType.roughWater3.ordinal()] = roughWater3;
+        
+        MainScene roughWater4 = new MainScene();
+        roughWater4.setDescription("--------------------------------"
+                  + "\n It's pretty deep here"
+                  + "\n and your boat is rocking"
+                  + "\n quite a bit from the waves.");
+        roughWater4.setMapSymbol(" RW ");
+        roughWater4.setName("in rough water."); //"You are currently" + INSERT THIS STRING
+        roughWater4.setBlocked(false);
+        scenes[SceneType.roughWater4.ordinal()] = roughWater4;
+        
+        MainScene underBridge = new MainScene();
+        underBridge.setDescription("--------------------------------"
+                  + "\n This is where the Bear"
+                  + "\n Branch River flows into"
+                  + "\n the lake. There's a fairly"
+                  + "\n strong current here.");
+        underBridge.setMapSymbol(" UB ");
+        underBridge.setName("under the bridge."); //"You are currently" + INSERT THIS STRING
+        underBridge.setBlocked(false);
+        scenes[SceneType.underBridge.ordinal()] = underBridge;
+        
+        MainScene marina = new MainScene();
+        marina.setDescription("--------------------------------"
+                  + "\n You can buy fuel and bait"
+                  + "\n here. Make sure you can"
+                  + "\n carry it all back to your"
+                  + "\n boat!");
+        marina.setMapSymbol(" MR ");
+        marina.setName("at the marina."); //"You are currently" + INSERT THIS STRING
+        marina.setBlocked(false);
+        scenes[SceneType.marina.ordinal()] = marina;
         
         return scenes;
     }

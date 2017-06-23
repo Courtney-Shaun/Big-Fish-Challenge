@@ -122,7 +122,7 @@ public class GameMenuView extends View {
             }
         System.out.println("|");
         }
-        System.out.println("You are currently at " + map.getCurrentLocation().getScene().getName());
+        System.out.println("\n You are now " + map.getCurrentLocation().getScene().getName());
         System.out.println(map.getCurrentLocation().getScene().getDescription());
     }
     

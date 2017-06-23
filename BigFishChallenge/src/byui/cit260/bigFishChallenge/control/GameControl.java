@@ -55,31 +55,31 @@ public class GameControl {
     static void assignScenesToLocations(Map map, MainScene[] scenes) {
         Location[][] locations = map.getLocations();
         
-        locations[0][0].setScene(scenes[SceneType.start.ordinal()]);
-        locations[0][1].setScene(scenes[SceneType.shallowWater.ordinal()]);
-        locations[0][2].setScene(scenes[SceneType.shallowWater.ordinal()]);
-        locations[0][3].setScene(scenes[SceneType.rocky.ordinal()]);
-        locations[0][4].setScene(scenes[SceneType.shallowWater.ordinal()]);
-        locations[1][0].setScene(scenes[SceneType.deepWater.ordinal()]);
-        locations[1][1].setScene(scenes[SceneType.deepWater.ordinal()]);
-        locations[1][2].setScene(scenes[SceneType.deepWater.ordinal()]);
-        locations[1][3].setScene(scenes[SceneType.shallowWater.ordinal()]);
-        locations[1][4].setScene(scenes[SceneType.marina.ordinal()]);
-        locations[2][0].setScene(scenes[SceneType.deepWater.ordinal()]);
-        locations[2][1].setScene(scenes[SceneType.weeds.ordinal()]);
-        locations[2][2].setScene(scenes[SceneType.deepWater.ordinal()]);
-        locations[2][3].setScene(scenes[SceneType.deepWater.ordinal()]);
-        locations[2][4].setScene(scenes[SceneType.shallowWater.ordinal()]);
-        locations[3][0].setScene(scenes[SceneType.deepWater.ordinal()]);
-        locations[3][1].setScene(scenes[SceneType.weeds.ordinal()]);
-        locations[3][2].setScene(scenes[SceneType.rocky.ordinal()]);
-        locations[3][3].setScene(scenes[SceneType.deepWater.ordinal()]);
-        locations[3][4].setScene(scenes[SceneType.underBridge.ordinal()]);
-        locations[4][0].setScene(scenes[SceneType.weeds.ordinal()]);
-        locations[4][1].setScene(scenes[SceneType.rocky.ordinal()]);
-        locations[4][2].setScene(scenes[SceneType.shallowWater.ordinal()]);
-        locations[4][3].setScene(scenes[SceneType.shallowWater.ordinal()]);
-        locations[4][4].setScene(scenes[SceneType.finish.ordinal()]);
+        locations[0][0].setScene(scenes[SceneType.rocky1.ordinal()]);
+        locations[0][1].setScene(scenes[SceneType.weeds1.ordinal()]);
+        locations[0][2].setScene(scenes[SceneType.shallowWater1.ordinal()]);
+        locations[0][3].setScene(scenes[SceneType.roughWater1.ordinal()]);
+        locations[0][4].setScene(scenes[SceneType.underBridge.ordinal()]);
+        locations[1][0].setScene(scenes[SceneType.rocky2.ordinal()]);
+        locations[1][1].setScene(scenes[SceneType.shallowWater2.ordinal()]);
+        locations[1][2].setScene(scenes[SceneType.deepWater1.ordinal()]);
+        locations[1][3].setScene(scenes[SceneType.deepWater2.ordinal()]);
+        locations[1][4].setScene(scenes[SceneType.roughWater2.ordinal()]);
+        locations[2][0].setScene(scenes[SceneType.shallowWater3.ordinal()]);
+        locations[2][1].setScene(scenes[SceneType.roughWater3.ordinal()]);
+        locations[2][2].setScene(scenes[SceneType.roughWater4.ordinal()]);
+        locations[2][3].setScene(scenes[SceneType.deepWater3.ordinal()]);
+        locations[2][4].setScene(scenes[SceneType.shallowWater4.ordinal()]);
+        locations[3][0].setScene(scenes[SceneType.shallowWater5.ordinal()]);
+        locations[3][1].setScene(scenes[SceneType.deepWater4.ordinal()]);
+        locations[3][2].setScene(scenes[SceneType.shallowWater6.ordinal()]);
+        locations[3][3].setScene(scenes[SceneType.deepWater5.ordinal()]);
+        locations[3][4].setScene(scenes[SceneType.weeds2.ordinal()]);
+        locations[4][0].setScene(scenes[SceneType.shallowWater7.ordinal()]);
+        locations[4][1].setScene(scenes[SceneType.marina.ordinal()]);
+        locations[4][2].setScene(scenes[SceneType.boatLaunch.ordinal()]);
+        locations[4][3].setScene(scenes[SceneType.weeds3.ordinal()]);
+        locations[4][4].setScene(scenes[SceneType.weeds4.ordinal()]);
         
         
     }
