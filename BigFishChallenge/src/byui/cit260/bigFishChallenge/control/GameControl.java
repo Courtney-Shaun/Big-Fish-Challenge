@@ -10,7 +10,7 @@ import byui.cit260.bigFishChallenge.model.Game;
 import byui.cit260.bigFishChallenge.model.InventoryItem;
 import byui.cit260.bigFishChallenge.model.Location;
 import byui.cit260.bigFishChallenge.model.MainScene;
-import byui.cit260.bigFishChallenge.model.MainScene.SceneType;
+import byui.cit260.bigFishChallenge.control.MapControl.SceneType;
 import byui.cit260.bigFishChallenge.model.Map;
 import byui.cit260.bigFishChallenge.model.Player;
 
@@ -80,6 +80,8 @@ public class GameControl {
         locations[4][2].setScene(scenes[SceneType.shallowWater.ordinal()]);
         locations[4][3].setScene(scenes[SceneType.shallowWater.ordinal()]);
         locations[4][4].setScene(scenes[SceneType.finish.ordinal()]);
+        
+        
     }
     
     public enum Item {

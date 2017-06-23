@@ -6,6 +6,7 @@
 package byui.cit260.bigFishChallenge.view;
 
 import bigfishchallenge.BigFishChallenge;
+import byui.cit260.bigFishChallenge.control.MapControl;
 import byui.cit260.bigFishChallenge.model.Game;
 import byui.cit260.bigFishChallenge.model.InventoryItem;
 import byui.cit260.bigFishChallenge.model.Location;
@@ -22,10 +23,12 @@ public class GameMenuView extends View {
             + "\n Game Menu"
             + "\n------------------------------"
             + "\n"
+            + "\nD - Display Map"
             + "\nM - Move to New Location"
             + "\nC - Cast a Line"
             + "\nE - Estimate Fuel Usage"
             + "\nT - Talk to Others"
+            + "\nB - Buy Bait'n'fuel"
             + "\nV - View Inventory"
             + "\nH - Help Menu"
             + "\nS - Save Game"
@@ -38,8 +41,11 @@ public class GameMenuView extends View {
         value = value.toUpperCase(); // convert choice to upper case
         
         switch (value) {
-            case "M":
+            case "D":
                 this.displayMap();
+                break;
+            case "M":
+                this.moveLocations();
                 break;
             case "C":
                 this.cast();
@@ -49,6 +55,9 @@ public class GameMenuView extends View {
                 break;
             case "T":
                 this.talkToOthers();
+                break;
+            case "B":
+                this.buyBaitNFuel();
                 break;
             case "V":
                 this.viewInventory();
@@ -80,7 +89,7 @@ public class GameMenuView extends View {
         System.out.print("  |");
         for( int column = 0; column < locations[0].length; column++){
             // print col numbers to side of map
-            System.out.print("  " + column + " |"); 
+            System.out.print("  " + column + "   |"); 
         }
         // Now build the map.  For each row, show the column information
         System.out.println();
@@ -113,6 +122,27 @@ public class GameMenuView extends View {
             }
         System.out.println("|");
         }
+        System.out.println("You are currently at " + map.getCurrentLocation().getScene().getName());
+        System.out.println(map.getCurrentLocation().getScene().getDescription());
+    }
+    
+    private void moveLocations() {
+        
+        Game game = BigFishChallenge.getCurrentGame(); // retreive the game
+        Map map = game.getMap(); // retreive the map from game
+        
+        displayMap();
+        int row = getIntInput("\n Row? (-999 to cancel)", 4, 0);
+        if (row == -999) {
+            return;
+        }
+        int column = getIntInput("\n Column? (-999 to cancel)", 4, 0);
+        if (column == -999) {
+            return;
+        }
+        MapControl.movePlayer(map,row,column);
+        //this is where we need to call the scene view associated with the new location
+        displayMap();
         
     }
     
@@ -162,6 +192,11 @@ public class GameMenuView extends View {
             
             System.out.println(line.toString());
         }
+    }
+    
+    private void buyBaitNFuel() {
+        ShopMarinaView shopMarinaView = new ShopMarinaView();
+        shopMarinaView.display();
     }
     
     private void help() {

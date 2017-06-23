@@ -7,6 +7,7 @@ package byui.cit260.bigFishChallenge.view;
 
 import bigfishchallenge.BigFishChallenge;
 import byui.cit260.bigFishChallenge.control.GameControl;
+import byui.cit260.bigFishChallenge.model.MainScene;
 
 /**
  *
@@ -62,6 +63,7 @@ public class MainMenuView extends View{
         startNewGameView.display();*/
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.display();
+        
     }
 
     private void startExistingGame() {
