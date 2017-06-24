@@ -23,8 +23,10 @@ public class MainScene implements Serializable{
     public void setFishWeight(int fishWeight) {
         this.fishWeight = fishWeight;
     }
+    private Actor actor;
 
     public MainScene() {
+        actor = Actor.NoActor;
     }
 
     public void setMapSymbol(String symbol) {
@@ -37,6 +39,14 @@ public class MainScene implements Serializable{
 
     public String getMapSymbol() {
         return this.mapSymbol;
+    }
+
+    public Actor getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor actor) {
+        this.actor = actor;
     }
    
     
