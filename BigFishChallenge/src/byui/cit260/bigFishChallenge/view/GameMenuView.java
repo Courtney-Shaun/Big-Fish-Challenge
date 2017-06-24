@@ -147,13 +147,31 @@ public class GameMenuView extends View {
     }
     
     private void cast() {
+        Game game = BigFishChallenge.getCurrentGame(); // retreive the game
+        Map map = game.getMap(); // retreive the map from game
         
-        int weight = 5; //eventually the weight will be determined by map location
+        int weight = map.getCurrentLocation().getScene().getFishWeight(); //retrieve fish weight from scene
+               
         String fishWeightText;
-        if (weight < 11) {
-            fishWeightText = " little ";
+        if (weight == -1) {
+            System.out.println("\n"
+            + "\n------------------------------------------------"
+            + "\n| Sorry, but you can't fish here               |"
+            + "\n------------------------------------------------");
+            return;
+        } else if (weight == 0) {
+            System.out.println("\n"
+            + "\n------------------------------------------------"
+            + "\n| You didn't get any bites.                    |"
+            + "\n------------------------------------------------");            
+            return;
+        }
+        
+        
+        else if (weight < 11 && weight > 0) {
+            fishWeightText = "You felt a little tug on your line.";
         } else {
-            fishWeightText = " strong ";
+            fishWeightText = "You felt a strong tug on your line!";
         }
         
         CastALineView castALineView = new CastALineView(fishWeightText, weight);

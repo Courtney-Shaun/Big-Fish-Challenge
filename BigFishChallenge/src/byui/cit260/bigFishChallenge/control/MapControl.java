@@ -80,6 +80,7 @@ public class MapControl {
                   + "\n before heading out!");
         boatLaunch.setMapSymbol(" BL ");
         boatLaunch.setName("at the boat launch."); //"You are currently" + INSERT THIS STRING
+        boatLaunch.setFishWeight(-1);
         boatLaunch.setBlocked(false);
         scenes[SceneType.boatLaunch.ordinal()] = boatLaunch;
         
@@ -90,6 +91,7 @@ public class MapControl {
                   + "\n 22 feet deep.");
         deepWater1.setMapSymbol(" DW ");
         deepWater1.setName("in deep water."); //"You are currently" + INSERT THIS STRING
+        deepWater1.setFishWeight(3);
         deepWater1.setBlocked(false);
         scenes[SceneType.deepWater1.ordinal()] = deepWater1;
         
@@ -100,6 +102,7 @@ public class MapControl {
                   + "\n 14 feet deep.");
         deepWater2.setMapSymbol(" DW ");
         deepWater2.setName("in deep water."); //"You are currently" + INSERT THIS STRING
+        deepWater2.setFishWeight(0);
         deepWater2.setBlocked(false);
         scenes[SceneType.deepWater2.ordinal()] = deepWater2;
         

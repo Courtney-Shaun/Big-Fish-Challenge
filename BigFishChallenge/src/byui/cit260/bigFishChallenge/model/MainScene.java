@@ -14,6 +14,15 @@ public class MainScene implements Serializable{
     private String name;
     private String obstacle;
     private String mapSymbol;
+    private int fishWeight;
+
+    public int getFishWeight() {
+        return this.fishWeight;
+    }
+
+    public void setFishWeight(int fishWeight) {
+        this.fishWeight = fishWeight;
+    }
 
     public MainScene() {
     }

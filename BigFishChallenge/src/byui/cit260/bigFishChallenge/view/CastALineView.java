@@ -5,7 +5,10 @@
  */
 package byui.cit260.bigFishChallenge.view;
 
+import bigfishchallenge.BigFishChallenge;
 import byui.cit260.bigFishChallenge.control.PlayerControl;
+import byui.cit260.bigFishChallenge.model.Game;
+import byui.cit260.bigFishChallenge.model.Map;
 
 /**
  *
@@ -22,7 +25,7 @@ public class CastALineView extends View{
             + "\n| You've cast your line in the water           |"
             + "\n------------------------------------------------"
             + "\n"
-            + "\n  You just felt a" + fishWeightText + "tug!"
+            + "\n  " + fishWeightText
             + "\n"
             + "\n  To set the hook, enter a pull strength (1-10)"
             + "\n------------------------------------------------");
@@ -48,6 +51,11 @@ public class CastALineView extends View{
             } else {
                 this.fishGotAway();
             }
+            
+            Game game = BigFishChallenge.getCurrentGame(); // retreive the game
+            Map map = game.getMap(); // retreive the map from game
+            
+            map.getCurrentLocation().getScene().setFishWeight(0);
         } else {
             System.out.println("\nInvalid entry.");
             this.display();
