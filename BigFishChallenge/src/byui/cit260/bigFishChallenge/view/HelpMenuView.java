@@ -5,6 +5,7 @@
  */
 package byui.cit260.bigFishChallenge.view;
 
+import byui.cit260.bigFishChallenge.model.Obstacle;
 import java.util.Scanner;
 
 /**
@@ -22,6 +23,7 @@ public class HelpMenuView  extends View{
               + "\nF - About Fuel"
               + "\nB - About Bait"
               + "\nC - Casting a Line"
+              + "\nV - View the Obstacles"  
               + "\nI - Interpreting Clues"
               + "\nQ - Quit"
               + "\n---------------------------------");
@@ -44,6 +46,9 @@ public class HelpMenuView  extends View{
                 break;
             case "C": // display help on casting a line
                 this.aboutCastLine();
+                break;
+            case "V": //display the list of obstacles and their power
+                this.viewObstacles();
                 break;
             case "I": // display help on interpret clues
                 this.interpretClues();
@@ -112,8 +117,48 @@ public class HelpMenuView  extends View{
               + "\n your inventory."
               + "\n--------------------------------");
     }
+    private void viewObstacles() {
+        
+        System.out.println("\n"
+              + "\n--------------------------------"
+              + "\n About Obstacles               |"
+              + "\n--------------------------------"
+              + "\n Around the lake there are many"
+              + "\n obsticals waiting to trip you"
+              + "\n up.  At best you may have to"
+              + "\n recast.  At worst you may have"
+              + "\n a hook in your ear!  Here is a"
+              + "\n list of the obsticales with"
+              + "\n their severity.  Good luck"
+              + "\n anglers!                       "
+              + "\n--------------------------------");
+        
+        int allObstacles = Obstacle.values().length;
+        int total = 0;
+        double average = 0;
+        
+        StringBuilder line;
+                       
+        System.out.println("\n      LIST OF OBSTACLES");
+        line = new StringBuilder("                        ");
+        line.insert(0, "OBSTACLE");
+        line.insert(19, "SEVERITY");
+        
+        System.out.println(line.toString());
+            for(Obstacle currentObstacle : Obstacle.values() ) {
+                total += currentObstacle.getPower();
+            
+                line = new StringBuilder("                              ");
+                line.insert(0, currentObstacle.getObstacle());
+                line.insert(23, currentObstacle.getPower());
+                System.out.println(line.toString());
+            }
+     average = total / allObstacles;
     
-    private void interpretClues() {
+    System.out.println("\n The average severity of the obstacles is " + average);
+
+}
+private void interpretClues() {
         System.out.println("\n"
               + "\n--------------------------------"
               + "\n About Clues                   |"
@@ -125,4 +170,6 @@ public class HelpMenuView  extends View{
               + "\n to find the big fish."
               + "\n--------------------------------");
     }
+
+    
 }
