@@ -13,13 +13,16 @@ import byui.cit260.bigFishChallenge.model.MainScene;
 import byui.cit260.bigFishChallenge.control.MapControl.SceneType;
 import byui.cit260.bigFishChallenge.model.Map;
 import byui.cit260.bigFishChallenge.model.Player;
+import java.util.ArrayList;
 
 /**
  *
  * @author shaunathan
  */
 public class GameControl {
-
+    
+    
+    
     public static Player createPlayer(String name) {
         if (name == null) {
             return null;
@@ -83,6 +86,10 @@ public class GameControl {
         
         
     }
+
+    public GameControl() {
+        
+    }
     
     public enum Item {
         fuel,
@@ -120,6 +127,26 @@ public class GameControl {
         inventory[Item.fish.ordinal()] = fish;
         
         return inventory;
+    }
+    
+    public static void addFish(int weight) {
+        Game game = BigFishChallenge.getCurrentGame();
+        
+        
+        game.setTotalFish(weight);
+    }
+    
+    public static int checkFish() {
+        Game game = BigFishChallenge.getCurrentGame();
+        
+        ArrayList<Integer> totalWeight = game.getTotalFish();
+                
+        int total = 0;
+        for (int weight: totalWeight) {
+            total += weight;
+        }
+        
+        return total;
     }
     
 }

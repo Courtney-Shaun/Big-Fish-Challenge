@@ -6,6 +6,7 @@
 package byui.cit260.bigFishChallenge.view;
 
 import bigfishchallenge.BigFishChallenge;
+import byui.cit260.bigFishChallenge.control.GameControl;
 import byui.cit260.bigFishChallenge.control.PlayerControl;
 import byui.cit260.bigFishChallenge.model.Game;
 import byui.cit260.bigFishChallenge.model.Map;
@@ -17,7 +18,7 @@ import byui.cit260.bigFishChallenge.model.Map;
 
 public class CastALineView extends View{
     
-    private int weight;
+    public int weight;
     
     public CastALineView(String fishWeightText, int weight) {
         super("\n"
@@ -47,7 +48,7 @@ public class CastALineView extends View{
             hookSetAccuracy = playerControl.cast(choiceInt, weight);
 
             if (hookSetAccuracy < 4) {
-                this.fishCaught();
+                this.fishCaught(weight);
             } else {
                 this.fishGotAway();
             }
@@ -64,13 +65,18 @@ public class CastALineView extends View{
         return true;
     }
 
-    private void fishCaught() {
-        System.out.println("*** fishCaught function called ***");
+    private void fishCaught(int weight) {
+        System.out.println("You caught a " + weight + " pound fish!");
+        GameControl.addFish(weight);
+        int totalWeight = GameControl.checkFish();
+        System.out.println("\n You have " + totalWeight + " total pounds of fish.");
         return; 
     }
 
     private void fishGotAway() {
-        System.out.println("*** fishGotAway function called ***");
+        System.out.println("Better luck next time. It got away.");
+        int totalWeight = GameControl.checkFish();
+        System.out.println("\n You have " + totalWeight + " total pounds of fish.");
         return; 
     }
 

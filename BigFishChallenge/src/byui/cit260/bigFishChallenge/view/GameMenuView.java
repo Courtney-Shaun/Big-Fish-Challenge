@@ -6,6 +6,7 @@
 package byui.cit260.bigFishChallenge.view;
 
 import bigfishchallenge.BigFishChallenge;
+import byui.cit260.bigFishChallenge.control.GameControl;
 import byui.cit260.bigFishChallenge.control.MapControl;
 import byui.cit260.bigFishChallenge.model.Actor;
 import byui.cit260.bigFishChallenge.model.Game;
@@ -27,6 +28,7 @@ public class GameMenuView extends View {
             + "\nD - Display Map"
             + "\nM - Move to New Location"
             + "\nC - Cast a Line"
+            + "\nF - Check how much fish you have"
             + "\nE - Estimate Fuel Usage"
             + "\nT - Talk to Others"
             + "\nP - Display people in the game"
@@ -51,6 +53,9 @@ public class GameMenuView extends View {
                 break;
             case "C":
                 this.cast();
+                break;
+            case "F":
+                this.check();
                 break;
             case "E":
                 this.estimateFuel();
@@ -156,6 +161,7 @@ public class GameMenuView extends View {
         Map map = game.getMap(); // retreive the map from game
         
         int weight = map.getCurrentLocation().getScene().getFishWeight(); //retrieve fish weight from scene
+        
                
         String fishWeightText;
         if (weight == -1) {
@@ -170,10 +176,7 @@ public class GameMenuView extends View {
             + "\n| You didn't get any bites.                    |"
             + "\n------------------------------------------------");            
             return;
-        }
-        
-        
-        else if (weight < 11 && weight > 0) {
+        } else if (weight < 11 && weight > 0) {
             fishWeightText = "You felt a little tug on your line.";
         } else {
             fishWeightText = "You felt a strong tug on your line!";
@@ -181,6 +184,11 @@ public class GameMenuView extends View {
         
         CastALineView castALineView = new CastALineView(fishWeightText, weight);
         castALineView.display();
+    }
+    
+    private void check() {
+        int totalWeight = GameControl.checkFish();
+        System.out.println("\n You have " + totalWeight + " total pounds of fish.");
     }
     
     private void estimateFuel() {
@@ -230,12 +238,13 @@ public class GameMenuView extends View {
     private void saveGame() {
         System.out.println("*** startExistingGame function called ***");
     }
-     private void DisplayPeople() {
-         Actor youngestActor = Actor.NoActor;
-         Actor oldestActor = Actor.NoActor;
+    
+    private void DisplayPeople() {
+        Actor youngestActor = Actor.NoActor;
+        Actor oldestActor = Actor.NoActor;
          
-         System.out.println("\n     LIST OF PEOPLE");
-         StringBuilder line;
+        System.out.println("\n     LIST OF PEOPLE");
+        StringBuilder line;
         line = new StringBuilder("                              ");
         line.insert(0, "Name");
         line.insert(20, "Age");

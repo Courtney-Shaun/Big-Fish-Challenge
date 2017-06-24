@@ -124,7 +124,7 @@ public class HelpMenuView  extends View{
               + "\n About Obstacles               |"
               + "\n--------------------------------"
               + "\n Around the lake there are many"
-              + "\n obsticals waiting to trip you"
+              + "\n obstacals waiting to trip you"
               + "\n up.  At best you may have to"
               + "\n recast.  At worst you may have"
               + "\n a hook in your ear!  Here is a"

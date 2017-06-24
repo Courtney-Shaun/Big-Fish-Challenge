@@ -9,6 +9,7 @@ import byui.cit260.bigFishChallenge.model.Actor;
 import byui.cit260.bigFishChallenge.model.MainScene;
 //import byui.cit260.bigFishChallenge.model.MainScene.SceneType;
 import byui.cit260.bigFishChallenge.model.Map;
+import java.util.Random;
 
 /**
  *
@@ -67,6 +68,17 @@ public class MapControl {
         marina;
     }
     
+    /**
+     *
+     * @return
+     */
+    public static int weightRandomizer() {
+        
+        Random rn = new Random();
+        int randomWeight = rn.nextInt(21);
+        return randomWeight;
+    }
+    
     public static MainScene[] createScenes() {
         MainScene[] scenes = new MainScene[SceneType.values().length];
         
@@ -93,7 +105,7 @@ public class MapControl {
                   + "\n 22 feet deep.");
         deepWater1.setMapSymbol(" DW ");
         deepWater1.setName("in deep water."); //"You are currently" + INSERT THIS STRING
-        deepWater1.setFishWeight(3);
+        deepWater1.setFishWeight(weightRandomizer());
         deepWater1.setBlocked(false);
         scenes[SceneType.deepWater1.ordinal()] = deepWater1;
         
@@ -104,7 +116,7 @@ public class MapControl {
                   + "\n 14 feet deep.");
         deepWater2.setMapSymbol(" DW ");
         deepWater2.setName("in deep water."); //"You are currently" + INSERT THIS STRING
-        deepWater2.setFishWeight(0);
+        deepWater2.setFishWeight(weightRandomizer());
         deepWater2.setBlocked(false);
         scenes[SceneType.deepWater2.ordinal()] = deepWater2;
         
@@ -115,6 +127,7 @@ public class MapControl {
                   + "\n about 20 feet deep.");
         deepWater3.setMapSymbol(" DW ");
         deepWater3.setName("in deep water."); //"You are currently" + INSERT THIS STRING
+        deepWater3.setFishWeight(weightRandomizer());
         deepWater3.setBlocked(false);
         scenes[SceneType.deepWater3.ordinal()] = deepWater3;
         
@@ -125,6 +138,7 @@ public class MapControl {
                   + "\n 22 feet deep.");
         deepWater4.setMapSymbol(" DW ");
         deepWater4.setName("in deep water."); //"You are currently" + INSERT THIS STRING
+        deepWater4.setFishWeight(weightRandomizer());
         deepWater4.setBlocked(false);
         scenes[SceneType.deepWater4.ordinal()] = deepWater4;
         
@@ -135,6 +149,7 @@ public class MapControl {
                   + "\n is pretty deep already.");
         deepWater5.setMapSymbol(" DW ");
         deepWater5.setName("in deep water."); //"You are currently" + INSERT THIS STRING
+        deepWater5.setFishWeight(weightRandomizer());
         deepWater5.setBlocked(false);
         scenes[SceneType.deepWater5.ordinal()] = deepWater5;        
         
@@ -145,6 +160,7 @@ public class MapControl {
                   + "\n deep.");
         shallowWater1.setMapSymbol(" SW ");
         shallowWater1.setName("in shallow water."); //"You are currently" + INSERT THIS STRING
+        shallowWater1.setFishWeight(weightRandomizer());
         shallowWater1.setBlocked(false);
         scenes[SceneType.shallowWater1.ordinal()] = shallowWater1;
         
@@ -155,6 +171,7 @@ public class MapControl {
                   + "\n deep.");
         shallowWater2.setMapSymbol(" SW ");
         shallowWater2.setName("in shallow water."); //"You are currently" + INSERT THIS STRING
+        shallowWater2.setFishWeight(weightRandomizer());
         shallowWater2.setBlocked(false);
         scenes[SceneType.shallowWater2.ordinal()] = shallowWater2;
         
@@ -165,6 +182,7 @@ public class MapControl {
                   + "\n deep.");
         shallowWater3.setMapSymbol(" SW ");
         shallowWater3.setName("in shallow water."); //"You are currently" + INSERT THIS STRING
+        shallowWater3.setFishWeight(weightRandomizer());
         shallowWater3.setBlocked(false);
         scenes[SceneType.shallowWater3.ordinal()] = shallowWater3;
         
@@ -175,6 +193,7 @@ public class MapControl {
                   + "\n deep.");
         shallowWater4.setMapSymbol(" SW ");
         shallowWater4.setName("in shallow water."); //"You are currently" + INSERT THIS STRING
+        shallowWater4.setFishWeight(weightRandomizer());
         shallowWater4.setBlocked(false);
         scenes[SceneType.shallowWater4.ordinal()] = shallowWater4;
         
@@ -185,6 +204,7 @@ public class MapControl {
                   + "\n deep.");
         shallowWater5.setMapSymbol(" SW ");
         shallowWater5.setName("in shallow water."); //"You are currently" + INSERT THIS STRING
+        shallowWater5.setFishWeight(weightRandomizer());
         shallowWater5.setBlocked(false);
         scenes[SceneType.shallowWater5.ordinal()] = shallowWater5;
         
@@ -195,6 +215,7 @@ public class MapControl {
                   + "\n deep.");
         shallowWater6.setMapSymbol(" SW ");
         shallowWater6.setName("in shallow water."); //"You are currently" + INSERT THIS STRING
+        shallowWater6.setFishWeight(weightRandomizer());
         shallowWater6.setBlocked(false);
         scenes[SceneType.shallowWater6.ordinal()] = shallowWater6;
         
@@ -205,6 +226,7 @@ public class MapControl {
                   + "\n deep.");
         shallowWater7.setMapSymbol(" SW ");
         shallowWater7.setName("in shallow water."); //"You are currently" + INSERT THIS STRING
+        shallowWater7.setFishWeight(weightRandomizer());
         shallowWater7.setBlocked(false);
         scenes[SceneType.shallowWater7.ordinal()] = shallowWater7;
         
@@ -216,6 +238,7 @@ public class MapControl {
                   + "\n fish!");
         rocky1.setMapSymbol(" RK ");
         rocky1.setName("in rocky water."); //"You are currently" + INSERT THIS STRING
+        rocky1.setFishWeight(weightRandomizer());
         rocky1.setBlocked(false);
         scenes[SceneType.rocky1.ordinal()] = rocky1;
         
@@ -227,6 +250,7 @@ public class MapControl {
                   + "\n fish!");
         rocky2.setMapSymbol(" RK ");
         rocky2.setName("in rocky water."); //"You are currently" + INSERT THIS STRING
+        rocky2.setFishWeight(weightRandomizer());
         rocky2.setBlocked(false);
         scenes[SceneType.rocky2.ordinal()] = rocky2;
         
@@ -239,6 +263,7 @@ public class MapControl {
                   + "stuck!");
         weeds1.setMapSymbol(" WD ");
         weeds1.setName("in the weeds."); //"You are currently" + INSERT THIS STRING
+        weeds1.setFishWeight(weightRandomizer());
         weeds1.setBlocked(false);
         scenes[SceneType.weeds1.ordinal()] = weeds1;
         
@@ -251,6 +276,7 @@ public class MapControl {
                   + "stuck!");
         weeds2.setMapSymbol(" WD ");
         weeds2.setName("in the weeds."); //"You are currently" + INSERT THIS STRING
+        weeds2.setFishWeight(weightRandomizer());
         weeds2.setBlocked(false);
         scenes[SceneType.weeds2.ordinal()] = weeds2;
         
@@ -263,6 +289,7 @@ public class MapControl {
                   + "stuck!");
         weeds3.setMapSymbol(" WD ");
         weeds3.setName("in the weeds."); //"You are currently" + INSERT THIS STRING
+        weeds3.setFishWeight(weightRandomizer());
         weeds3.setBlocked(false);
         scenes[SceneType.weeds3.ordinal()] = weeds3;
         
@@ -275,6 +302,7 @@ public class MapControl {
                   + "stuck!");
         weeds4.setMapSymbol(" WD ");
         weeds4.setName("in the weeds."); //"You are currently" + INSERT THIS STRING
+        weeds4.setFishWeight(weightRandomizer());
         weeds4.setBlocked(false);
         scenes[SceneType.weeds4.ordinal()] = weeds4;
         
@@ -285,6 +313,7 @@ public class MapControl {
                   + "\n quite a bit from the waves.");
         roughWater1.setMapSymbol(" RW ");
         roughWater1.setName("in rough water."); //"You are currently" + INSERT THIS STRING
+        roughWater1.setFishWeight(weightRandomizer());
         roughWater1.setBlocked(false);
         scenes[SceneType.roughWater1.ordinal()] = roughWater1;
         
@@ -295,6 +324,7 @@ public class MapControl {
                   + "\n quite a bit from the waves.");
         roughWater2.setMapSymbol(" RW ");
         roughWater2.setName("in rough water."); //"You are currently" + INSERT THIS STRING
+        roughWater2.setFishWeight(weightRandomizer());
         roughWater2.setBlocked(false);
         scenes[SceneType.roughWater2.ordinal()] = roughWater2;
         
@@ -305,6 +335,7 @@ public class MapControl {
                   + "\n quite a bit from the waves.");
         roughWater3.setMapSymbol(" RW ");
         roughWater3.setName("in rough water."); //"You are currently" + INSERT THIS STRING
+        roughWater3.setFishWeight(weightRandomizer());
         roughWater3.setBlocked(false);
         scenes[SceneType.roughWater3.ordinal()] = roughWater3;
         
@@ -315,6 +346,7 @@ public class MapControl {
                   + "\n quite a bit from the waves.");
         roughWater4.setMapSymbol(" RW ");
         roughWater4.setName("in rough water."); //"You are currently" + INSERT THIS STRING
+        roughWater4.setFishWeight(weightRandomizer());
         roughWater4.setBlocked(false);
         scenes[SceneType.roughWater4.ordinal()] = roughWater4;
         
@@ -326,6 +358,7 @@ public class MapControl {
                   + "\n strong current here.");
         underBridge.setMapSymbol(" UB ");
         underBridge.setName("under the bridge."); //"You are currently" + INSERT THIS STRING
+        underBridge.setFishWeight(weightRandomizer());
         underBridge.setBlocked(false);
         scenes[SceneType.underBridge.ordinal()] = underBridge;
         
@@ -337,6 +370,7 @@ public class MapControl {
                   + "\n boat!");
         marina.setMapSymbol(" MR ");
         marina.setName("at the marina."); //"You are currently" + INSERT THIS STRING
+        marina.setFishWeight(-1);
         marina.setBlocked(false);
         scenes[SceneType.marina.ordinal()] = marina;
         
