@@ -7,6 +7,7 @@ package byui.cit260.bigFishChallenge.view;
 
 import bigfishchallenge.BigFishChallenge;
 import byui.cit260.bigFishChallenge.control.MapControl;
+import byui.cit260.bigFishChallenge.model.Actor;
 import byui.cit260.bigFishChallenge.model.Game;
 import byui.cit260.bigFishChallenge.model.InventoryItem;
 import byui.cit260.bigFishChallenge.model.Location;
@@ -28,6 +29,7 @@ public class GameMenuView extends View {
             + "\nC - Cast a Line"
             + "\nE - Estimate Fuel Usage"
             + "\nT - Talk to Others"
+            + "\nP - Display people in the game"
             + "\nB - Buy Bait'n'fuel"
             + "\nV - View Inventory"
             + "\nH - Help Menu"
@@ -52,6 +54,9 @@ public class GameMenuView extends View {
                 break;
             case "E":
                 this.estimateFuel();
+                break;
+            case "P":
+                this.DisplayPeople();
                 break;
             case "T":
                 this.talkToOthers();
@@ -207,5 +212,31 @@ public class GameMenuView extends View {
     private void saveGame() {
         System.out.println("*** startExistingGame function called ***");
     }
+     private void DisplayPeople() {
+         Actor youngestActor = Actor.NoActor;
+         Actor oldestActor = Actor.NoActor;
+         
+         System.out.println("\n     LIST OF PEOPLE");
+         StringBuilder line;
+        line = new StringBuilder("                              ");
+        line.insert(0, "Name");
+        line.insert(20, "Age");
         
+        System.out.println(line.toString());
+         for (Actor currentActor:Actor.values()) {
+             if (currentActor != Actor.NoActor) {
+                 if (youngestActor == Actor.NoActor || currentActor.getAge()< youngestActor.getAge())
+                     youngestActor = currentActor;
+                 if (oldestActor == Actor.NoActor || currentActor.getAge()> oldestActor.getAge())
+                     oldestActor = currentActor;
+                line = new StringBuilder("                              ");
+                line.insert(0, currentActor.getName());
+                line.insert(20, currentActor.getAge());
+                System.out.println(line.toString());
+             }
+             
+         }
+         System.out.println("\nThe oldest person is " + oldestActor.getName());
+         System.out.println("The youngest person is " + youngestActor.getName());
+     }   
 }

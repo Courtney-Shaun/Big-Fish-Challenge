@@ -5,6 +5,7 @@
  */
 package byui.cit260.bigFishChallenge.control;
 
+import byui.cit260.bigFishChallenge.model.Actor;
 import byui.cit260.bigFishChallenge.model.MainScene;
 //import byui.cit260.bigFishChallenge.model.MainScene.SceneType;
 import byui.cit260.bigFishChallenge.model.Map;
@@ -81,6 +82,7 @@ public class MapControl {
         boatLaunch.setMapSymbol(" BL ");
         boatLaunch.setName("at the boat launch."); //"You are currently" + INSERT THIS STRING
         boatLaunch.setBlocked(false);
+        boatLaunch.setActor(Actor.Cletus);
         scenes[SceneType.boatLaunch.ordinal()] = boatLaunch;
         
         MainScene deepWater1 = new MainScene();

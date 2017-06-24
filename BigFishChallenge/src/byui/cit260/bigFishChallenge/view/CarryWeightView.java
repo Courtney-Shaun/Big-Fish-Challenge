@@ -41,12 +41,12 @@ public class CarryWeightView extends View{
         do {
             //prompt 
             //String input = this.getInputOne();
-            int input = getIntInput("\n How much fuel did you buy?", 50, 1);
+            int input = getIntInput("\n How much fuel did you buy?(No more than 50)", 50, 1);
             if (input == -999) // user wants to quit
                 return; // exit the game
             
             //String inputTwo = this.getInputTwo();
-            int inputTwo = getIntInput("\n How much bait did you buy?", 50, 1);
+            int inputTwo = getIntInput("\n How much bait did you buy?(No more than 50)", 50, 1);
             if (inputTwo == -999) // user wants to quit
                 return; // exit the game
 
