@@ -15,6 +15,7 @@ public class PlayerControl {
         
         if (inventoryWeight < 0 || inventoryWeight >100) {// inventory weight is invalid
             return -1;
+            
         }
         
         if (newWeight < 0 || newWeight > 100) {//New weight is invalid

@@ -26,7 +26,14 @@ public class BigFishChallenge {
     public static void main(String[] args) {
                 
         StartProgramView startProgramView = new StartProgramView();
+        
+        try {
         startProgramView.display();
+        } catch (Throwable te) {
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            startProgramView.display();
+        }
     }
     
     public static Game getCurrentGame() {

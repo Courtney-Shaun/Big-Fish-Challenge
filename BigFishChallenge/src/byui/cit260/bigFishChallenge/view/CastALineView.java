@@ -37,10 +37,17 @@ public class CastALineView extends View{
     
     @Override
     public boolean doAction(String choice) {
-        
-        if("1".equals(choice) || "2".equals(choice) || "3".equals(choice) || "4".equals(choice) || "5".equals(choice) || "6".equals(choice) || "7".equals(choice) || "8".equals(choice) || "9".equals(choice) || "10".equals(choice)) {
+        int choiceInt = 0;
+        try {
+            choiceInt = Integer.parseInt(choice);
+        } catch (NumberFormatException nf) {
+            System.out.println("\nInvalid entry.");
+        }
+        //if("1".equals(choice) || "2".equals(choice) || "3".equals(choice) || "4".equals(choice) || "5".equals(choice) || "6".equals(choice) || "7".equals(choice) || "8".equals(choice) || "9".equals(choice) || "10".equals(choice)) {
+        if(1 <= choiceInt && choiceInt < 11) {
             //choice = choice.toUpperCase(); // convert choice to upper case
-            int choiceInt = Integer.parseInt(choice);
+            //int choiceInt = Integer.parseInt(choice);
+            
             double hookSetAccuracy;
 
             PlayerControl playerControl = new PlayerControl();
@@ -57,8 +64,8 @@ public class CastALineView extends View{
             Map map = game.getMap(); // retreive the map from game
             
             map.getCurrentLocation().getScene().setFishWeight(0);
-        } else {
-            System.out.println("\nInvalid entry.");
+        } else if (choiceInt <= 0 || 11 <= choiceInt) {
+            System.out.println("\nPlease enter a number between 1 and 10.");
             this.display();
         }
         
