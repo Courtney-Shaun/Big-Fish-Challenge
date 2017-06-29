@@ -43,7 +43,7 @@ public class PlayerControl {
  *
  * @author Kelly Huber
  */
-    public int carryWeight(int fuelWeight, int baitWeight) throws PlayerControlException {
+    public static int carryWeight(int fuelWeight, int baitWeight) throws PlayerControlException {
         
         if (fuelWeight < 0 || fuelWeight >50) {// fuel weight is invalid
             throw new PlayerControlException("Invalid Fuel Weight.");
@@ -57,7 +57,7 @@ public class PlayerControl {
             throw new PlayerControlException("Invalid Total Weight.");
         }
         
-        int strengthRemaining = 50 - (fuelWeight + baitWeight);
+        int strengthRemaining = 50 - (fuelWeight + (baitWeight * 4));
             
         return strengthRemaining;
     }
@@ -82,8 +82,8 @@ public class PlayerControl {
         return gallonsLeft;
     }
 
-    public double carryWeight() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   // public double carryWeight() {
+   //     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   // }
     
 }
