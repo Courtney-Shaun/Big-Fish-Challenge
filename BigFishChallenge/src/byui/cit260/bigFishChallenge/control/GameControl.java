@@ -11,6 +11,7 @@ import byui.cit260.bigFishChallenge.model.InventoryItem;
 import byui.cit260.bigFishChallenge.model.Location;
 import byui.cit260.bigFishChallenge.model.MainScene;
 import byui.cit260.bigFishChallenge.control.MapControl.SceneType;
+import byui.cit260.bigFishChallenge.exceptions.GameControlException;
 import byui.cit260.bigFishChallenge.model.Map;
 import byui.cit260.bigFishChallenge.model.Player;
 import java.util.ArrayList;
@@ -129,11 +130,11 @@ public class GameControl {
         return inventory;
     }
     
-    public static void addFish(int weight) {
+    public static void addFish(int weight) throws GameControlException {
         Game game = BigFishChallenge.getCurrentGame();
         
-        
         game.setTotalFish(weight);
+        
     }
     
     public static int checkFish() {

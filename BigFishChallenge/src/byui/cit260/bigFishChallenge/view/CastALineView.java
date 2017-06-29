@@ -8,6 +8,7 @@ package byui.cit260.bigFishChallenge.view;
 import bigfishchallenge.BigFishChallenge;
 import byui.cit260.bigFishChallenge.control.GameControl;
 import byui.cit260.bigFishChallenge.control.PlayerControl;
+import byui.cit260.bigFishChallenge.exceptions.GameControlException;
 import byui.cit260.bigFishChallenge.model.Game;
 import byui.cit260.bigFishChallenge.model.Map;
 
@@ -51,7 +52,11 @@ public class CastALineView extends View{
             hookSetAccuracy = playerControl.cast(choiceInt, weight);
 
             if (hookSetAccuracy < 4) {
-                this.fishCaught(weight);
+                try {
+                    this.fishCaught(weight);
+                } catch (GameControlException ge) {
+                    System.out.println(ge.getMessage());
+                }
             } else {
                 this.fishGotAway();
             }
@@ -68,9 +73,13 @@ public class CastALineView extends View{
         return true;
     }
 
-    private void fishCaught(int weight) {
+    private void fishCaught(int weight) throws GameControlException {
         System.out.println("You caught a " + weight + " pound fish!");
-        GameControl.addFish(weight);  
+        try {
+            GameControl.addFish(weight);
+        }  catch (GameControlException ge) {
+            System.out.println(ge.getMessage());
+        }
         GameMenuView.check();
         return; 
     }
