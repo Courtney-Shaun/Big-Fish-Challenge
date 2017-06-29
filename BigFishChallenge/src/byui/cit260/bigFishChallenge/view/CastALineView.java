@@ -43,11 +43,9 @@ public class CastALineView extends View{
         } catch (NumberFormatException nf) {
             System.out.println("\nInvalid entry.");
         }
-        //if("1".equals(choice) || "2".equals(choice) || "3".equals(choice) || "4".equals(choice) || "5".equals(choice) || "6".equals(choice) || "7".equals(choice) || "8".equals(choice) || "9".equals(choice) || "10".equals(choice)) {
+        
         if(1 <= choiceInt && choiceInt < 11) {
-            //choice = choice.toUpperCase(); // convert choice to upper case
-            //int choiceInt = Integer.parseInt(choice);
-            
+                        
             double hookSetAccuracy;
 
             PlayerControl playerControl = new PlayerControl();

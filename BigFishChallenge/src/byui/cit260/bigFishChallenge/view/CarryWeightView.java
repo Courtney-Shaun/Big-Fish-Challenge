@@ -7,6 +7,9 @@ package byui.cit260.bigFishChallenge.view;
 
 import java.util.Scanner;
 import byui.cit260.bigFishChallenge.control.PlayerControl;
+import byui.cit260.bigFishChallenge.exceptions.PlayerControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -49,9 +52,12 @@ public class CarryWeightView extends View{
             int inputTwo = getIntInput("\n How much bait did you buy?(No more than 50)", 50, 1);
             if (inputTwo == -999) // user wants to quit
                 return; // exit the game
-
-            //do the requested action and display the next view
-            done = this.doAction(input, inputTwo);
+            try {
+                //do the requested action and display the next view
+                done = this.doAction(input, inputTwo);
+            } catch (PlayerControlException ex) {
+                System.out.println(ex.getMessage());
+            }
             
         } while (!done);
     }
@@ -89,7 +95,7 @@ public class CarryWeightView extends View{
     
     
 
-    public boolean doAction(int input, int inputTwo) {
+    public boolean doAction(int input, int inputTwo)  throws PlayerControlException{
         
         //choice = choice.toUpperCase(); // convert choice to upper case
         int fuelWeight = input;

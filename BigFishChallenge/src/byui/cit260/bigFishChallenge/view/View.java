@@ -5,6 +5,7 @@
  */
 package byui.cit260.bigFishChallenge.view;
 
+import byui.cit260.bigFishChallenge.exceptions.PlayerControlException;
 import java.util.Scanner;
 
 /**
@@ -72,7 +73,7 @@ public abstract class View implements ViewInterface {
         Scanner keyboard = new Scanner(System.in); //get infile for keyboard
         String selection = null;
         boolean valid = false; 
-        
+        int selectionInt = 0;
         while (!valid) { // loop WHILE a value has not been entered
             
             System.out.println(question);
@@ -80,21 +81,36 @@ public abstract class View implements ViewInterface {
             selection = keyboard.nextLine();//GET the value from the key board
             selection = selection.trim(); //trim front and trailing blanks off the value
             
-            if (selection.length() < 1) { //IF the length of the value is blank THEN
-                System.out.println("\nInvalid value: value can not be blank."); //DISPLAY "Invalid value..."
-                continue;
-            } else if ("q".equals(selection)) {
+            
+            
+            //if (selection.length() < 1) { //IF the length of the value is blank THEN
+            //    System.out.println("\nInvalid value: value can not be blank."); //DISPLAY "Invalid value..."
+            //   continue;
+            //} else 
+            
+            if ("Q".equals(selection.toUpperCase())) {
                 return -999;
-            } else if (Integer.parseInt(selection) > maxVal || (Integer.parseInt(selection) < minVal)) {
-              
-                System.out.println("\n***Invalid value*** Try again."); //DISPLAY "Invalid value..."
-                continue;
             }
             
-        break; //end the loop
+            try {
+                selectionInt = Integer.parseInt(selection);
+                if (selectionInt > maxVal || selectionInt < minVal) {
+              
+                    System.out.println("\nThe number should be greater than or equal to " + minVal + " and less than or equal to " + maxVal); //DISPLAY "Invalid value..."
+                    continue;
+                }
+                break; //end the loop
+            } catch (NumberFormatException ne){
+                System.out.println("Invalid Value. Try again. It has to be a number. Enter Q to exit.");
+            }
+            
+            // else 
+            //}
+            
+        
         }
         
-        return Integer.parseInt(selection); //return the value entered
+        return selectionInt; //return the value entered
     
    }
     @Override
