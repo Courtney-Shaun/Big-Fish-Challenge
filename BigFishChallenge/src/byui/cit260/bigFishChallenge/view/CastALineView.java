@@ -47,9 +47,7 @@ public class CastALineView extends View{
         if(1 <= choiceInt && choiceInt < 11) {
                         
             double hookSetAccuracy;
-
             PlayerControl playerControl = new PlayerControl();
-
             hookSetAccuracy = playerControl.cast(choiceInt, weight);
 
             if (hookSetAccuracy < 4) {
@@ -72,16 +70,14 @@ public class CastALineView extends View{
 
     private void fishCaught(int weight) {
         System.out.println("You caught a " + weight + " pound fish!");
-        GameControl.addFish(weight);
-        int totalWeight = GameControl.checkFish();
-        System.out.println("\n You have " + totalWeight + " total pounds of fish.");
+        GameControl.addFish(weight);  
+        GameMenuView.check();
         return; 
     }
 
     private void fishGotAway() {
         System.out.println("Better luck next time. It got away.");
-        int totalWeight = GameControl.checkFish();
-        System.out.println("\n You have " + totalWeight + " total pounds of fish.");
+        GameMenuView.check();
         return; 
     }
 

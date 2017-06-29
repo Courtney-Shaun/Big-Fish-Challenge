@@ -149,6 +149,19 @@ public class GameControl {
         return total;
     }
     
+    public static int checkNumFish() {
+        Game game = BigFishChallenge.getCurrentGame();
+        
+        ArrayList<Integer> totalFish = game.getTotalFish();
+                
+        int total = 0;
+        for (int fish: totalFish) {
+            total++;
+        }
+        
+        return total;
+    }
+    
  
     
 }

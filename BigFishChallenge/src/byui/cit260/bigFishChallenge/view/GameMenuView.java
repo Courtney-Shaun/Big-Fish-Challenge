@@ -151,6 +151,9 @@ public class GameMenuView extends View {
         if (column == -999) {
             return;
         }
+        
+        //FUEL ALGORITHM TO DETERMINE IF YOU REACH DESTINATION HERE
+        
         MapControl.movePlayer(map,row,column);
         //this is where we need to call the scene view associated with the new location
         displayMap();
@@ -187,9 +190,15 @@ public class GameMenuView extends View {
         castALineView.display();
     }
     
-    private void check() {
+    public static void check() {
         int totalWeight = GameControl.checkFish();
-        System.out.println("\n You have " + totalWeight + " total pounds of fish.");
+        int totalFish = GameControl.checkNumFish();
+        if (totalFish == 1) {
+            System.out.println("\n You have " + totalFish + " fish that weighs " + totalWeight + " pounds.");
+        } else {
+            System.out.println("\n You have " + totalFish + " fish that weigh a combined " + totalWeight + " pounds.");
+        }
+        
     }
     
     private void estimateFuel() {
