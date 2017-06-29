@@ -11,13 +11,13 @@ import byui.cit260.bigFishChallenge.exceptions.PlayerControlException;
  *
  * @author Team 
  */
-public class PlayerControl {
+public class PlayerControl {    
+    
     
     public int checkWeight(int inventoryWeight, int newWeight) throws PlayerControlException {
         
         if (inventoryWeight < 0 || inventoryWeight >100) {// inventory weight is invalid
-            throw new PlayerControlException("Invalid Inventory Weight.");
-            
+            throw new PlayerControlException("Invalid Inventory Weight.");            
         }
         
         if (newWeight < 0 || newWeight > 100) {//New weight is invalid
@@ -28,15 +28,15 @@ public class PlayerControl {
             throw new PlayerControlException("Invalid Total Weight.");
         }
         
-        int capacityRemaining = 100 - (inventoryWeight + newWeight);
-            
+        int capacityRemaining = 100 - (inventoryWeight + newWeight);            
         return capacityRemaining;
     }
     
-    public int cast(int strength, int fishWeight) {
-                        
-        int hookSetAccuracy = Math.abs(2 * strength - fishWeight);
+    
+    
+    public int cast(int strength, int fishWeight) {       
         
+        int hookSetAccuracy = Math.abs(2 * strength - fishWeight);        
         return hookSetAccuracy;
     }
  /**
@@ -57,8 +57,7 @@ public class PlayerControl {
             throw new PlayerControlException("Invalid Total Weight.");
         }
         
-        int strengthRemaining = 50 - (fuelWeight + (baitWeight * 4));
-            
+        int strengthRemaining = 50 - (fuelWeight + (baitWeight * 4));            
         return strengthRemaining;
     }
  /**
@@ -77,13 +76,9 @@ public class PlayerControl {
         }
         
         double milesPerGallon = 5;
-        double gallonsLeft = gallons - (distance / milesPerGallon);
-        
+        double gallonsLeft = gallons - (distance / milesPerGallon);        
         return gallonsLeft;
     }
 
-   // public double carryWeight() {
-   //     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-   // }
     
 }

@@ -15,6 +15,7 @@ public class MainScene implements Serializable{
     private String obstacle;
     private String mapSymbol;
     private int fishWeight;
+    private Actor actor;
 
     public int getFishWeight() {
         return this.fishWeight;
@@ -23,7 +24,7 @@ public class MainScene implements Serializable{
     public void setFishWeight(int fishWeight) {
         this.fishWeight = fishWeight;
     }
-    private Actor actor;
+    
 
     public MainScene() {
         actor = Actor.NoActor;

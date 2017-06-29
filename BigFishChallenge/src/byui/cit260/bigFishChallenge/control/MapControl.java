@@ -28,7 +28,7 @@ public class MapControl {
 
     public static void movePlayerToStartingLocation(Map map) {
         // If starting location is not supposed to be 0,0 then use the correct values here.
-        movePlayer(map, 4, 2); // or instead of 0,0 you can select a different starting location
+        movePlayer(map, 4, 1); // or instead of 0,0 you can select a different starting location
     }
 
     public static void movePlayer(Map map, int row, int column) {

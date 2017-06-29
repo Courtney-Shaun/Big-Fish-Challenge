@@ -132,6 +132,7 @@ public class GameMenuView extends View {
             }
         System.out.println("|");
         }
+        
         System.out.println("\n You are now " + map.getCurrentLocation().getScene().getName());
         System.out.println(map.getCurrentLocation().getScene().getDescription());
     }
@@ -197,7 +198,7 @@ public class GameMenuView extends View {
     }
     
     private void talkToOthers() {
-        System.out.println("*** startExistingGame function called ***");
+        System.out.println("*** talktoothers() function called ***");
     }
     
     private void viewInventory() {
@@ -226,9 +227,17 @@ public class GameMenuView extends View {
     }
     
     private void buyBaitNFuel() {
+        Game game = BigFishChallenge.getCurrentGame(); // retreive the game
+        Map map = game.getMap(); // retreive the map from game
         
-        ShopMarinaView shopMarinaView = new ShopMarinaView();
-        shopMarinaView.display();
+        String symbol = map.getCurrentLocation().getScene().getMapSymbol();
+        
+        if (symbol != "MR") {
+            System.out.println("You can't buy anything here! Go to the marina to buy something.");
+        } else {        
+            ShopMarinaView shopMarinaView = new ShopMarinaView();
+            shopMarinaView.display();
+        }
     }
     
     private void help() {
