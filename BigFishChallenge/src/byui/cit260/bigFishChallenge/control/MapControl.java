@@ -7,7 +7,6 @@ package byui.cit260.bigFishChallenge.control;
 
 import byui.cit260.bigFishChallenge.model.Actor;
 import byui.cit260.bigFishChallenge.model.MainScene;
-//import byui.cit260.bigFishChallenge.model.MainScene.SceneType;
 import byui.cit260.bigFishChallenge.model.Map;
 import java.util.Random;
 

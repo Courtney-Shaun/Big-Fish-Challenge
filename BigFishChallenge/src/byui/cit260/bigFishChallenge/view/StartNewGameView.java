@@ -5,6 +5,9 @@
  */
 package byui.cit260.bigFishChallenge.view;
 
+import bigfishchallenge.BigFishChallenge;
+import byui.cit260.bigFishChallenge.model.Game;
+
 /**
  *
  * @author Cody
@@ -62,6 +65,7 @@ public class StartNewGameView extends View {
     }
 
     private void enterMarina() {
+       
        ShopMarinaView shopMarinaView = new ShopMarinaView();
         
        shopMarinaView.display(); 

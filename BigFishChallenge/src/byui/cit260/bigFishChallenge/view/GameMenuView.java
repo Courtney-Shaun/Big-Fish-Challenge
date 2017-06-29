@@ -226,6 +226,7 @@ public class GameMenuView extends View {
     }
     
     private void buyBaitNFuel() {
+        
         ShopMarinaView shopMarinaView = new ShopMarinaView();
         shopMarinaView.display();
     }
