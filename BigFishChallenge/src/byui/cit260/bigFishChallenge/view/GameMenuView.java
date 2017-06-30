@@ -8,11 +8,16 @@ package byui.cit260.bigFishChallenge.view;
 import bigfishchallenge.BigFishChallenge;
 import byui.cit260.bigFishChallenge.control.GameControl;
 import byui.cit260.bigFishChallenge.control.MapControl;
+import byui.cit260.bigFishChallenge.control.PlayerControl;
+import byui.cit260.bigFishChallenge.exceptions.PlayerControlException;
 import byui.cit260.bigFishChallenge.model.Actor;
 import byui.cit260.bigFishChallenge.model.Game;
 import byui.cit260.bigFishChallenge.model.InventoryItem;
 import byui.cit260.bigFishChallenge.model.Location;
 import byui.cit260.bigFishChallenge.model.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import static oracle.jrockit.jfr.events.Bits.intValue;
 
 /**
  *
@@ -49,7 +54,13 @@ public class GameMenuView extends View {
                 this.displayMap();
                 break;
             case "M":
-                this.moveLocations();
+            {
+                try {
+                    this.moveLocations();
+                } catch (PlayerControlException ex) {
+                    System.out.println(ex.getMessage());;
+                }
+            }
                 break;
             case "C":
                 this.cast();
@@ -137,12 +148,15 @@ public class GameMenuView extends View {
         System.out.println(map.getCurrentLocation().getScene().getDescription());
     }
     
-    private void moveLocations() {
+    private void moveLocations() throws PlayerControlException {
         
         Game game = BigFishChallenge.getCurrentGame(); // retreive the game
         Map map = game.getMap(); // retreive the map from game
         
         displayMap();
+        
+        System.out.println("You have " + game.getFuel() + " gallons of fuel.");
+        
         int row = getIntInput("\n Row? (-999 to cancel)", 4, 0);
         if (row == -999) {
             return;
@@ -152,12 +166,28 @@ public class GameMenuView extends View {
             return;
         }
         
+        double destRow = map.getCurrentLocation().getRow();
+        double destColumn = map.getCurrentLocation().getColumn();
         //FUEL ALGORITHM TO DETERMINE IF YOU REACH DESTINATION HERE
         
+        //System.out.println("row " + destRow + " column " + destColumn + "THIS IS THE LOCATION!");
+        double distance = Math.sqrt(Math.pow(Math.abs(destRow - row), 2) + (Math.pow(Math.abs(destColumn - column), 2)));
+        
+        int gallons = game.getFuel();
+        if (gallons == 0) {
+            System.out.println("You must buy fuel before you can move.");
+            return;
+        }
+        
+        int gallonsLeft = intValue(PlayerControl.estimateFuel(distance, gallons));
+
         MapControl.movePlayer(map,row,column);
         //this is where we need to call the scene view associated with the new location
+
+        game.setFuel(gallonsLeft);
+
         displayMap();
-        
+
     }
     
     private void cast() {

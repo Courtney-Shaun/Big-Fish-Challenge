@@ -85,6 +85,7 @@ public class ShopMarinaView extends View {
         } else if (totalPrice <= game.getMoney()) {
             game.setMoney(game.getMoney() - totalPrice);
             game.setBait(game.getBait() + pounds);
+            game.setFuel(game.getFuel() + gallons);
             System.out.println("You just bought " + pounds + " pounds of bait, and " + gallons + " gallons of fuel.");
             System.out.println("You have $" + game.getMoney() + " left.");
         } else {
