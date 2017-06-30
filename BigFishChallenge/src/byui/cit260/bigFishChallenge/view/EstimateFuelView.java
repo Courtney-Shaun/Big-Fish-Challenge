@@ -6,6 +6,7 @@
 package byui.cit260.bigFishChallenge.view;
 
 import byui.cit260.bigFishChallenge.control.PlayerControl;
+import byui.cit260.bigFishChallenge.exceptions.PlayerControlException;
 import java.util.Scanner;
 
 /**
@@ -51,48 +52,18 @@ public class EstimateFuelView extends View {
             double inputTwo = getDoubleInput("\n How many gallons of fuel do you have? (No more than 8)", 8, 1);
             if (inputTwo == - 999) // user wants to quit
                 return; // exit the game
-            
+            try {
             // do the requested action and display the next view
             done = this.doAction(input, inputTwo);
-            
+            } catch (PlayerControlException ne) {
+                System.out.println(ne.getMessage());
+            }
+                
         } while (!done);
     }
-//    public String getInput(String ask, double maxVal, double minVal) {
-//        
-//        Scanner keyboard = new Scanner(System.in);
-//        boolean valid = false;
-//        String selection = null;
-//        
-//        // while a valid entry has not been retrieved
-//        while (!valid) {
-//            
-//            System.out.println(displayMessage);
-//            System.out.println(ask);
-//            
-//            // get the value entered from the keyboard
-//            selection = keyboard.nextLine();
-//            selection = selection.trim();
-//            
-//            if (selection.length() < 1) {
-//                System.out.println("\n*** Invalid selection *** Try again");
-//                continue;
-//            } else if ("q".equals(selection)){
-//                return selection;
-//            } else if (selection.matches("[a-zA-Z]+")) {
-//                System.out.println("\n*** Invalid selection *** Try again");
-//                continue;
-//            } else if (Double.parseDouble(selection) > max || (Double.parseDouble(selection) < min)) {
-//                System.out.println("\n*** Invalid selection *** Try again");
-//                continue;
-//            } 
-//                
-//        break;
-//        }  
-//        
-//        return selection;
-//    }
+
     
-    public boolean doAction(double input, double inputTwo) {
+    public boolean doAction(double input, double inputTwo) throws PlayerControlException {
         
         //choice = choice.toUpperCase(); // convert choice to upper case
         double distance = input;
@@ -106,6 +77,7 @@ public class EstimateFuelView extends View {
         
         if (gallonsLeft < 0) {
             this.notEnough();
+            return false;
         } else {
             this.canMakeIt();
         }

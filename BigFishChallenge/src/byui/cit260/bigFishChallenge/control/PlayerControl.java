@@ -65,14 +65,14 @@ public class PlayerControl {
  * @author Shaun Courtney
  */
     
-    public double estimateFuel(double distance, double gallons) {
+    public double estimateFuel(double distance, double gallons) throws PlayerControlException {
         
         if (distance <= 0) {
-            return -1;
+            throw new PlayerControlException("Invalid Distance.");
         }
         
         if (gallons <= 0 || gallons > 8) {
-            return -1;
+            throw new PlayerControlException("Invalid number of gallons.");
         }
         
         double milesPerGallon = 5;
