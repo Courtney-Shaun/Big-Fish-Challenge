@@ -6,6 +6,7 @@
 package byui.cit260.bigFishChallenge.view;
 
 import byui.cit260.bigFishChallenge.control.PlayerControl;
+import byui.cit260.bigFishChallenge.exceptions.PlayerControlException;
 import java.util.Scanner;
 
 /**
@@ -51,15 +52,18 @@ public class EstimateFuelView extends View {
             double inputTwo = getDoubleInput("\n How many gallons of fuel do you have? (No more than 8)", 8, 1);
             if (inputTwo == - 999) // user wants to quit
                 return; // exit the game
-            
+            try {
             // do the requested action and display the next view
             done = this.doAction(input, inputTwo);
-            
+            } catch (PlayerControlException ne) {
+                System.out.println(ne.getMessage());
+            }
+                
         } while (!done);
     }
 
     
-    public boolean doAction(double input, double inputTwo) {
+    public boolean doAction(double input, double inputTwo) throws PlayerControlException {
         
         //choice = choice.toUpperCase(); // convert choice to upper case
         double distance = input;
@@ -73,6 +77,7 @@ public class EstimateFuelView extends View {
         
         if (gallonsLeft < 0) {
             this.notEnough();
+            return false;
         } else {
             this.canMakeIt();
         }

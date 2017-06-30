@@ -103,10 +103,6 @@ public abstract class View implements ViewInterface {
             } catch (NumberFormatException ne){
                 System.out.println("Invalid Value. Try again. It has to be a number. Enter Q to exit.");
             }
-            
-            // else 
-            //}
-            
         
         }
         
@@ -118,6 +114,7 @@ public abstract class View implements ViewInterface {
         
         Scanner keyboard = new Scanner(System.in);
         boolean valid = false;
+        double selectionDouble = 0;
         String selection = null;
         
         // while a valid entry has not been retrieved
@@ -130,19 +127,31 @@ public abstract class View implements ViewInterface {
             selection = keyboard.nextLine();
             selection = selection.trim();
             
-            if (selection.length() < 1) {
-                System.out.println("\n*** Invalid selection *** Try again");
-                continue;
-            } else if ("q".equals(selection)){
+//            if (selection.length() < 1) {
+//                System.out.println("\n*** Invalid selection *** Try again");
+//                continue;
+//            } else if ("q".equals(selection)){
+//                return -999;
+//            } else if (Double.parseDouble(selection) > maxVal || (Double.parseDouble(selection) < minVal)) {
+//                System.out.println("\n*** Invalid selection *** Try again");
+//                continue;
+//            } 
+              if ("Q".equals(selection.toUpperCase())) {
                 return -999;
-            } else if (Double.parseDouble(selection) > maxVal || (Double.parseDouble(selection) < minVal)) {
-                System.out.println("\n*** Invalid selection *** Try again");
-                continue;
-            } 
-                
-        break;
+            }
+            try {
+                selectionDouble = Double.parseDouble(selection);
+                if (selectionDouble > maxVal || selectionDouble < minVal) {
+              
+                    System.out.println("\nThe number should be greater than or equal to " + minVal + " and less than or equal to " + maxVal); //DISPLAY "Invalid value..."
+                    continue;
+                }
+                break; //end the loop
+            } catch (NumberFormatException ne){
+                System.out.println("Invalid Value. Try again. It has to be a number. Enter Q to exit.");
+            }
         }  
         
-        return Double.parseDouble(selection);
+        return selectionDouble;
     }
 }
