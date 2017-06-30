@@ -174,19 +174,29 @@ public class GameMenuView extends View {
             + "\n| Sorry, but you can't fish here               |"
             + "\n------------------------------------------------");
             return;
-        } else if (weight == 0) {
+        } else if (game.getBait() < 1) {
             System.out.println("\n"
             + "\n------------------------------------------------"
-            + "\n| You didn't get any bites.                    |"
-            + "\n------------------------------------------------");            
+            + "\n| You don't have any bait.                    |"
+            + "\n| Go back to the marina to buy more.           |"
+            + "\n------------------------------------------------");
+            return;
+        } else if (weight == 0) {
+            game.setBait(game.getBait() - 1); 
+            System.out.println("\n"
+            + "\n------------------------------------------------"
+            + "\n| You didn't get any bites."
+            + "\n| You have " + game.getBait() + " pounds of bait left."
+            + "\n------------------------------------------------");
+                       
             return;
         } else if (weight < 11 && weight > 0) {
             fishWeightText = "You felt a little tug on your line.";
         } else {
             fishWeightText = "You felt a strong tug on your line!";
         }
-        
-        CastALineView castALineView = new CastALineView(fishWeightText, weight);
+        game.setBait(game.getBait() - 1);
+        CastALineView castALineView = new CastALineView(fishWeightText, weight, game.getBait());
         castALineView.display();
     }
     

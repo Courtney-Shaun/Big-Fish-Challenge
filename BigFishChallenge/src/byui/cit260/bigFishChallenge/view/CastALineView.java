@@ -21,10 +21,11 @@ public class CastALineView extends View{
     
     public int weight;
     
-    public CastALineView(String fishWeightText, int weight) {
+    public CastALineView(String fishWeightText, int weight, int bait) {
         super("\n"
             + "\n------------------------------------------------"
-            + "\n| You've cast your line in the water           |"
+            + "\n| You've cast your line in the water."
+            + "\n| You have " + bait + " pounds of bait left."
             + "\n------------------------------------------------"
             + "\n"
             + "\n  " + fishWeightText
