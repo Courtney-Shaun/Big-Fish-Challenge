@@ -57,40 +57,7 @@ public class EstimateFuelView extends View {
             
         } while (!done);
     }
-//    public String getInput(String ask, double maxVal, double minVal) {
-//        
-//        Scanner keyboard = new Scanner(System.in);
-//        boolean valid = false;
-//        String selection = null;
-//        
-//        // while a valid entry has not been retrieved
-//        while (!valid) {
-//            
-//            System.out.println(displayMessage);
-//            System.out.println(ask);
-//            
-//            // get the value entered from the keyboard
-//            selection = keyboard.nextLine();
-//            selection = selection.trim();
-//            
-//            if (selection.length() < 1) {
-//                System.out.println("\n*** Invalid selection *** Try again");
-//                continue;
-//            } else if ("q".equals(selection)){
-//                return selection;
-//            } else if (selection.matches("[a-zA-Z]+")) {
-//                System.out.println("\n*** Invalid selection *** Try again");
-//                continue;
-//            } else if (Double.parseDouble(selection) > max || (Double.parseDouble(selection) < min)) {
-//                System.out.println("\n*** Invalid selection *** Try again");
-//                continue;
-//            } 
-//                
-//        break;
-//        }  
-//        
-//        return selection;
-//    }
+
     
     public boolean doAction(double input, double inputTwo) {
         
