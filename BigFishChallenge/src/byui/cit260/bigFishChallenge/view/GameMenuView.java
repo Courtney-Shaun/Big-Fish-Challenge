@@ -240,8 +240,8 @@ public class GameMenuView extends View {
         Map map = game.getMap(); // retreive the map from game
         
         String symbol = map.getCurrentLocation().getScene().getMapSymbol();
-        
-        if (symbol != "MR") {
+        System.out.println(symbol);
+        if (symbol != " MR ") {
             System.out.println("You can't buy anything here! Go to the marina to buy something.");
         } else {        
             ShopMarinaView shopMarinaView = new ShopMarinaView();
