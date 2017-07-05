@@ -5,6 +5,7 @@
  */
 package byui.cit260.bigFishChallenge.model;
 
+import byui.cit260.bigFishChallenge.view.ErrorView;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
@@ -61,7 +62,7 @@ public class Map implements Serializable {
     public Map(int noOfRows, int noOfColumns) {
 
         if (noOfRows < 1 || noOfColumns < 1 ) {
-            System.out.println("The number of rows and columns must be > zero.");
+            ErrorView.display(this.getClass().getName(),"The number of rows and columns must be > zero.");
             return;
         }
         

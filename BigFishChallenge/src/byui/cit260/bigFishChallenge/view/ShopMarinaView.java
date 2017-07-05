@@ -49,7 +49,7 @@ public class ShopMarinaView extends View {
                 // buy bait
                 this.buySupplies();
                     } catch (PlayerControlException ex) {
-                        System.out.println(ex.getMessage());
+                        this.console.println(ex.getMessage());
                     }
                 }
                 break;
@@ -57,7 +57,7 @@ public class ShopMarinaView extends View {
                 this.carryPurchase();
                 break;    
             default:
-                System.out.println("/n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"/n*** Invalid selection *** Try again");
                 break;
             
         }
@@ -71,25 +71,25 @@ public class ShopMarinaView extends View {
         
         Game game = BigFishChallenge.getCurrentGame();
         
-        System.out.println("You currently have " + game.getBait() + " pounds of bait and " + game.getFuel() + " gallons of fuel.");
-        System.out.println("Bait is $" + pricePerPound + " per pound.");
-        System.out.println("Fuel is $" + pricePerGallon + " per gallon.");
-        System.out.println("You have $" + game.getMoney() + ".");
+        this.console.println("You currently have " + game.getBait() + " pounds of bait and " + game.getFuel() + " gallons of fuel.");
+        this.console.println("Bait is $" + pricePerPound + " per pound.");
+        this.console.println("Fuel is $" + pricePerGallon + " per gallon.");
+        this.console.println("You have $" + game.getMoney() + ".");
         int pounds = getIntInput("How many pounds of bait would you like to buy?", 50, 0);
         int gallons = getIntInput("How many gallons of fuel would you like to buy?", 50, 0);
         
         int totalPrice = (pricePerPound * pounds) + (pricePerGallon * gallons);
         
         if (PlayerControl.carryWeight(pounds, gallons) < 1) {
-            System.out.println("You can't carry this much. It's too heavy!");
+            this.console.println("You can't carry this much. It's too heavy!");
         } else if (totalPrice <= game.getMoney()) {
             game.setMoney(game.getMoney() - totalPrice);
             game.setBait(game.getBait() + pounds);
             game.setFuel(game.getFuel() + gallons);
-            System.out.println("You just bought " + pounds + " pounds of bait, and " + gallons + " gallons of fuel.");
-            System.out.println("You have $" + game.getMoney() + " left.");
+            this.console.println("You just bought " + pounds + " pounds of bait, and " + gallons + " gallons of fuel.");
+            this.console.println("You have $" + game.getMoney() + " left.");
         } else {
-            System.out.println("You don't have enough money for this.");
+            this.console.println("You don't have enough money for this.");
         }
     }
     

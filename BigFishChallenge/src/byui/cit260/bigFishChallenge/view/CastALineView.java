@@ -43,7 +43,7 @@ public class CastALineView extends View{
         try {
             choiceInt = Integer.parseInt(choice);
         } catch (NumberFormatException nf) {
-            System.out.println("\nInvalid entry.");
+            ErrorView.display(this.getClass().getName(),"\nInvalid entry.");
         }
         
         if(1 <= choiceInt && choiceInt < 11) {
@@ -67,7 +67,7 @@ public class CastALineView extends View{
             
             map.getCurrentLocation().getScene().setFishWeight(0);
         } else if (choiceInt <= 0 || 11 <= choiceInt) {
-            System.out.println("\nPlease enter a number between 1 and 10.");
+            ErrorView.display(this.getClass().getName(),"\nPlease enter a number between 1 and 10.");
             this.display();
         }
         
@@ -75,18 +75,18 @@ public class CastALineView extends View{
     }
 
     private void fishCaught(int weight) throws GameControlException {
-        System.out.println("You caught a " + weight + " pound fish!");
+        this.console.println("You caught a " + weight + " pound fish!");
         try {
             GameControl.addFish(weight);
         }  catch (GameControlException ge) {
-            System.out.println(ge.getMessage());
+            this.console.println(ge.getMessage());
         }
         GameMenuView.check();
         return; 
     }
 
     private void fishGotAway() {
-        System.out.println("Better luck next time. It got away.");
+        this.console.println("Better luck next time. It got away.");
         GameMenuView.check();
         return; 
     }

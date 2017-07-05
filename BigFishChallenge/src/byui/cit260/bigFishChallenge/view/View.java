@@ -5,8 +5,14 @@
  */
 package byui.cit260.bigFishChallenge.view;
 
+import bigfishchallenge.BigFishChallenge;
 import byui.cit260.bigFishChallenge.exceptions.PlayerControlException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -15,6 +21,9 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
     
     protected String displayMessage;
+    
+    protected final BufferedReader keyboard = BigFishChallenge.getInFile();
+    protected final PrintWriter console = BigFishChallenge.getOutFile();
     
     public View() {
     }
@@ -42,7 +51,7 @@ public abstract class View implements ViewInterface {
     @Override
     public String getInput() {
         
-        Scanner keyboard = new Scanner(System.in);
+       
         boolean valid = false;
         String value = null;
         
@@ -50,14 +59,18 @@ public abstract class View implements ViewInterface {
         while (!valid) {
             
             // prompt for the user input
-            System.out.println("\n" + this.displayMessage);
+            this.console.println("\n" + this.displayMessage);
             
-            // get the value entered from the keyboard
-            value = keyboard.nextLine();
+            try {
+                // get the value entered from the keyboard
+                value = this.keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+            }
             value = value.trim();
             
             if (value.length() < 1) { //blank value entered
-                System.out.println("\nInvalid value: value can not be blank.");
+                ErrorView.display(this.getClass().getName(),"\nInvalid value: value can not be blank.");
                 continue;
             }
             
@@ -70,15 +83,19 @@ public abstract class View implements ViewInterface {
     @Override
     public int getIntInput(String question, int maxVal, int minVal) {
     
-        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
+       
         String selection = null;
         boolean valid = false; 
         int selectionInt = 0;
         while (!valid) { // loop WHILE a value has not been entered
             
-            System.out.println(question);
+            this.console.println(question);
             
-            selection = keyboard.nextLine();//GET the value from the key board
+            try {
+                selection = this.keyboard.readLine();//GET the value from the key board
+            } catch (IOException ex) {
+                Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+            }
             selection = selection.trim(); //trim front and trailing blanks off the value
             
             
@@ -96,12 +113,14 @@ public abstract class View implements ViewInterface {
                 selectionInt = Integer.parseInt(selection);
                 if (selectionInt > maxVal || selectionInt < minVal) {
               
-                    System.out.println("\nThe number should be greater than or equal to " + minVal + " and less than or equal to " + maxVal); //DISPLAY "Invalid value..."
+                    ErrorView.display(this.getClass().getName(),
+                            "\nThe number should be greater than or equal to " + minVal + " and less than or equal to " + maxVal); //DISPLAY "Invalid value..."
                     continue;
                 }
                 break; //end the loop
             } catch (NumberFormatException ne){
-                System.out.println("Invalid Value. Try again. It has to be a number. Enter Q to exit.");
+                ErrorView.display(this.getClass().getName(),
+                        "Invalid Value. Try again. It has to be a number. Enter Q to exit.");
             }
         
         }
@@ -112,7 +131,7 @@ public abstract class View implements ViewInterface {
     @Override
     public double getDoubleInput(String ask, double maxVal, double minVal) {
         
-        Scanner keyboard = new Scanner(System.in);
+        
         boolean valid = false;
         double selectionDouble = 0;
         String selection = null;
@@ -120,11 +139,15 @@ public abstract class View implements ViewInterface {
         // while a valid entry has not been retrieved
         while (!valid) {
             
-            System.out.println(displayMessage);
-            System.out.println(ask);
+            this.console.println(displayMessage);
+            this.console.println(ask);
             
-            // get the value entered from the keyboard
-            selection = keyboard.nextLine();
+            try {
+                // get the value entered from the keyboard
+                selection = this.keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+            }
             selection = selection.trim();
             
 //            if (selection.length() < 1) {
@@ -143,12 +166,12 @@ public abstract class View implements ViewInterface {
                 selectionDouble = Double.parseDouble(selection);
                 if (selectionDouble > maxVal || selectionDouble < minVal) {
               
-                    System.out.println("\nThe number should be greater than or equal to " + minVal + " and less than or equal to " + maxVal); //DISPLAY "Invalid value..."
+                    ErrorView.display(this.getClass().getName(),"\nThe number should be greater than or equal to " + minVal + " and less than or equal to " + maxVal); //DISPLAY "Invalid value..."
                     continue;
                 }
                 break; //end the loop
             } catch (NumberFormatException ne){
-                System.out.println("Invalid Value. Try again. It has to be a number. Enter Q to exit.");
+                ErrorView.display(this.getClass().getName(),"Invalid Value. Try again. It has to be a number. Enter Q to exit.");
             }
         }  
         

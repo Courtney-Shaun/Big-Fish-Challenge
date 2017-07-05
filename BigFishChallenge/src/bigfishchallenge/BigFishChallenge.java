@@ -214,5 +214,15 @@ public class BigFishChallenge {
 //        System.out.println(playerBaitInfo);
 //        
 //    }
+
+    private class console {
+
+        private void println(String message) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        public console() {
+        }
+    }
     
 }

@@ -54,7 +54,7 @@ public class HelpMenuView  extends View{
                 this.interpretClues();
                 break;
             default:
-                System.out.println("/n*** Invalid selection *** Try again");
+               ErrorView.display(this.getClass().getName(),"/n*** Invalid selection *** Try again");
                 break;
             
         }
@@ -63,7 +63,7 @@ public class HelpMenuView  extends View{
     }
 
     private void viewObjective() {
-        System.out.println("\n"
+        this.console.println("\n"
               + "\n--------------------------------"
               + "\n Objective of the Game         |"
               + "\n--------------------------------"
@@ -74,7 +74,7 @@ public class HelpMenuView  extends View{
     }
 
     private void aboutFuel() {
-        System.out.println("\n"
+        this.console.println("\n"
               + "\n--------------------------------"
               + "\n About Fuel                    |"
               + "\n--------------------------------"
@@ -90,7 +90,7 @@ public class HelpMenuView  extends View{
     }
 
     private void aboutBait() {
-        System.out.println("\n"
+        this.console.println("\n"
               + "\n--------------------------------"
               + "\n About Bait                    |"
               + "\n--------------------------------"
@@ -103,7 +103,7 @@ public class HelpMenuView  extends View{
     }
 
     private void aboutCastLine() {
-        System.out.println("\n"
+        this.console.println("\n"
               + "\n--------------------------------"
               + "\n About Casting                  |"
               + "\n--------------------------------"
@@ -119,7 +119,7 @@ public class HelpMenuView  extends View{
     }
     private void viewObstacles() {
         
-        System.out.println("\n"
+        this.console.println("\n"
               + "\n--------------------------------"
               + "\n About Obstacles               |"
               + "\n--------------------------------"
@@ -139,27 +139,27 @@ public class HelpMenuView  extends View{
         
         StringBuilder line;
                        
-        System.out.println("\n      LIST OF OBSTACLES");
+        this.console.println("\n      LIST OF OBSTACLES");
         line = new StringBuilder("                        ");
         line.insert(0, "OBSTACLE");
         line.insert(19, "SEVERITY");
         
-        System.out.println(line.toString());
+        this.console.println(line.toString());
             for(Obstacle currentObstacle : Obstacle.values() ) {
                 total += currentObstacle.getPower();
             
                 line = new StringBuilder("                              ");
                 line.insert(0, currentObstacle.getObstacle());
                 line.insert(23, currentObstacle.getPower());
-                System.out.println(line.toString());
+                this.console.println(line.toString());
             }
      average = total / allObstacles;
     
-    System.out.println("\n The average severity of the obstacles is " + average);
+    this.console.println("\n The average severity of the obstacles is " + average);
 
 }
 private void interpretClues() {
-        System.out.println("\n"
+        this.console.println("\n"
               + "\n--------------------------------"
               + "\n About Clues                   |"
               + "\n--------------------------------"

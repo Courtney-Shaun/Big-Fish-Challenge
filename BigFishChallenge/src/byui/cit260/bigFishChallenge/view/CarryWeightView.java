@@ -39,7 +39,7 @@ public class CarryWeightView extends View{
      */
     @Override
     public void display() { 
-        System.out.println(displayMessage); 
+        this.console.println(displayMessage); 
         boolean done = false; // set flag to not done
         do {
             //prompt 
@@ -86,11 +86,11 @@ public class CarryWeightView extends View{
         return true;
     }
     private void noStrength() {
-        System.out.println("\n You do not have enough strength to carry your supplies!");
+        ErrorView.display(this.getClass().getName(),"\n You do not have enough strength to carry your supplies!");
     }
 
     private void enoughStrength() {
-        System.out.println("\n You can carry your supplies back to your boat!");
+        ErrorView.display(this.getClass().getName(),"\n You can carry your supplies back to your boat!");
     }
     @Override
     public boolean doAction(String value) {

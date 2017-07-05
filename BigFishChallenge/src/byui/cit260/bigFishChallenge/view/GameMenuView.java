@@ -90,7 +90,7 @@ public class GameMenuView extends View {
                 this.saveGame();
                 break;
             default:
-                System.out.println("/n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"/n*** Invalid selection *** Try again");
                 break;
             
         }
@@ -107,15 +107,15 @@ public class GameMenuView extends View {
         Map map = game.getMap(); // retreive the map from game
         Location[][] locations = map.getLocations(); // retreive the locations from map
         // Build the heading of the map
-        System.out.print("  |");
+        this.console.print("  |");
         for( int column = 0; column < locations[0].length; column++){
             // print col numbers to side of map
-            System.out.print("  " + column + "   |"); 
+            this.console.print("  " + column + "   |"); 
         }
         // Now build the map.  For each row, show the column information
-        System.out.println();
+        this.console.println();
         for( int row = 0; row < locations.length; row++){
-            System.out.print(row + " "); // print row numbers to side of map
+            this.console.print(row + " "); // print row numbers to side of map
                 for( int column = 0; column < locations[row].length; column++){
                     // set default indicators as blanks
                     leftIndicator = " ";
@@ -130,22 +130,22 @@ public class GameMenuView extends View {
                         leftIndicator = ">"; // can be stars or whatever these are indicators showing visited
                         rightIndicator = "<"; // same as above
                     }
-                 System.out.print("|"); // start map with a |
+                 this.console.print("|"); // start map with a |
                   if(locations[row][column].getScene() == null)
                   {
                         // No scene assigned here so use ?? for the symbol
-                        System.out.print(leftIndicator + "??" + rightIndicator);
+                        this.console.print(leftIndicator + "??" + rightIndicator);
                   }
                   else
                     System.out.print(leftIndicator
                         + locations[row][column].getScene().getMapSymbol()
                         + rightIndicator);
             }
-        System.out.println("|");
+        this.console.println("|");
         }
         
-        System.out.println("\n You are now " + map.getCurrentLocation().getScene().getName());
-        System.out.println(map.getCurrentLocation().getScene().getDescription());
+        this.console.println("\n You are now " + map.getCurrentLocation().getScene().getName());
+        this.console.println(map.getCurrentLocation().getScene().getDescription());
     }
     
     private void moveLocations() throws PlayerControlException {
@@ -155,7 +155,7 @@ public class GameMenuView extends View {
         
         displayMap();
         
-        System.out.println("You have " + game.getFuel() + " gallons of fuel.");
+        this.console.println("You have " + game.getFuel() + " gallons of fuel.");
         
         int row = getIntInput("\n Row? (-999 to cancel)", 4, 0);
         if (row == -999) {
@@ -175,7 +175,7 @@ public class GameMenuView extends View {
         
         int gallons = game.getFuel();
         if (gallons == 0) {
-            System.out.println("You must buy fuel before you can move.");
+            this.console.println("You must buy fuel before you can move.");
             return;
         }
         
@@ -199,13 +199,13 @@ public class GameMenuView extends View {
                
         String fishWeightText;
         if (weight == -1) {
-            System.out.println("\n"
+            this.console.println("\n"
             + "\n------------------------------------------------"
             + "\n| Sorry, but you can't fish here               |"
             + "\n------------------------------------------------");
             return;
         } else if (game.getBait() < 1) {
-            System.out.println("\n"
+            this.console.println("\n"
             + "\n------------------------------------------------"
             + "\n| You don't have any bait.                    |"
             + "\n| Go back to the marina to buy more.           |"
@@ -213,7 +213,7 @@ public class GameMenuView extends View {
             return;
         } else if (weight == 0) {
             game.setBait(game.getBait() - 1); 
-            System.out.println("\n"
+            this.console.println("\n"
             + "\n------------------------------------------------"
             + "\n| You didn't get any bites."
             + "\n| You have " + game.getBait() + " pounds of bait left."
@@ -247,23 +247,23 @@ public class GameMenuView extends View {
     }
     
     private void talkToOthers() {
-        System.out.println("*** talktoothers() function called ***");
+        this.console.println("*** talktoothers() function called ***");
     }
     
     private void viewInventory() {
-        System.out.println("VIEW INVENTORY CALLED");
+        this.console.println("VIEW INVENTORY CALLED");
         
         StringBuilder line;
         
         Game game = BigFishChallenge.getCurrentGame();
         InventoryItem[] inventory = game.getInventory();
         
-        System.out.println("\n     LIST OF INVENTORY ITEMS");
+        this.console.println("\n     LIST OF INVENTORY ITEMS");
         line = new StringBuilder("                              ");
         line.insert(0, "DESCRIPTION");
         line.insert(20, "REQUIRED");
         line.insert(30, "IN STOCK");
-        System.out.println(line.toString());
+        this.console.println(line.toString());
         
         for (InventoryItem item : inventory) {
             line = new StringBuilder("                              ");
@@ -271,7 +271,7 @@ public class GameMenuView extends View {
             line.insert(23, item.getRequiredAmount());
             line.insert(33, item.getQuantityInStock());
             
-            System.out.println(line.toString());
+            this.console.println(line.toString());
         }
     }
     
@@ -280,9 +280,9 @@ public class GameMenuView extends View {
         Map map = game.getMap(); // retreive the map from game
         
         String symbol = map.getCurrentLocation().getScene().getMapSymbol();
-        System.out.println(symbol);
+        this.console.println(symbol);
         if (symbol != " MR ") {
-            System.out.println("You can't buy anything here! Go to the marina to buy something.");
+            this.console.println("You can't buy anything here! Go to the marina to buy something.");
         } else {        
             ShopMarinaView shopMarinaView = new ShopMarinaView();
             shopMarinaView.display();
@@ -295,20 +295,20 @@ public class GameMenuView extends View {
     }
     
     private void saveGame() {
-        System.out.println("*** startExistingGame function called ***");
+        this.console.println("*** startExistingGame function called ***");
     }
     
     private void DisplayPeople() {
         Actor youngestActor = Actor.NoActor;
         Actor oldestActor = Actor.NoActor;
          
-        System.out.println("\n     LIST OF PEOPLE");
+        this.console.println("\n     LIST OF PEOPLE");
         StringBuilder line;
         line = new StringBuilder("                              ");
         line.insert(0, "Name");
         line.insert(20, "Age");
         
-        System.out.println(line.toString());
+        this.console.println(line.toString());
          for (Actor currentActor:Actor.values()) {
              if (currentActor != Actor.NoActor) {
                  if (youngestActor == Actor.NoActor || currentActor.getAge()< youngestActor.getAge())
@@ -318,11 +318,11 @@ public class GameMenuView extends View {
                 line = new StringBuilder("                              ");
                 line.insert(0, currentActor.getName());
                 line.insert(20, currentActor.getAge());
-                System.out.println(line.toString());
+                this.console.println(line.toString());
              }
              
          }
-         System.out.println("\nThe oldest person is " + oldestActor.getName());
-         System.out.println("The youngest person is " + youngestActor.getName());
+         this.console.println("\nThe oldest person is " + oldestActor.getName());
+         this.console.println("The youngest person is " + youngestActor.getName());
      }   
 }

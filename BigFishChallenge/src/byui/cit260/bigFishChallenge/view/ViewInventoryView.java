@@ -49,7 +49,7 @@ public class ViewInventoryView extends View {
                 this.displayHelpMenu();
                 break;
             default:
-                System.out.println("*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"*** Invalid selection *** Try again");
                 break;
             
         }
@@ -58,15 +58,15 @@ public class ViewInventoryView extends View {
     }
 
     private void viewBait() {
-        System.out.println("*** viewBait function called ***");
+        this.console.println("*** viewBait function called ***");
     }
 
     private void viewFuel() {
-        System.out.println("*** viewFuel function called ***");
+        this.console.println("*** viewFuel function called ***");
     }
 
     private void viewFish() {
-        System.out.println("*** viewFish function called ***");
+        this.console.println("*** viewFish function called ***");
     }
 
     private void estimateFuelNeeded() {

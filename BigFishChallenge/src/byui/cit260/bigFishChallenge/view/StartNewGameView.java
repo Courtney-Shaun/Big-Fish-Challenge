@@ -56,7 +56,7 @@ public class StartNewGameView extends View {
                 this.saveGame();
                 break;
             default:
-                System.out.println("/n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"/n*** Invalid selection *** Try again");
                 break;
             
         }
@@ -90,7 +90,7 @@ public class StartNewGameView extends View {
     }
 
     private void saveGame() {
-        System.out.println("*** saveGame function called ***");
+        this.console.println("*** saveGame function called ***");
     }
     
 }

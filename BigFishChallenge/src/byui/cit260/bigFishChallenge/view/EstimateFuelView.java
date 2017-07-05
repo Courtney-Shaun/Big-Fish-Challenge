@@ -41,7 +41,7 @@ public class EstimateFuelView extends View {
 
     @Override 
     public void display() {
-        System.out.println(displayMessage);
+        this.console.println(displayMessage);
         boolean done = false; // set flag to not done
         do {
             // Get the option
@@ -87,13 +87,13 @@ public class EstimateFuelView extends View {
     }
     
     private void notEnough() {
-        System.out.println("\n You do not have enough fuel to travel that far!  Get to the Marina and buy some Fuel!");
+        this.console.println("\n You do not have enough fuel to travel that far!  Get to the Marina and buy some Fuel!");
         
     
     }
 
     private void canMakeIt() {
-        System.out.println("\n You can make it with the fuel that you have!");
+        this.console.println("\n You can make it with the fuel that you have!");
        
     }
 
