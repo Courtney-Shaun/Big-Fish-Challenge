@@ -56,7 +56,7 @@ public class CarryWeightView extends View{
                 //do the requested action and display the next view
                 done = this.doAction(input, inputTwo);
             } catch (PlayerControlException ex) {
-                System.out.println(ex.getMessage());
+                this.console.println(ex.getMessage());
             }
             
         } while (!done);

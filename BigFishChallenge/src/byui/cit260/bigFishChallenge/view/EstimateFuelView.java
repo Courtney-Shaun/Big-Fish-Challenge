@@ -56,7 +56,7 @@ public class EstimateFuelView extends View {
             // do the requested action and display the next view
             done = this.doAction(input, inputTwo);
             } catch (PlayerControlException ne) {
-                System.out.println(ne.getMessage());
+                this.console.println(ne.getMessage());
             }
                 
         } while (!done);

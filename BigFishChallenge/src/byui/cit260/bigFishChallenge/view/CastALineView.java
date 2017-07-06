@@ -56,7 +56,7 @@ public class CastALineView extends View{
                 try {
                     this.fishCaught(weight);
                 } catch (GameControlException ge) {
-                    System.out.println(ge.getMessage());
+                    this.console.println(ge.getMessage());
                 }
             } else {
                 this.fishGotAway();

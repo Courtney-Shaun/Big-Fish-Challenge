@@ -58,7 +58,7 @@ public class GameMenuView extends View {
                 try {
                     this.moveLocations();
                 } catch (PlayerControlException ex) {
-                    System.out.println(ex.getMessage());;
+                    this.console.println(ex.getMessage());;
                 }
             }
                 break;
@@ -137,7 +137,7 @@ public class GameMenuView extends View {
                         this.console.print(leftIndicator + "??" + rightIndicator);
                   }
                   else
-                    System.out.print(leftIndicator
+                    this.console.print(leftIndicator
                         + locations[row][column].getScene().getMapSymbol()
                         + rightIndicator);
             }
