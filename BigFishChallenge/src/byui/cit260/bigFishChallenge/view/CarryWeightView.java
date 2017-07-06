@@ -86,11 +86,11 @@ public class CarryWeightView extends View{
         return true;
     }
     private void noStrength() {
-        ErrorView.display(this.getClass().getName(),"\n You do not have enough strength to carry your supplies!");
+         this.console.println("\n You do not have enough strength to carry your supplies!");
     }
 
     private void enoughStrength() {
-        ErrorView.display(this.getClass().getName(),"\n You can carry your supplies back to your boat!");
+         this.console.println("\n You can carry your supplies back to your boat!");
     }
     @Override
     public boolean doAction(String value) {
