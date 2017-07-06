@@ -14,6 +14,10 @@ import byui.cit260.bigFishChallenge.control.MapControl.SceneType;
 import byui.cit260.bigFishChallenge.exceptions.GameControlException;
 import byui.cit260.bigFishChallenge.model.Map;
 import byui.cit260.bigFishChallenge.model.Player;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -88,9 +92,38 @@ public class GameControl {
         
     }
 
-    public GameControl() {
+    public static void saveGame(Game currentGame, String filePath) 
+        throws GameControlException {
         
+    try( FileOutputStream fops = new FileOutputStream(filePath)) {
+        ObjectOutputStream output = new ObjectOutputStream(fops);
+        
+        output.writeObject(currentGame); // write the game object out to file
+    }    
+    catch(Exception e) {
+        throw new GameControlException(e.getMessage());
     }
+    } 
+
+    public static void getSavedGame(String filePath) 
+                        throws GameControlException {
+        Game currentGame = null;
+        
+        try( FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+            
+            currentGame = (Game) input.readObject(); //read the game object from file
+        }
+        catch(Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+        
+        // close the output file
+        BigFishChallenge.setCurrentGame(currentGame);  // save in BigFishChallnge
+    }
+    
+
+
     
     public enum Item {
         fuel,
