@@ -1,0 +1,16 @@
+
+     LIST OF PEOPLE
+Name                Age              
+Billy               50               
+Cletus              30                
+BobbyRay            15                  
+Missy               26               
+Wade                55              
+Phil                70              
+Jethro              65                
+Lena                19              
+Diego               26               
+Martha              41                
+
+The oldest person is Phil
+The youngest person is BobbyRay
