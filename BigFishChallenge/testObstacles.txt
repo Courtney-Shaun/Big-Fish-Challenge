@@ -1,0 +1,13 @@
+
+      LIST OF OBSTACLES
+OBSTACLE           SEVERITY             
+rocks                  7            
+branches               5               
+line                   3           
+weed                   1           
+tree                   6           
+boat                   2           
+player                 8             
+algae                  0            
+
+ The average severity of the obstacles is 4.0

@@ -124,7 +124,7 @@ public class BigFishChallenge {
 //        playerOne.setFewestMoves(16);
 //        
 //        String playerInfo = playerOne.toString();
-//        System.out.println(playerInfo);
+//        this.console.println(playerInfo);
 //    }
 //            
 //    public static void kellyClassTest() {
@@ -136,7 +136,7 @@ public class BigFishChallenge {
 //        tigerMusky.setWeight(33);
 //        
 //        String fishInfo = tigerMusky.toString();
-//        System.out.println(fishInfo);
+//        this.console.println(fishInfo);
 //        
 //        
 //        Game newGame = new Game();
@@ -144,7 +144,7 @@ public class BigFishChallenge {
 //        newGame.setTotalMoves(20);
 //        
 //        String gameInfo = newGame.toString();
-//        System.out.println(gameInfo);
+//        this.console.println(gameInfo);
 //        
 //        
 //        MarinaScene proShop = new MarinaScene();
@@ -153,7 +153,7 @@ public class BigFishChallenge {
 //        proShop.setMoney(120);
 //        
 //        String marinaSceneInfo = proShop.toString();
-//        System.out.println(marinaSceneInfo);
+//        this.console.println(marinaSceneInfo);
 //        
 //    }
 //    
@@ -170,7 +170,7 @@ public class BigFishChallenge {
 //        
 //        
 //        String sceneInfo = boatDock.toString();
-//        System.out.println(sceneInfo);
+//        this.console.println(sceneInfo);
 //        
 //        Location locationNow = new Location();
 //        
@@ -179,7 +179,7 @@ public class BigFishChallenge {
 //        locationNow.setVisited("YES");
 //        
 //        String locationInfo = locationNow.toString();
-//        System.out.println(locationInfo);
+//        this.console.println(locationInfo);
 //    
 //    }
    
@@ -191,7 +191,7 @@ public class BigFishChallenge {
 //        shopClerk.setClue("Rumor has it the fish are biting like crazy up in them trees over thar'!");
 //        
 //        String actorInfo = shopClerk.toString();
-//        System.out.println(actorInfo);
+//        this.console.println(actorInfo);
 //        
 //        
 //        MainScene fishingHole = new MainScene();
@@ -201,7 +201,7 @@ public class BigFishChallenge {
 //        fishingHole.setObstacle("Your trolling motor got caught in the weeds.");
 //        
 //        String fishingHoleInfo = fishingHole.toString();
-//        System.out.println(fishingHoleInfo);
+//        this.console.println(fishingHoleInfo);
 //        
 //        
 //        InventoryItem playerBait = new InventoryItem();
@@ -211,18 +211,18 @@ public class BigFishChallenge {
 //        playerBait.setRequiredAmount(5);
 //        
 //        String playerBaitInfo = playerBait.toString();
-//        System.out.println(playerBaitInfo);
+//        this.console.println(playerBaitInfo);
 //        
 //    }
 
-    private class console {
-
-        private void println(String message) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        public console() {
-        }
-    }
+//    private class console {
+//
+//        private void println(String message) {
+//            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        }
+//
+//        public console() {
+//        }
+//    }
     
 }

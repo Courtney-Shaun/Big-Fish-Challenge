@@ -151,12 +151,12 @@ public abstract class View implements ViewInterface {
             selection = selection.trim();
             
 //            if (selection.length() < 1) {
-//                System.out.println("\n*** Invalid selection *** Try again");
+//                this.console.println("\n*** Invalid selection *** Try again");
 //                continue;
 //            } else if ("q".equals(selection)){
 //                return -999;
 //            } else if (Double.parseDouble(selection) > maxVal || (Double.parseDouble(selection) < minVal)) {
-//                System.out.println("\n*** Invalid selection *** Try again");
+//                this.console.println("\n*** Invalid selection *** Try again");
 //                continue;
 //            } 
               if ("Q".equals(selection.toUpperCase())) {

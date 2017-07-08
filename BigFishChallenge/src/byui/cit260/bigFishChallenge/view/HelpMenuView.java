@@ -6,6 +6,8 @@
 package byui.cit260.bigFishChallenge.view;
 
 import byui.cit260.bigFishChallenge.model.Obstacle;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -23,7 +25,8 @@ public class HelpMenuView  extends View{
               + "\nF - About Fuel"
               + "\nB - About Bait"
               + "\nC - Casting a Line"
-              + "\nV - View the Obstacles"  
+              + "\nV - View the Obstacles"
+              + "\nP - Print obstacles to a file"  
               + "\nI - Interpreting Clues"
               + "\nQ - Quit"
               + "\n---------------------------------");
@@ -49,6 +52,9 @@ public class HelpMenuView  extends View{
                 break;
             case "V": //display the list of obstacles and their power
                 this.viewObstacles();
+                break;
+            case "P": //print list of obstacles and thier power to a file
+                this.printObstacles();
                 break;
             case "I": // display help on interpret clues
                 this.interpretClues();
@@ -170,6 +176,50 @@ private void interpretClues() {
               + "\n to find the big fish."
               + "\n--------------------------------");
     }
+
+    private void printObstacles() {
+        
+        String filePrompt = displayMessage;
+        
+        displayMessage = "\n\nEnter the file path for where the file is to be saved.  Only enter filename for default location.";
+        String filePath = this.getInput();
+        
+        try(FileOutputStream fops = new FileOutputStream(filePath)) {
+            PrintWriter display = new PrintWriter(fops, true);
+        
+            int allObstacles = Obstacle.values().length;
+            int total = 0;
+            double average = 0;
+        
+            StringBuilder line;
+                       
+            display.println("\n      LIST OF OBSTACLES");
+            line = new StringBuilder("                        ");
+            line.insert(0, "OBSTACLE");
+            line.insert(19, "SEVERITY");
+        
+            display.println(line.toString());
+                for(Obstacle currentObstacle : Obstacle.values() ) {
+                    total += currentObstacle.getPower();
+            
+                line = new StringBuilder("                              ");
+                line.insert(0, currentObstacle.getObstacle());
+                line.insert(23, currentObstacle.getPower());
+                display.println(line.toString());
+            }
+            average = total / allObstacles;
+    
+            display.println("\n The average severity of the obstacles is " + average);
+            
+            this.console.println("\nYou have saved successuflly to file: " + filePath);
+    
+    
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "/n Error saving file to path" + filePath + "," + e.getMessage());
+        }
+        
+        displayMessage = filePrompt;
+    } 
 
     
 }
