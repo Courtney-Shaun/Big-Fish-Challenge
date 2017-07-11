@@ -18,7 +18,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 /**
@@ -135,44 +134,41 @@ public class GameControl {
         fish;
     }
 
-    private static InventoryItem[] createInventoryList() {
+    public static InventoryItem[] createInventoryList() {
                
         InventoryItem[] inventory = new InventoryItem[4];
         
         InventoryItem fuel = new InventoryItem();
-        fuel.setItemType("Fuel");
-        fuel.setQuantityInStock(0);
-        fuel.setRequiredAmount(0);
+        fuel.setType("Fuel");
+        fuel.setQuantity(0);
         inventory[Item.fuel.ordinal()] = fuel;
         
         InventoryItem bait = new InventoryItem();
-        bait.setItemType("Bait");
-        bait.setQuantityInStock(0);
-        bait.setRequiredAmount(0);
+        bait.setType("Bait");
+        bait.setQuantity(0);
         inventory[Item.bait.ordinal()] = bait;
         
         InventoryItem money = new InventoryItem();
-        money.setItemType("Money");
-        money.setQuantityInStock(0);
-        money.setRequiredAmount(0);
+        money.setType("Money");
+        money.setQuantity(100);
         inventory[Item.money.ordinal()] = money;
         
         InventoryItem fish = new InventoryItem();
-        fish.setItemType("Fish");
-        fish.setQuantityInStock(0);
-        fish.setRequiredAmount(0);
+        fish.setType("Fish");
+        fish.setQuantity(0);
+        fish.setWeight(0);
         inventory[Item.fish.ordinal()] = fish;
         
         return inventory;
     }
-    
+    /*
     public static void addFish(int weight) throws GameControlException {
         Game game = BigFishChallenge.getCurrentGame();
         
         game.setTotalFish(weight);
         
-    }
-    
+    }*/
+    /*
     public static int checkFish() {
         Game game = BigFishChallenge.getCurrentGame();
         
@@ -198,7 +194,7 @@ public class GameControl {
         
         return total;
     }
-    
+    */
  
     
 }

@@ -7,6 +7,8 @@ package byui.cit260.bigFishChallenge.view;
 
 import bigfishchallenge.BigFishChallenge;
 import byui.cit260.bigFishChallenge.control.GameControl;
+import byui.cit260.bigFishChallenge.control.GameControl.Item;
+import static byui.cit260.bigFishChallenge.control.GameControl.Item.fuel;
 import byui.cit260.bigFishChallenge.control.MapControl;
 import byui.cit260.bigFishChallenge.control.PlayerControl;
 import byui.cit260.bigFishChallenge.exceptions.GameControlException;
@@ -19,9 +21,25 @@ import byui.cit260.bigFishChallenge.model.Map;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static oracle.jrockit.jfr.events.Bits.intValue;
+import bigfishchallenge.BigFishChallenge;
+import byui.cit260.bigFishChallenge.model.Game;
+import byui.cit260.bigFishChallenge.model.InventoryItem;
+import byui.cit260.bigFishChallenge.model.Location;
+import byui.cit260.bigFishChallenge.model.MainScene;
+import byui.cit260.bigFishChallenge.control.MapControl.SceneType;
+import byui.cit260.bigFishChallenge.exceptions.GameControlException;
+import byui.cit260.bigFishChallenge.model.Map;
+import byui.cit260.bigFishChallenge.model.Player;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 
 /**
  *
@@ -37,13 +55,13 @@ public class GameMenuView extends View {
                 + "\nD - Display Map"
                 + "\nM - Move to New Location"
                 + "\nC - Cast a Line"
-                + "\nF - Check how much fish you have"
                 + "\nE - Estimate Fuel Usage"
                 + "\nT - Talk to Others"
                 + "\nP - Display people in the game"
                 + "\nR - Save report for people in the game"
                 + "\nB - Buy Bait'n'fuel"
                 + "\nV - View Inventory"
+                + "\nI - Save Inventory Report"
                 + "\nH - Help Menu"
                 + "\nS - Save Game"
                 + "\nQ - Quit Game");
@@ -69,9 +87,6 @@ public class GameMenuView extends View {
             case "C":
                 this.cast();
                 break;
-            case "F":
-                this.check();
-                break;
             case "E":
                 this.estimateFuel();
                 break;
@@ -89,6 +104,9 @@ public class GameMenuView extends View {
                 break;
             case "V":
                 this.viewInventory();
+                break;
+            case "I":
+                this.printInventory();
                 break;
             case "H":
                 this.help();
@@ -157,10 +175,15 @@ public class GameMenuView extends View {
 
         Game game = BigFishChallenge.getCurrentGame(); // retreive the game
         Map map = game.getMap(); // retreive the map from game
-
+        InventoryItem[] inventoryList = game.getInventory();
+        
+        //fuel.setQuantity(100);
+        int fuel = inventoryList[Item.fuel.ordinal()].getQuantity();
+        
         displayMap();
 
-        this.console.println("You have " + game.getFuel() + " gallons of fuel.");
+        //this.console.println("You have " + game.getFuel() + " gallons of fuel.");
+        this.console.println("You have " + fuel + " gallons of fuel.");
 
         int row = getIntInput("\n Row? (-999 to cancel)", 4, 0);
         if (row == -999) {
@@ -178,18 +201,18 @@ public class GameMenuView extends View {
         //System.out.println("row " + destRow + " column " + destColumn + "THIS IS THE LOCATION!");
         double distance = Math.sqrt(Math.pow(Math.abs(destRow - row), 2) + (Math.pow(Math.abs(destColumn - column), 2)));
 
-        int gallons = game.getFuel();
-        if (gallons == 0) {
+        
+        if (fuel == 0) {
             this.console.println("You must buy fuel before you can move.");
             return;
         }
 
-        int gallonsLeft = intValue(PlayerControl.estimateFuel(distance, gallons));
+        int gallonsLeft = intValue(PlayerControl.estimateFuel(distance, fuel));
 
         MapControl.movePlayer(map, row, column);
         //this is where we need to call the scene view associated with the new location
 
-        game.setFuel(gallonsLeft);
+        inventoryList[Item.fuel.ordinal()].setQuantity(gallonsLeft);
 
         displayMap();
 
@@ -198,7 +221,10 @@ public class GameMenuView extends View {
     private void cast() {
         Game game = BigFishChallenge.getCurrentGame(); // retreive the game
         Map map = game.getMap(); // retreive the map from game
-
+        InventoryItem[] inventoryList = game.getInventory();
+        
+        int bait = inventoryList[Item.bait.ordinal()].getQuantity();
+        
         int weight = map.getCurrentLocation().getScene().getFishWeight(); //retrieve fish weight from scene
 
         String fishWeightText;
@@ -208,7 +234,7 @@ public class GameMenuView extends View {
                     + "\n| Sorry, but you can't fish here               |"
                     + "\n------------------------------------------------");
             return;
-        } else if (game.getBait() < 1) {
+        } else if (bait < 1) {
             this.console.println("\n"
                     + "\n------------------------------------------------"
                     + "\n| You don't have any bait.                    |"
@@ -216,11 +242,11 @@ public class GameMenuView extends View {
                     + "\n------------------------------------------------");
             return;
         } else if (weight == 0) {
-            game.setBait(game.getBait() - 1);
+            inventoryList[Item.bait.ordinal()].setQuantity(bait - 1);
             this.console.println("\n"
                     + "\n------------------------------------------------"
                     + "\n| You didn't get any bites."
-                    + "\n| You have " + game.getBait() + " pounds of bait left."
+                    + "\n| You have " + (bait - 1) + " pounds of bait left."
                     + "\n------------------------------------------------");
 
             return;
@@ -229,16 +255,21 @@ public class GameMenuView extends View {
         } else {
             fishWeightText = "You felt a strong tug on your line!";
         }
-        game.setBait(game.getBait() - 1);
-        CastALineView castALineView = new CastALineView(fishWeightText, weight, game.getBait());
+        inventoryList[Item.bait.ordinal()].setQuantity(bait - 1);
+        CastALineView castALineView = new CastALineView(fishWeightText, weight, (bait - 1));
         castALineView.display();
     }
 
     public static void check() {
-        int totalWeight = GameControl.checkFish();
-        int totalFish = GameControl.checkNumFish();
+        Game game = BigFishChallenge.getCurrentGame();
+        InventoryItem[] inventoryList = game.getInventory();
+        
+        int totalWeight = inventoryList[GameControl.Item.fish.ordinal()].getWeight();
+        int totalFish = inventoryList[GameControl.Item.fish.ordinal()].getQuantity();
         if (totalFish == 1) {
             System.out.println("\n You have " + totalFish + " fish that weighs " + totalWeight + " pounds.");
+        } else if (totalFish == 0) {
+            System.out.println("\n You have " + totalFish + " fish.");
         } else {
             System.out.println("\n You have " + totalFish + " fish that weigh a combined " + totalWeight + " pounds.");
         }
@@ -255,25 +286,26 @@ public class GameMenuView extends View {
     }
 
     private void viewInventory() {
-        this.console.println("VIEW INVENTORY CALLED");
+        //this.console.println("VIEW INVENTORY CALLED");
 
         StringBuilder line;
 
         Game game = BigFishChallenge.getCurrentGame();
         InventoryItem[] inventory = game.getInventory();
 
-        this.console.println("\n     LIST OF INVENTORY ITEMS");
+        this.console.println("\n-----------------------");
+        this.console.println("LIST OF INVENTORY ITEMS");
+        this.console.println("-----------------------");
         line = new StringBuilder("                              ");
-        line.insert(0, "DESCRIPTION");
-        line.insert(20, "REQUIRED");
-        line.insert(30, "IN STOCK");
+        line.insert(0, "TYPE");
+        line.insert(15, "QUANTITY");
         this.console.println(line.toString());
+        
 
         for (InventoryItem item : inventory) {
             line = new StringBuilder("                              ");
-            line.insert(0, item.getItemType());
-            line.insert(23, item.getRequiredAmount());
-            line.insert(33, item.getQuantityInStock());
+            line.insert(0, item.getType());
+            line.insert(15, item.getQuantity());
 
             this.console.println(line.toString());
         }
@@ -383,7 +415,47 @@ public class GameMenuView extends View {
             this.console.println("\nYou successfully saved to file " + filePath);
 
         } catch (Exception e) {
-            ErrorView.display(this.getClass().getName(), "/n*** Error saving to file " + filePath + ". " + e.getMessage());
+            ErrorView.display(this.getClass().getName(), "\n*** Error saving to file " + filePath + ". " + e.getMessage());
+        }
+        displayMessage = savePrompt;
+    }
+
+    private void printInventory() {
+        String savePrompt = displayMessage;
+        
+        displayMessage = "\n\nEnter the file path for the file where the report is to be saved.";
+        String filePath = this.getInput();
+        
+               
+        try(FileOutputStream fops = new FileOutputStream(filePath)) {
+            PrintWriter output = new PrintWriter(fops,true);
+        
+            StringBuilder line;
+
+            Game game = BigFishChallenge.getCurrentGame();
+            InventoryItem[] inventory = game.getInventory();
+
+            output.println("\n-----------------------");
+            output.println("LIST OF INVENTORY ITEMS");
+            output.println("-----------------------");
+            line = new StringBuilder("                              ");
+            line.insert(0, "TYPE");
+            line.insert(15, "QUANTITY");
+            output.println(line.toString());
+
+
+            for (InventoryItem item : inventory) {
+                line = new StringBuilder("                              ");
+                line.insert(0, item.getType());
+                line.insert(15, item.getQuantity());
+
+                output.println(line.toString());
+            }
+                        
+            this.console.println("\nYou successfully saved to file " + filePath);
+
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "\n*** Error saving to file " + filePath + ". " + e.getMessage());
         }
         displayMessage = savePrompt;
     }

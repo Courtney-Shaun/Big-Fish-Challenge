@@ -10,6 +10,7 @@ import byui.cit260.bigFishChallenge.control.GameControl;
 import byui.cit260.bigFishChallenge.control.PlayerControl;
 import byui.cit260.bigFishChallenge.exceptions.PlayerControlException;
 import byui.cit260.bigFishChallenge.model.Game;
+import byui.cit260.bigFishChallenge.model.InventoryItem;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -70,11 +71,16 @@ public class ShopMarinaView extends View {
         int pricePerGallon = 4;
         
         Game game = BigFishChallenge.getCurrentGame();
+        InventoryItem[] inventoryList = game.getInventory();
         
-        this.console.println("You currently have " + game.getBait() + " pounds of bait and " + game.getFuel() + " gallons of fuel.");
+        int bait = inventoryList[GameControl.Item.bait.ordinal()].getQuantity();
+        int fuel = inventoryList[GameControl.Item.fuel.ordinal()].getQuantity();
+        int money = inventoryList[GameControl.Item.money.ordinal()].getQuantity();
+        
+        this.console.println("You currently have " + bait + " pounds of bait and " + fuel + " gallons of fuel.");
         this.console.println("Bait is $" + pricePerPound + " per pound.");
         this.console.println("Fuel is $" + pricePerGallon + " per gallon.");
-        this.console.println("You have $" + game.getMoney() + ".");
+        this.console.println("You have $" + money + ".");
         int pounds = getIntInput("How many pounds of bait would you like to buy?", 50, 0);
         int gallons = getIntInput("How many gallons of fuel would you like to buy?", 50, 0);
         
@@ -82,12 +88,12 @@ public class ShopMarinaView extends View {
         
         if (PlayerControl.carryWeight(pounds, gallons) < 1) {
             this.console.println("You can't carry this much. It's too heavy!");
-        } else if (totalPrice <= game.getMoney()) {
-            game.setMoney(game.getMoney() - totalPrice);
-            game.setBait(game.getBait() + pounds);
-            game.setFuel(game.getFuel() + gallons);
+        } else if (totalPrice <= money) {
+            inventoryList[GameControl.Item.money.ordinal()].setQuantity(money - totalPrice);
+            inventoryList[GameControl.Item.bait.ordinal()].setQuantity(bait + pounds);
+            inventoryList[GameControl.Item.fuel.ordinal()].setQuantity(fuel + gallons);
             this.console.println("You just bought " + pounds + " pounds of bait, and " + gallons + " gallons of fuel.");
-            this.console.println("You have $" + game.getMoney() + " left.");
+            this.console.println("You have $" + (money - totalPrice) + " left.");
         } else {
             this.console.println("You don't have enough money for this.");
         }

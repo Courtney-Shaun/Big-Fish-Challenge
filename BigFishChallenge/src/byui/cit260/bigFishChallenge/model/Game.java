@@ -19,11 +19,12 @@ public class Game implements Serializable{
     private Map map;
     private Player player;
     private InventoryItem[] inventory;
-    private ArrayList<Integer> totalFish = new ArrayList<>();
-    private int money = 100; //initialize starting money at $100
-    private int fuel;
-    private int bait;
     
+    //private ArrayList<Integer> totalFish = new ArrayList<>();
+    //private int money = 100; //initialize starting money at $100
+    //private int fuel;
+    //private int bait;
+    /*
     public int getFuel() {
         return fuel;
     }
@@ -49,7 +50,7 @@ public class Game implements Serializable{
         this.money = money;
     }
     
-    
+    */ /*
     public ArrayList<Integer> getTotalFish() {
         return totalFish;
     }
@@ -57,7 +58,7 @@ public class Game implements Serializable{
     public void setTotalFish(int weight) {
         
         this.totalFish.add(weight);
-    }
+    }*/
     
     public InventoryItem[] getInventory() {
         return inventory;

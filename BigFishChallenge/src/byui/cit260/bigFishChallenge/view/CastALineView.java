@@ -10,6 +10,7 @@ import byui.cit260.bigFishChallenge.control.GameControl;
 import byui.cit260.bigFishChallenge.control.PlayerControl;
 import byui.cit260.bigFishChallenge.exceptions.GameControlException;
 import byui.cit260.bigFishChallenge.model.Game;
+import byui.cit260.bigFishChallenge.model.InventoryItem;
 import byui.cit260.bigFishChallenge.model.Map;
 
 /**
@@ -53,11 +54,7 @@ public class CastALineView extends View{
             hookSetAccuracy = playerControl.cast(choiceInt, weight);
 
             if (hookSetAccuracy < 4) {
-                try {
-                    this.fishCaught(weight);
-                } catch (GameControlException ge) {
-                    this.console.println(ge.getMessage());
-                }
+                this.fishCaught(weight);
             } else {
                 this.fishGotAway();
             }
@@ -74,13 +71,19 @@ public class CastALineView extends View{
         return true;
     }
 
-    private void fishCaught(int weight) throws GameControlException {
+    private void fishCaught(int weight) {
+        Game game = BigFishChallenge.getCurrentGame();
+        InventoryItem[] inventoryList = game.getInventory();
         this.console.println("You caught a " + weight + " pound fish!");
-        try {
-            GameControl.addFish(weight);
-        }  catch (GameControlException ge) {
-            this.console.println(ge.getMessage());
-        }
+        
+        //GameControl.addFish(weight);
+        int totalFish = inventoryList[GameControl.Item.fish.ordinal()].getQuantity();
+        int totalWeight = inventoryList[GameControl.Item.fish.ordinal()].getWeight();
+
+
+        inventoryList[GameControl.Item.fish.ordinal()].setQuantity(totalFish + 1);
+        inventoryList[GameControl.Item.fish.ordinal()].setWeight(totalWeight + weight);
+
         GameMenuView.check();
         return; 
     }
