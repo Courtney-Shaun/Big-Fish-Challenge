@@ -192,7 +192,7 @@ public class GameMenuView extends View {
         MapControl.movePlayer(map, row, column);
         //this is where we need to call the scene view associated with the new location
         this.console.println(destRow + " " + destColumn + " " + fishWeight);
-        if (row == 4 && column == 2 && fishWeight >= 5){
+        if (row == 4 && column == 2 && fishWeight >= 50){
             //winGame();
             WinGameView winGameView = new WinGameView();
             winGameView.display();
@@ -445,29 +445,3 @@ public class GameMenuView extends View {
         }
         displayMessage = savePrompt;
     }
-/*
-    private void winGame() {
-        for (int i = 0; i < 60; i++) {
-            this.console.println("\n");
-        }
-        this.console.println("$$$$$$$$$$$$$$$$$$$$");
-        this.console.println("********************");
-        this.console.println("~~~~~ YOU WIN! ~~~~~");
-        this.console.println("********************");
-        this.console.println("$$$$$$$$$$$$$$$$$$$$");
-        this.console.println("\n");
-        
-        this.displayMessage = "Want to play again? (Y or N)";
-        
-        String answer = getInput();
-        answer = answer.toUpperCase();
-        
-        if ("Y".equals(answer)) {
-            playGame();
-        } if ("N".equals(answer)) {
-            System.exit (0);
-        }
-        
-        
-    }*/
-}
