@@ -12,8 +12,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 public class BigFishChallenge {
@@ -28,7 +26,17 @@ public class BigFishChallenge {
 
     
     public static void main(String[] args) {
-                
+       try {
+            playGame();
+            } catch (Throwable te) {
+                System.out.println(te.getMessage());
+                te.printStackTrace();
+                playGame();
+        }         
+        
+    }
+    
+    public static void playGame() {
         try {
             //open character stream files for user i/o
             BigFishChallenge.inFile = new BufferedReader(new InputStreamReader(System.in));

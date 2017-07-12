@@ -5,41 +5,21 @@
  */
 package byui.cit260.bigFishChallenge.view;
 
-import bigfishchallenge.BigFishChallenge;
 import byui.cit260.bigFishChallenge.control.GameControl;
 import byui.cit260.bigFishChallenge.control.GameControl.Item;
-import static byui.cit260.bigFishChallenge.control.GameControl.Item.fuel;
 import byui.cit260.bigFishChallenge.control.MapControl;
 import byui.cit260.bigFishChallenge.control.PlayerControl;
-import byui.cit260.bigFishChallenge.exceptions.GameControlException;
 import byui.cit260.bigFishChallenge.exceptions.PlayerControlException;
 import byui.cit260.bigFishChallenge.model.Actor;
-import byui.cit260.bigFishChallenge.model.Game;
-import byui.cit260.bigFishChallenge.model.InventoryItem;
-import byui.cit260.bigFishChallenge.model.Location;
-import byui.cit260.bigFishChallenge.model.Map;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import static oracle.jrockit.jfr.events.Bits.intValue;
 import bigfishchallenge.BigFishChallenge;
+import static bigfishchallenge.BigFishChallenge.playGame;
 import byui.cit260.bigFishChallenge.model.Game;
 import byui.cit260.bigFishChallenge.model.InventoryItem;
 import byui.cit260.bigFishChallenge.model.Location;
-import byui.cit260.bigFishChallenge.model.MainScene;
-import byui.cit260.bigFishChallenge.control.MapControl.SceneType;
-import byui.cit260.bigFishChallenge.exceptions.GameControlException;
 import byui.cit260.bigFishChallenge.model.Map;
-import byui.cit260.bigFishChallenge.model.Player;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 /**
  *
@@ -115,7 +95,7 @@ public class GameMenuView extends View {
                 this.saveGame();
                 break;
             default:
-                ErrorView.display(this.getClass().getName(), "/n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
 
         }
@@ -177,8 +157,8 @@ public class GameMenuView extends View {
         Map map = game.getMap(); // retreive the map from game
         InventoryItem[] inventoryList = game.getInventory();
         
-        //fuel.setQuantity(100);
         int fuel = inventoryList[Item.fuel.ordinal()].getQuantity();
+        int fishWeight = inventoryList[Item.fish.ordinal()].getWeight();
         
         displayMap();
 
@@ -211,10 +191,16 @@ public class GameMenuView extends View {
 
         MapControl.movePlayer(map, row, column);
         //this is where we need to call the scene view associated with the new location
+        this.console.println(destRow + " " + destColumn + " " + fishWeight);
+        if (row == 4 && column == 2 && fishWeight >= 5){
+            //winGame();
+            WinGameView winGameView = new WinGameView();
+            winGameView.display();
+        } else {
+            inventoryList[Item.fuel.ordinal()].setQuantity(gallonsLeft);
 
-        inventoryList[Item.fuel.ordinal()].setQuantity(gallonsLeft);
-
-        displayMap();
+            displayMap();
+        }
 
     }
 
@@ -459,4 +445,29 @@ public class GameMenuView extends View {
         }
         displayMessage = savePrompt;
     }
+/*
+    private void winGame() {
+        for (int i = 0; i < 60; i++) {
+            this.console.println("\n");
+        }
+        this.console.println("$$$$$$$$$$$$$$$$$$$$");
+        this.console.println("********************");
+        this.console.println("~~~~~ YOU WIN! ~~~~~");
+        this.console.println("********************");
+        this.console.println("$$$$$$$$$$$$$$$$$$$$");
+        this.console.println("\n");
+        
+        this.displayMessage = "Want to play again? (Y or N)";
+        
+        String answer = getInput();
+        answer = answer.toUpperCase();
+        
+        if ("Y".equals(answer)) {
+            playGame();
+        } if ("N".equals(answer)) {
+            System.exit (0);
+        }
+        
+        
+    }*/
 }

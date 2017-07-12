@@ -46,7 +46,7 @@ public class MainMenuView extends View{
                 this.saveGame();
                 break;
             default:
-                ErrorView.display(this.getClass().getName(),"/n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
             
         }

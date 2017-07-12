@@ -58,7 +58,7 @@ public class ShopMarinaView extends View {
                 this.carryPurchase();
                 break;    
             default:
-                ErrorView.display(this.getClass().getName(),"/n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
             
         }

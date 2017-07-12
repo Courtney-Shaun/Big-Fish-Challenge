@@ -6,11 +6,9 @@
 package byui.cit260.bigFishChallenge.view;
 
 import bigfishchallenge.BigFishChallenge;
-import byui.cit260.bigFishChallenge.exceptions.PlayerControlException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

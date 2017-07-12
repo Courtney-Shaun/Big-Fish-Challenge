@@ -7,7 +7,6 @@ package byui.cit260.bigFishChallenge.view;
 
 import byui.cit260.bigFishChallenge.control.GameControl;
 import byui.cit260.bigFishChallenge.model.Player;
-import java.util.Scanner;
 
 
 public class StartProgramView extends View {

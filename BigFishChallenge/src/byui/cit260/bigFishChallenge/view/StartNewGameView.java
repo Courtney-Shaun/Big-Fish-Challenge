@@ -52,11 +52,11 @@ public class StartNewGameView extends View {
             case "H": // display the help menu
                 this.displayHelpMenu();
                 break;
-            case "S": // save teh current game
+            case "S": // save the current game
                 this.saveGame();
                 break;
             default:
-                ErrorView.display(this.getClass().getName(),"/n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
             
         }

@@ -60,7 +60,7 @@ public class HelpMenuView  extends View{
                 this.interpretClues();
                 break;
             default:
-               ErrorView.display(this.getClass().getName(),"/n*** Invalid selection *** Try again");
+               ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
             
         }
@@ -215,7 +215,7 @@ private void interpretClues() {
     
     
         } catch (Exception e) {
-            ErrorView.display(this.getClass().getName(), "/n Error saving file to path" + filePath + "," + e.getMessage());
+            ErrorView.display(this.getClass().getName(), "\n Error saving file to path" + filePath + "," + e.getMessage());
         }
         
         displayMessage = filePrompt;
