@@ -5,11 +5,10 @@
  */
 package byui.cit260.bigFishChallenge.view;
 
-import java.util.Scanner;
+
 import byui.cit260.bigFishChallenge.control.PlayerControl;
 import byui.cit260.bigFishChallenge.exceptions.PlayerControlException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *

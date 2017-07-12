@@ -13,7 +13,6 @@ import byui.cit260.bigFishChallenge.exceptions.PlayerControlException;
 import byui.cit260.bigFishChallenge.model.Actor;
 import static oracle.jrockit.jfr.events.Bits.intValue;
 import bigfishchallenge.BigFishChallenge;
-import static bigfishchallenge.BigFishChallenge.playGame;
 import byui.cit260.bigFishChallenge.model.Game;
 import byui.cit260.bigFishChallenge.model.InventoryItem;
 import byui.cit260.bigFishChallenge.model.Location;
@@ -35,8 +34,6 @@ public class GameMenuView extends View {
                 + "\nD - Display Map"
                 + "\nM - Move to New Location"
                 + "\nC - Cast a Line"
-                + "\nE - Estimate Fuel Usage"
-                + "\nT - Talk to Others"
                 + "\nP - Display people in the game"
                 + "\nR - Save report for people in the game"
                 + "\nB - Buy Bait'n'fuel"
@@ -67,17 +64,11 @@ public class GameMenuView extends View {
             case "C":
                 this.cast();
                 break;
-            case "E":
-                this.estimateFuel();
-                break;
             case "P":
                 this.DisplayPeople();
                 break;
             case "R":
                 this.PrintDisplayPeople();
-                break;
-            case "T":
-                this.talkToOthers();
                 break;
             case "B":
                 this.buyBaitNFuel();
@@ -262,15 +253,6 @@ public class GameMenuView extends View {
 
     }
 
-    private void estimateFuel() {
-        EstimateFuelView estimateFuelView = new EstimateFuelView();
-        estimateFuelView.display();
-    }
-
-    private void talkToOthers() {
-        this.console.println("*** talktoothers() function called ***");
-    }
-
     private void viewInventory() {
         //this.console.println("VIEW INVENTORY CALLED");
 
@@ -445,3 +427,4 @@ public class GameMenuView extends View {
         }
         displayMessage = savePrompt;
     }
+}

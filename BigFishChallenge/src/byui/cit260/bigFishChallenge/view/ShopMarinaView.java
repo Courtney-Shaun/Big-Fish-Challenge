@@ -11,9 +11,7 @@ import byui.cit260.bigFishChallenge.control.PlayerControl;
 import byui.cit260.bigFishChallenge.exceptions.PlayerControlException;
 import byui.cit260.bigFishChallenge.model.Game;
 import byui.cit260.bigFishChallenge.model.InventoryItem;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 /**
  *
  * @author Kelly Huber
@@ -35,7 +33,6 @@ public class ShopMarinaView extends View {
                   + "\n  at the Marina if you wish."
                   + "\n--------------------------------"
                   + "\nB - Buy supplies"
-                  + "\nC - Can you carry your purchases?"
                   + "\nQ - Quit"
                   + "\n---------------------------------");
     }
@@ -54,9 +51,7 @@ public class ShopMarinaView extends View {
                     }
                 }
                 break;
-            case "C": // carryWeight
-                this.carryPurchase();
-                break;    
+            
             default:
                 ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
@@ -98,13 +93,5 @@ public class ShopMarinaView extends View {
             this.console.println("You don't have enough money for this.");
         }
     }
-    
-    private void carryPurchase() {
-        CarryWeightView carryWeightView = new CarryWeightView();
-        
-        carryWeightView.display();
-    }
-    
-    
 }
 

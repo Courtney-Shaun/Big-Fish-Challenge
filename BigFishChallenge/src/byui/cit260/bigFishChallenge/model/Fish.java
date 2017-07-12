@@ -8,6 +8,7 @@ package byui.cit260.bigFishChallenge.model;
 import java.io.Serializable;
 import java.util.Objects;
 
+
 /**
  *
  * @author Kelly
