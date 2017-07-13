@@ -106,6 +106,7 @@ public class MapControl {
         deepWater1.setName("in deep water."); //"You are currently" + INSERT THIS STRING
         deepWater1.setFishWeight(weightRandomizer());
         deepWater1.setBlocked(false);
+        deepWater1.setActor(Actor.Billy);
         scenes[SceneType.deepWater1.ordinal()] = deepWater1;
         
         MainScene deepWater2 = new MainScene();
@@ -128,6 +129,7 @@ public class MapControl {
         deepWater3.setName("in deep water."); //"You are currently" + INSERT THIS STRING
         deepWater3.setFishWeight(weightRandomizer());
         deepWater3.setBlocked(false);
+        deepWater3.setActor(Actor.Lena);
         scenes[SceneType.deepWater3.ordinal()] = deepWater3;
         
         MainScene deepWater4 = new MainScene();
@@ -150,6 +152,7 @@ public class MapControl {
         deepWater5.setName("in deep water."); //"You are currently" + INSERT THIS STRING
         deepWater5.setFishWeight(weightRandomizer());
         deepWater5.setBlocked(false);
+        deepWater5.setActor(Actor.BobbyRay);
         scenes[SceneType.deepWater5.ordinal()] = deepWater5;        
         
         MainScene shallowWater1 = new MainScene();
@@ -172,6 +175,7 @@ public class MapControl {
         shallowWater2.setName("in shallow water."); //"You are currently" + INSERT THIS STRING
         shallowWater2.setFishWeight(weightRandomizer());
         shallowWater2.setBlocked(false);
+        shallowWater2.setActor(Actor.Martha);
         scenes[SceneType.shallowWater2.ordinal()] = shallowWater2;
         
         MainScene shallowWater3 = new MainScene();
@@ -239,6 +243,7 @@ public class MapControl {
         rocky1.setName("in rocky water."); //"You are currently" + INSERT THIS STRING
         rocky1.setFishWeight(weightRandomizer());
         rocky1.setBlocked(false);
+        rocky1.setActor(Actor.Diego);
         scenes[SceneType.rocky1.ordinal()] = rocky1;
         
         MainScene rocky2 = new MainScene();
@@ -264,6 +269,7 @@ public class MapControl {
         weeds1.setName("in the weeds."); //"You are currently" + INSERT THIS STRING
         weeds1.setFishWeight(weightRandomizer());
         weeds1.setBlocked(false);
+        weeds1.setActor(Actor.Missy);
         scenes[SceneType.weeds1.ordinal()] = weeds1;
         
         MainScene weeds2 = new MainScene();
@@ -303,6 +309,7 @@ public class MapControl {
         weeds4.setName("in the weeds."); //"You are currently" + INSERT THIS STRING
         weeds4.setFishWeight(weightRandomizer());
         weeds4.setBlocked(false);
+        weeds4.setActor(Actor.Diego);
         scenes[SceneType.weeds4.ordinal()] = weeds4;
         
         MainScene roughWater1 = new MainScene();
@@ -325,6 +332,7 @@ public class MapControl {
         roughWater2.setName("in rough water."); //"You are currently" + INSERT THIS STRING
         roughWater2.setFishWeight(weightRandomizer());
         roughWater2.setBlocked(false);
+        roughWater2.setActor(Actor.Wade);
         scenes[SceneType.roughWater2.ordinal()] = roughWater2;
         
         MainScene roughWater3 = new MainScene();
@@ -347,6 +355,7 @@ public class MapControl {
         roughWater4.setName("in rough water."); //"You are currently" + INSERT THIS STRING
         roughWater4.setFishWeight(weightRandomizer());
         roughWater4.setBlocked(false);
+        roughWater4.setActor(Actor.Phil);
         scenes[SceneType.roughWater4.ordinal()] = roughWater4;
         
         MainScene underBridge = new MainScene();
@@ -359,6 +368,7 @@ public class MapControl {
         underBridge.setName("under the bridge."); //"You are currently" + INSERT THIS STRING
         underBridge.setFishWeight(weightRandomizer());
         underBridge.setBlocked(false);
+        underBridge.setActor(Actor.Jethro);
         scenes[SceneType.underBridge.ordinal()] = underBridge;
         
         MainScene marina = new MainScene();
