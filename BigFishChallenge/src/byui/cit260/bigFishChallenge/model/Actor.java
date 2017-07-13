@@ -13,17 +13,17 @@ import java.io.Serializable;
  */
 public enum Actor implements Serializable{
     
-    Billy("Billy", "It's hot today, deep water is cool!", 50),
-    Cletus("Cletus", "My name is Cletus, have fun on the lake!", 30),
-    BobbyRay("BobbyRay", "Get yourself some more bait at the Marina!", 15),
-    Missy("Missy", "Weeds provide cover.", 26),
-    Wade("Wade", "Get yourself some more fuel at the Marina!", 55),
-    Phil("Phil", "Make sure to set that fish just right! Not too hard and not too soft!", 70),
+    Billy("Billy", "It's hot today, the fish like the deep water where its cool!", 50),
+    Cletus("Cletus", "Have fun on the lake!", 30),
+    BobbyRay("Bobby Ray", "If you run out of bait, get some more bait at the Marina!", 15),
+    Missy("Missy", "Them fishies like to hide in the weeds.", 26),
+    Wade("Wade", "Don't run out of gas, you'll get stuck out here!", 55),
+    Phil("Phil", "Make sure to set that fish hook just right! Not too hard and not too soft!", 70),
     Jethro("Jethro", "Under the bridge is a nice shady spot!", 65),
-    Lena("Lena", "Big ones like shade!", 19),
-    Diego("Diego", "My name is Diego, hope you catch the Big One!", 26),
+    Lena("Lena", "Big ones like the deep water!", 19),
+    Diego("Diego", "Fish aren't biting for me today. Hope you have better luck!", 26),
     Martha("Martha", "The big ones like to keep cool!", 41),
-    NoActor("noActor", "There is no body here", 0);
+    NoActor("noActor", "There is nobody here", 0);
     
     
     
