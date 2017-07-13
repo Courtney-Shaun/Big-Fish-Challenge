@@ -238,7 +238,7 @@ public class GameMenuView extends View {
         } else if (bait < 1) {
             this.console.println("\n"
                     + "\n------------------------------------------------"
-                    + "\n| You don't have any bait.                    |"
+                    + "\n| You don't have any bait.                     |"
                     + "\n| Go back to the marina to buy more.           |"
                     + "\n------------------------------------------------");
             return;
@@ -250,6 +250,15 @@ public class GameMenuView extends View {
                     + "\n| You have " + (bait - 1) + " pounds of bait left."
                     + "\n------------------------------------------------");
 
+            return;
+        } else if (map.getCurrentLocation().getScene().getObstacle() != null) {
+            inventoryList[Item.bait.ordinal()].setQuantity(bait - 1);
+            this.console.println("\n"
+                    + "\n------------------------------------------------"
+                    + "\n" + map.getCurrentLocation().getScene().getObstacle().getDescription()
+                    + "\nYou have " + (bait - 1) + " pounds of bait left."
+                    + "\n------------------------------------------------");
+            map.getCurrentLocation().getScene().setObstacle(null);
             return;
         } else if (weight < 11 && weight > 0) {
             fishWeightText = "You felt a little tug on your line.";

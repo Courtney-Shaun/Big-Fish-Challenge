@@ -12,7 +12,7 @@ public class MainScene implements Serializable{
     
     private String description;
     private String name;
-    private String obstacle;
+    private Obstacle obstacle;
     private String mapSymbol;
     private int fishWeight;
     private Actor actor;
@@ -68,11 +68,11 @@ public class MainScene implements Serializable{
         this.name = name;
     }
 
-    public String getObstacle() {
+    public Obstacle getObstacle() {
         return obstacle;
     }
 
-    public void setObstacle(String obstacle) {
+    public void setObstacle(Obstacle obstacle) {
         this.obstacle = obstacle;
     }
 

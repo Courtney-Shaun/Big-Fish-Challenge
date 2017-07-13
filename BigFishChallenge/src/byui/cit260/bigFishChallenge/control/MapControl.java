@@ -8,6 +8,7 @@ package byui.cit260.bigFishChallenge.control;
 import byui.cit260.bigFishChallenge.model.Actor;
 import byui.cit260.bigFishChallenge.model.MainScene;
 import byui.cit260.bigFishChallenge.model.Map;
+import byui.cit260.bigFishChallenge.model.Obstacle;
 import java.util.Random;
 
 /**
@@ -78,6 +79,13 @@ public class MapControl {
         return randomWeight;
     }
     
+    public static int obstacleRandomizer() {
+        
+        Random rn = new Random();
+        int randomObstacle = rn.nextInt(1);
+        return randomObstacle;
+    }
+    
     public static MainScene[] createScenes() {
         MainScene[] scenes = new MainScene[SceneType.values().length];
         
@@ -107,6 +115,8 @@ public class MapControl {
         deepWater1.setFishWeight(weightRandomizer());
         deepWater1.setBlocked(false);
         deepWater1.setActor(Actor.Billy);
+        if (obstacleRandomizer() != 0)
+            deepWater1.setObstacle(Obstacle.line);
         scenes[SceneType.deepWater1.ordinal()] = deepWater1;
         
         MainScene deepWater2 = new MainScene();
