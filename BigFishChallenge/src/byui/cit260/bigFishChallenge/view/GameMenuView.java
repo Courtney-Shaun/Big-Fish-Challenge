@@ -174,12 +174,14 @@ public class GameMenuView extends View {
 
         
         if (fuel == 0) {
-            if (row == 4 && column == 2) {
+            if (destRow == 4 && destColumn == 1) {
                 this.console.println("You must buy fuel before you can move.");
                 return;
             } else {
+                this.console.println(destRow + " " + destColumn);
                 LoseGameView loseGameView = new LoseGameView();
                 loseGameView.display();
+                
             }
             
         }
