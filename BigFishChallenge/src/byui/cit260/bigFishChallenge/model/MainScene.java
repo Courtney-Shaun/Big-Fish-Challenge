@@ -27,7 +27,7 @@ public class MainScene implements Serializable{
     
 
     public MainScene() {
-        actor = Actor.NoActor;
+        //actor = Actor.NoActor;
     }
 
     public void setMapSymbol(String symbol) {
