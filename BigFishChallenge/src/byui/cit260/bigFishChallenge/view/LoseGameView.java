@@ -16,7 +16,8 @@ public class LoseGameView extends View {
         super("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
             + "\n^^^^^^^^^^^^^^^^^^^^"
             + "\n--------------------"
-            + "\n      YOU LOST!"
+            + "\n    OUT OF GAS!"
+            + "\n    Game  Over"
             + "\n--------------------"
             + "\n<><><><><><><><><><>"
             + "\n\nWant to play again? (Y or N)");

@@ -174,8 +174,14 @@ public class GameMenuView extends View {
 
         
         if (fuel == 0) {
-            this.console.println("You must buy fuel before you can move.");
-            return;
+            if (row == 4 && column == 2) {
+                this.console.println("You must buy fuel before you can move.");
+                return;
+            } else {
+                LoseGameView loseGameView = new LoseGameView();
+                loseGameView.display();
+            }
+            
         }
 
         int gallonsLeft = intValue(PlayerControl.estimateFuel(distance, fuel));
