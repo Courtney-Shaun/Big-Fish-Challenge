@@ -98,10 +98,7 @@ public abstract class View implements ViewInterface {
             
             
             
-            //if (selection.length() < 1) { //IF the length of the value is blank THEN
-            //    System.out.println("\nInvalid value: value can not be blank."); //DISPLAY "Invalid value..."
-            //   continue;
-            //} else 
+           
             
             if ("Q".equals(selection.toUpperCase())) {
                 return -999;
@@ -148,15 +145,7 @@ public abstract class View implements ViewInterface {
             }
             selection = selection.trim();
             
-//            if (selection.length() < 1) {
-//                this.console.println("\n*** Invalid selection *** Try again");
-//                continue;
-//            } else if ("q".equals(selection)){
-//                return -999;
-//            } else if (Double.parseDouble(selection) > maxVal || (Double.parseDouble(selection) < minVal)) {
-//                this.console.println("\n*** Invalid selection *** Try again");
-//                continue;
-//            } 
+//           
               if ("Q".equals(selection.toUpperCase())) {
                 return -999;
             }

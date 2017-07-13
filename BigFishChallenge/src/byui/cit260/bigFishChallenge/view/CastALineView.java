@@ -8,7 +8,6 @@ package byui.cit260.bigFishChallenge.view;
 import bigfishchallenge.BigFishChallenge;
 import byui.cit260.bigFishChallenge.control.GameControl;
 import byui.cit260.bigFishChallenge.control.PlayerControl;
-import byui.cit260.bigFishChallenge.exceptions.GameControlException;
 import byui.cit260.bigFishChallenge.model.Game;
 import byui.cit260.bigFishChallenge.model.InventoryItem;
 import byui.cit260.bigFishChallenge.model.Map;

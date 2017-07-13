@@ -19,7 +19,6 @@ import byui.cit260.bigFishChallenge.model.Location;
 import byui.cit260.bigFishChallenge.model.Map;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
-import java.util.Random;
 
 /**
  *

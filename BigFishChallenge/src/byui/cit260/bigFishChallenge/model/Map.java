@@ -7,7 +7,6 @@ package byui.cit260.bigFishChallenge.model;
 
 import byui.cit260.bigFishChallenge.view.ErrorView;
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.Objects;
 
 /**

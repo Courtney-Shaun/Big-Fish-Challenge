@@ -8,7 +8,6 @@ package byui.cit260.bigFishChallenge.view;
 import byui.cit260.bigFishChallenge.model.Obstacle;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
-import java.util.Scanner;
 
 /**
  *

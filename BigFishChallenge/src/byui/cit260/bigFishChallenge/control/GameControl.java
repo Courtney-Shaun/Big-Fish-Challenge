@@ -18,7 +18,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 
 /**
  *
@@ -161,40 +160,6 @@ public class GameControl {
         
         return inventory;
     }
-    /*
-    public static void addFish(int weight) throws GameControlException {
-        Game game = BigFishChallenge.getCurrentGame();
-        
-        game.setTotalFish(weight);
-        
-    }*/
-    /*
-    public static int checkFish() {
-        Game game = BigFishChallenge.getCurrentGame();
-        
-        ArrayList<Integer> totalWeight = game.getTotalFish();
-                
-        int total = 0;
-        for (int weight: totalWeight) {
-            total += weight;
-        }
-        
-        return total;
-    }
     
-    public static int checkNumFish() {
-        Game game = BigFishChallenge.getCurrentGame();
-        
-        ArrayList<Integer> totalFish = game.getTotalFish();
-                
-        int total = 0;
-        for (int fish: totalFish) {
-            total++;
-        }
-        
-        return total;
-    }
-    */
- 
     
 }
