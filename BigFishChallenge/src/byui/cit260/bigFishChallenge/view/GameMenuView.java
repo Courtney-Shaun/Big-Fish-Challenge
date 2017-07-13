@@ -182,15 +182,24 @@ public class GameMenuView extends View {
 
         MapControl.movePlayer(map, row, column);
         //this is where we need to call the scene view associated with the new location
-        this.console.println(destRow + " " + destColumn + " " + fishWeight);
+        //this.console.println(destRow + " " + destColumn + " " + fishWeight);
         if (row == 4 && column == 2 && fishWeight >= 50){
             //winGame();
             WinGameView winGameView = new WinGameView();
             winGameView.display();
         } else {
             inventoryList[Item.fuel.ordinal()].setQuantity(gallonsLeft);
-
+                        
             displayMap();
+            
+            if (map.getCurrentLocation().getScene().getActor() != null) {
+                Actor currentActor = map.getCurrentLocation().getScene().getActor();
+                
+                this.console.println("\n-------------------------"
+                        + "\n" + currentActor.getName() + " is here."
+                        + "\n-------------------------"
+                        + "\n'" + currentActor.getClue() + "'");
+            }
         }
 
     }
