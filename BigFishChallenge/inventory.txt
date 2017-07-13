@@ -1,9 +1,0 @@
-
------------------------
-LIST OF INVENTORY ITEMS
------------------------
-TYPE           QUANTITY                   
-Fuel           5                   
-Bait           5                   
-Money          55                    
-Fish           0                   

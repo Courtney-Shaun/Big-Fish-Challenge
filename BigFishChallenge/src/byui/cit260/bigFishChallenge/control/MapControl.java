@@ -92,13 +92,9 @@ public class MapControl {
         
         MainScene boatLaunch = new MainScene();
         boatLaunch.setDescription("--------------------------------"
-                  + "\n You've just pulled your boat"
-                  + "\n into Greers Ferry Lake. Its a"
-                  + "\n beautiful sunny morning and"
-                  + "\n you're excited to get started."
-                  + "\n Be sure to pick up some bait"
-                  + "\n and fuel at the Marina (MR)"
-                  + "\n before heading out!");
+                  + "\n Head back here when you catch"
+                  + "\n all of your fish. Don't run"
+                  + "\n out of gas on the lake though!");
         boatLaunch.setMapSymbol(" BL ");
         boatLaunch.setName("at the boat launch."); //"You are currently" + INSERT THIS STRING
         boatLaunch.setFishWeight(-1);

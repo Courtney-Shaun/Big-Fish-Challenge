@@ -32,16 +32,17 @@ public class GameMenuView extends View {
                 + "\n Game Menu"
                 + "\n------------------------------"
                 + "\n"
-                + "\nD - Display Map"
+
                 + "\nM - Move to New Location"
-                + "\nC - Cast a Line"
-                + "\nP - Display people in the game"
-                + "\nR - Save report for people in the game"
                 + "\nB - Buy Bait'n'fuel"
                 + "\nV - View Inventory"
-                + "\nI - Save Inventory Report"
+                + "\nC - Cast a Line"
+                + "\nD - Display Map"
                 + "\nH - Help Menu"
                 + "\nS - Save Game"
+                + "\nP - Display Actor Report"
+                + "\nR - Save Actor Report"
+                + "\nI - Save Inventory Report"
                 + "\nQ - Quit Game");
 
     }
@@ -199,7 +200,7 @@ public class GameMenuView extends View {
         MapControl.movePlayer(map, row, column);
         //this is where we need to call the scene view associated with the new location
         //this.console.println(destRow + " " + destColumn + " " + fishWeight);
-        if (row == 4 && column == 2 && fishWeight >= 50){
+        if (row == 4 && column == 2 && fishWeight >= 30){
             //winGame();
             WinGameView winGameView = new WinGameView();
             winGameView.display();

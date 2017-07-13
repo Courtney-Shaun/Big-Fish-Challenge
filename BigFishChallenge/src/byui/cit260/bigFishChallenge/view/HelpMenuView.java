@@ -25,9 +25,9 @@ public class HelpMenuView  extends View{
               + "\nF - About Fuel"
               + "\nB - About Bait"
               + "\nC - Casting a Line"
-              + "\nV - View the Obstacles"
-              + "\nP - Print obstacles to a file"  
+              + "\nV - About Obstacles"
               + "\nI - Interpreting Clues"
+              + "\nP - Print obstacles to a file"  
               + "\nQ - Quit"
               + "\n---------------------------------");
     }
@@ -74,8 +74,11 @@ public class HelpMenuView  extends View{
               + "\n Objective of the Game         |"
               + "\n--------------------------------"
               + "\n The objective of Big Fish"
-              + "\n challenge is to catch 40lb of"
-              + "\n fish before the day is over."
+              + "\n Challenge is to catch 30lb of"
+              + "\n fish before you run out of gas."
+              + "\n When you succeed, you have"
+              + "\n to make it back to the boat"
+              + "\n launch (BL)."
               + "\n--------------------------------");
     }
 
@@ -105,6 +108,8 @@ public class HelpMenuView  extends View{
               + "\n inventory will decrease. If you"
               + "\n run out, you will have to go"
               + "\n back to the marina to buy more."
+              + "\n if you get your line caught"
+              + "\n on obstacles, you lose some bait."
               + "\n--------------------------------");
     }
 
@@ -134,9 +139,8 @@ public class HelpMenuView  extends View{
               + "\n up.  At best you may have to"
               + "\n recast.  At worst you may have"
               + "\n a hook in your ear!  Here is a"
-              + "\n list of the obsticales with"
-              + "\n their severity.  Good luck"
-              + "\n anglers!                       "
+              + "\n list of the obstacales."
+              + "\n Good luck anglers!"
               + "\n--------------------------------");
         
         int allObstacles = Obstacle.values().length;
@@ -148,7 +152,7 @@ public class HelpMenuView  extends View{
         this.console.println("\n      LIST OF OBSTACLES");
         line = new StringBuilder("                        ");
         line.insert(0, "OBSTACLE");
-        line.insert(19, "SEVERITY");
+        //line.insert(19, "SEVERITY");
         
         this.console.println(line.toString());
             for(Obstacle currentObstacle : Obstacle.values() ) {
@@ -156,12 +160,12 @@ public class HelpMenuView  extends View{
             
                 line = new StringBuilder("                              ");
                 line.insert(0, currentObstacle.getObstacle());
-                line.insert(23, currentObstacle.getPower());
+                //line.insert(23, currentObstacle.getPower());
                 this.console.println(line.toString());
             }
      average = total / allObstacles;
     
-    this.console.println("\n The average severity of the obstacles is " + average);
+    //this.console.println("\n The average severity of the obstacles is " + average);
 
 }
 private void interpretClues() {
@@ -169,11 +173,9 @@ private void interpretClues() {
               + "\n--------------------------------"
               + "\n About Clues                   |"
               + "\n--------------------------------"
-              + "\n There are experts about fishing"
-              + "\n on Greer's Ferry Lake all over."
-              + "\n Be sure you talk to them to"
-              + "\n get clues on where you can go"
-              + "\n to find the big fish."
+              + "\n There are other people fishing"
+              + "\n all over Greer's Ferry Lake."
+              + "\n Their clues may help you."
               + "\n--------------------------------");
     }
 

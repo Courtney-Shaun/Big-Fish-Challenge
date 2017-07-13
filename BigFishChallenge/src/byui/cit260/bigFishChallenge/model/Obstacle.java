@@ -17,7 +17,7 @@ public enum Obstacle implements Serializable {
     branches("branches", "You managed to snag a branch. Better luck next time1", 5),
     line("line", "Your line got tangled with Billy Bob's.  Be more careful when you cast!", 3),
     weeds("weed", "Those weeds are pesky. Cast again!", 1),
-    tree("tree", "Watch for those tree branches when you're under the bridge.", 6),
+    tree("tree", "Your line got stuck in those tree branches under the bridge.", 6),
     boat("boat", "Your line got caught on the bottom of the boat, recast and try again!", 2),
     player("player", "You just snagged your ear!  Good luck getting that out!", 8),
     algae("algae", "Just when you thought you caught the big one!  It turns out its just algae!  Recast!", 0);
