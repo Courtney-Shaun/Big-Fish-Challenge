@@ -149,6 +149,7 @@ public class GameMenuView extends View {
         InventoryItem[] inventoryList = game.getInventory();
         
         int fuel = inventoryList[Item.fuel.ordinal()].getQuantity();
+        int money = inventoryList[Item.money.ordinal()].getQuantity();
         int fishWeight = inventoryList[Item.fish.ordinal()].getWeight();
         
         displayMap();
@@ -175,8 +176,14 @@ public class GameMenuView extends View {
         
         if (fuel == 0) {
             if (destRow == 4 && destColumn == 1) {
-                this.console.println("You must buy fuel before you can move.");
-                return;
+                if(money == 0) {
+                    this.console.println(destRow + " " + destColumn);
+                    LoseGameView loseGameView = new LoseGameView();
+                    loseGameView.display();
+                } else {
+                    this.console.println("You must buy fuel before you can move.");
+                    return;
+                }
             } else {
                 this.console.println(destRow + " " + destColumn);
                 LoseGameView loseGameView = new LoseGameView();
