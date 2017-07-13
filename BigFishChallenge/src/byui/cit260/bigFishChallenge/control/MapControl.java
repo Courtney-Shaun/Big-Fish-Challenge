@@ -82,7 +82,7 @@ public class MapControl {
     public static int obstacleRandomizer() {
         
         Random rn = new Random();
-        int randomObstacle = rn.nextInt(1);
+        int randomObstacle = rn.nextInt(2);
         return randomObstacle;
     }
     

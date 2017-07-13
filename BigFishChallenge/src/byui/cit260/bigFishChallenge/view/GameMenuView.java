@@ -19,6 +19,7 @@ import byui.cit260.bigFishChallenge.model.Location;
 import byui.cit260.bigFishChallenge.model.Map;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
+import java.util.Random;
 
 /**
  *
@@ -332,17 +333,22 @@ public class GameMenuView extends View {
     }
 
     private void saveGame() {
+        String savePrompt = displayMessage;
+
         //prompt for and get the name of the file to save the game in
-        this.console.println("\n\nEnter the file path for the file where the game "
+        displayMessage = ("\n\nEnter the file path for the file where the game "
                             + "is to be saved.");
         String filePath = this.getInput();
         
         try {
             // save the game to the specified file
             GameControl.saveGame(BigFishChallenge.getCurrentGame(), filePath);
+            this.console.println("\nYou successfully saved to file " + filePath);
         } catch (Exception ex) {
-            ErrorView.display("MainMenuView", ex.getMessage());
+            //ErrorView.display("MainMenuView", ex.getMessage());
+            ErrorView.display(this.getClass().getName(), "\n*** Error saving to file " + filePath + ". " + ex.getMessage());
         }
+        displayMessage = savePrompt;
     }
 
     private void DisplayPeople() {
