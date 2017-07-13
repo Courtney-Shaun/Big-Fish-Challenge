@@ -130,7 +130,7 @@ public class MapControl {
         deepWater2.setFishWeight(weightRandomizer());
         deepWater2.setBlocked(false);
         if (obstacleRandomizer() != 0) {
-            deepWater1.setObstacle(Obstacle.algae);
+            deepWater2.setObstacle(Obstacle.algae);
         }
         scenes[SceneType.deepWater2.ordinal()] = deepWater2;
         
@@ -144,7 +144,7 @@ public class MapControl {
         deepWater3.setFishWeight(weightRandomizer());
         deepWater3.setBlocked(false);
         if (obstacleRandomizer() != 0) {
-            deepWater1.setObstacle(Obstacle.player);
+            deepWater3.setObstacle(Obstacle.player);
         }
         deepWater3.setActor(Actor.Lena);
         scenes[SceneType.deepWater3.ordinal()] = deepWater3;
@@ -159,7 +159,7 @@ public class MapControl {
         deepWater4.setFishWeight(weightRandomizer());
         deepWater4.setBlocked(false);
         if (obstacleRandomizer() != 0) {
-            deepWater1.setObstacle(Obstacle.boat);
+            deepWater4.setObstacle(Obstacle.boat);
         }
         scenes[SceneType.deepWater4.ordinal()] = deepWater4;
         
@@ -173,7 +173,7 @@ public class MapControl {
         deepWater5.setFishWeight(weightRandomizer());
         deepWater5.setBlocked(false);
         if (obstacleRandomizer() != 0) {
-            deepWater1.setObstacle(Obstacle.line);
+            deepWater5.setObstacle(Obstacle.line);
         }
         deepWater5.setActor(Actor.BobbyRay);
         scenes[SceneType.deepWater5.ordinal()] = deepWater5;        
@@ -188,7 +188,7 @@ public class MapControl {
         shallowWater1.setFishWeight(weightRandomizer());
         shallowWater1.setBlocked(false);
         if (obstacleRandomizer() != 0) {
-            deepWater1.setObstacle(Obstacle.player);
+            shallowWater1.setObstacle(Obstacle.player);
         }
         scenes[SceneType.shallowWater1.ordinal()] = shallowWater1;
         
@@ -202,7 +202,7 @@ public class MapControl {
         shallowWater2.setFishWeight(weightRandomizer());
         shallowWater2.setBlocked(false);
         if (obstacleRandomizer() != 0) {
-            deepWater1.setObstacle(Obstacle.algae);
+            shallowWater2.setObstacle(Obstacle.algae);
         }
         shallowWater2.setActor(Actor.Martha);
         scenes[SceneType.shallowWater2.ordinal()] = shallowWater2;
@@ -217,7 +217,7 @@ public class MapControl {
         shallowWater3.setFishWeight(weightRandomizer());
         shallowWater3.setBlocked(false);
         if (obstacleRandomizer() != 0) {
-            deepWater1.setObstacle(Obstacle.line);
+            shallowWater3.setObstacle(Obstacle.line);
         }
         scenes[SceneType.shallowWater3.ordinal()] = shallowWater3;
         
@@ -231,7 +231,7 @@ public class MapControl {
         shallowWater4.setFishWeight(weightRandomizer());
         shallowWater4.setBlocked(false);
         if (obstacleRandomizer() != 0) {
-            deepWater1.setObstacle(Obstacle.tree);
+            shallowWater4.setObstacle(Obstacle.tree);
         }
         scenes[SceneType.shallowWater4.ordinal()] = shallowWater4;
         
@@ -245,7 +245,7 @@ public class MapControl {
         shallowWater5.setFishWeight(weightRandomizer());
         shallowWater5.setBlocked(false);
         if (obstacleRandomizer() != 0) {
-            deepWater1.setObstacle(Obstacle.player);
+            shallowWater5.setObstacle(Obstacle.player);
         }
         scenes[SceneType.shallowWater5.ordinal()] = shallowWater5;
         
@@ -259,7 +259,7 @@ public class MapControl {
         shallowWater6.setFishWeight(weightRandomizer());
         shallowWater6.setBlocked(false);
         if (obstacleRandomizer() != 0) {
-            deepWater1.setObstacle(Obstacle.algae);
+            shallowWater6.setObstacle(Obstacle.algae);
         }
         scenes[SceneType.shallowWater6.ordinal()] = shallowWater6;
         
@@ -273,7 +273,7 @@ public class MapControl {
         shallowWater7.setFishWeight(weightRandomizer());
         shallowWater7.setBlocked(false);
         if (obstacleRandomizer() != 0) {
-            deepWater1.setObstacle(Obstacle.branches);
+            shallowWater7.setObstacle(Obstacle.branches);
         }
         scenes[SceneType.shallowWater7.ordinal()] = shallowWater7;
         
@@ -288,7 +288,7 @@ public class MapControl {
         rocky1.setFishWeight(weightRandomizer());
         rocky1.setBlocked(false);
         if (obstacleRandomizer() != 0) {
-            deepWater1.setObstacle(Obstacle.rocks);
+            rocky1.setObstacle(Obstacle.rocks);
         }
         rocky1.setActor(Actor.Diego);
         scenes[SceneType.rocky1.ordinal()] = rocky1;
@@ -304,7 +304,7 @@ public class MapControl {
         rocky2.setFishWeight(weightRandomizer());
         rocky2.setBlocked(false);
         if (obstacleRandomizer() != 0) {
-            deepWater1.setObstacle(Obstacle.rocks);
+            rocky2.setObstacle(Obstacle.rocks);
         }
         scenes[SceneType.rocky2.ordinal()] = rocky2;
         
@@ -320,7 +320,7 @@ public class MapControl {
         weeds1.setFishWeight(weightRandomizer());
         weeds1.setBlocked(false);
         if (obstacleRandomizer() != 0) {
-            deepWater1.setObstacle(Obstacle.line);
+            weeds1.setObstacle(Obstacle.line);
         }
         weeds1.setActor(Actor.Missy);
         scenes[SceneType.weeds1.ordinal()] = weeds1;
@@ -337,7 +337,7 @@ public class MapControl {
         weeds2.setFishWeight(weightRandomizer());
         weeds2.setBlocked(false);
         if (obstacleRandomizer() != 0) {
-            deepWater1.setObstacle(Obstacle.weeds);
+            weeds2.setObstacle(Obstacle.weeds);
         }
         scenes[SceneType.weeds2.ordinal()] = weeds2;
         
@@ -353,7 +353,7 @@ public class MapControl {
         weeds3.setFishWeight(weightRandomizer());
         weeds3.setBlocked(false);
         if (obstacleRandomizer() != 0) {
-            deepWater1.setObstacle(Obstacle.branches);
+            weeds3.setObstacle(Obstacle.branches);
         }
         scenes[SceneType.weeds3.ordinal()] = weeds3;
         
@@ -370,7 +370,7 @@ public class MapControl {
         weeds4.setBlocked(false);
         weeds4.setActor(Actor.Diego);
         if (obstacleRandomizer() != 0) {
-            deepWater1.setObstacle(Obstacle.algae);
+            weeds4.setObstacle(Obstacle.algae);
         }
         scenes[SceneType.weeds4.ordinal()] = weeds4;
         
@@ -384,7 +384,7 @@ public class MapControl {
         roughWater1.setFishWeight(weightRandomizer());
         roughWater1.setBlocked(false);
         if (obstacleRandomizer() != 0)
-            deepWater1.setObstacle(Obstacle.player);
+            roughWater1.setObstacle(Obstacle.player);
         scenes[SceneType.roughWater1.ordinal()] = roughWater1;
         
         MainScene roughWater2 = new MainScene();
@@ -397,7 +397,7 @@ public class MapControl {
         roughWater2.setFishWeight(weightRandomizer());
         roughWater2.setBlocked(false);
         if (obstacleRandomizer() != 0) {
-            deepWater1.setObstacle(Obstacle.boat);
+            roughWater2.setObstacle(Obstacle.boat);
         }
         roughWater2.setActor(Actor.Wade);
         scenes[SceneType.roughWater2.ordinal()] = roughWater2;
@@ -412,7 +412,7 @@ public class MapControl {
         roughWater3.setFishWeight(weightRandomizer());
         roughWater3.setBlocked(false);
         if (obstacleRandomizer() != 0) {
-            deepWater1.setObstacle(Obstacle.player);
+            roughWater3.setObstacle(Obstacle.player);
         }
         scenes[SceneType.roughWater3.ordinal()] = roughWater3;
         
@@ -426,7 +426,7 @@ public class MapControl {
         roughWater4.setFishWeight(weightRandomizer());
         roughWater4.setBlocked(false);
         if (obstacleRandomizer() != 0) {
-            deepWater1.setObstacle(Obstacle.boat);
+            roughWater4.setObstacle(Obstacle.boat);
         }
         roughWater4.setActor(Actor.Phil);
         scenes[SceneType.roughWater4.ordinal()] = roughWater4;
@@ -442,7 +442,7 @@ public class MapControl {
         underBridge.setFishWeight(weightRandomizer());
         underBridge.setBlocked(false);
         if (obstacleRandomizer() != 0) {
-            deepWater1.setObstacle(Obstacle.tree);
+            underBridge.setObstacle(Obstacle.tree);
         }
         underBridge.setActor(Actor.Jethro);
         scenes[SceneType.underBridge.ordinal()] = underBridge;
