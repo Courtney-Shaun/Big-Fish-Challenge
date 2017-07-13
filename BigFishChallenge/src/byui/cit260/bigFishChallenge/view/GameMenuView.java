@@ -178,7 +178,7 @@ public class GameMenuView extends View {
         if (fuel == 0) {
             if (destRow == 4 && destColumn == 1) {
                 if(money == 0) {
-                    this.console.println(destRow + " " + destColumn);
+                    
                     LoseGameView loseGameView = new LoseGameView();
                     loseGameView.display();
                 } else {
@@ -186,7 +186,7 @@ public class GameMenuView extends View {
                     return;
                 }
             } else {
-                this.console.println(destRow + " " + destColumn);
+                
                 LoseGameView loseGameView = new LoseGameView();
                 loseGameView.display();
                 
