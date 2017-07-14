@@ -158,11 +158,11 @@ public class GameMenuView extends View {
         //this.console.println("You have " + game.getFuel() + " gallons of fuel.");
         this.console.println("You have " + fuel + " gallons of fuel.");
 
-        int row = getIntInput("\n Row? (-999 to cancel)", 4, 0);
+        int row = getIntInput("\n Row? (Enter Q to cancel)", 4, 0);
         if (row == -999) {
             return;
         }
-        int column = getIntInput("\n Column? (-999 to cancel)", 4, 0);
+        int column = getIntInput("\n Column? (Enter Q to cancel)", 4, 0);
         if (column == -999) {
             return;
         }
