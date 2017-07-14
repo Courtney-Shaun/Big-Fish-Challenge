@@ -29,8 +29,6 @@ public class ShopMarinaView extends View {
                   + "\n  Be sure purchases are not"
                   + "\n  too heavy so you can carry "
                   + "\n  them back to the boat. "
-                  + "\n  Sell the fish you catch here"
-                  + "\n  at the Marina if you wish."
                   + "\n--------------------------------"
                   + "\nB - Buy supplies"
                   + "\nQ - Quit"
